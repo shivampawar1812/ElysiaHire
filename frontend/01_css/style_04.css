@@ -1,0 +1,248 @@
+/* styles.css - ElysiaHire About Page */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #e8e8ec;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    width: 100%;
+    height: 80px;
+
+    background: linear-gradient(135deg,
+            #f8f6f0,
+            #e6e1d3,
+            #fdfcf7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+
+/* ---------- LOGO ---------- */
+
+.hero-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hero-logo img {
+    width: 370px;
+    height: auto;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover Effect */
+
+.hero-logo img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== MAIN HERO SECTION ===== */
+
+.hero{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            #1a2235 0%,
+            #0f172a 70%
+        );
+}
+
+
+/* ===== CONTENT CONTAINER ===== */
+
+.hero-content{
+
+    width: 100%;
+    max-width: 1000px;
+
+    background: linear-gradient(
+        145deg,
+        #1a2235,
+        #141c2f
+    );
+
+    padding: 50px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.45);
+
+    color: #cbd5e1;
+
+    line-height: 1.9;
+}
+
+
+/* ===== MAIN HEADING ===== */
+
+.hero-content h1{
+
+    font-size: 3rem;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        #f8f6f0,
+        #c9b48a
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ===== SUB HEADINGS ===== */
+
+.hero-content h3{
+
+    margin-top: 35px;
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    color: #f8f6f0;
+}
+
+
+/* ===== PARAGRAPHS ===== */
+
+.hero-content p{
+
+    margin-bottom: 18px;
+
+    font-size: 1.05rem;
+
+    color: #cbd5e1;
+}
+
+
+/* ===== LIST ===== */
+
+.hero-content ul{
+
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.hero-content ul li{
+
+    margin-bottom: 12px;
+
+    color: #cbd5e1;
+
+    position: relative;
+}
+
+
+/* ===== FINAL TEXT ===== */
+
+.hero-content div{
+
+    margin-top: 35px;
+
+    padding: 20px;
+
+    border-left: 4px solid #c9b48a;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius: 12px;
+
+    color: #f8f6f0;
+
+    font-size: 1.05rem;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px){
+
+    .hero{
+        padding: 50px 15px;
+    }
+
+    .hero-content{
+
+        padding: 30px 25px;
+    }
+
+    .hero-content h1{
+
+        font-size: 2.2rem;
+    }
+
+    .hero-content h3{
+
+        font-size: 1.3rem;
+    }
+
+    .hero-content p,
+    .hero-content li{
+
+        font-size: 0.98rem;
+    }
+}/* ===== Footer ===== */
+
+footer {
+
+    background: #080c16;
+
+    padding: 1.25rem;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+
+    color: #94a3b8;
+
+    font-size: 0.85rem;
+}
