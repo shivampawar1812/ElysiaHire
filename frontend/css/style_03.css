@@ -215,7 +215,17 @@ header .logo img{
 
     gap: 40px;
 }
+/* ================= TABLET ================= */
 
+@media (max-width: 950px){
+
+    .contact-container{
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+}
 
 /* ===== LEFT SIDE ===== */
 
