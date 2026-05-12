@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker | ElysiaHire</title>
+    <link rel="stylesheet" href="../css/style_10.css">
+
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- ================= SIDEBAR ================= -->
+
+    <div id="sidebar" class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>ElysiaHire</h2>
+
+            <span class="close-btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+        </div>
+
+        <a href="../home.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-layer-group"></i>
+            Features
+        </a>
+
+        <a href="./dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="./contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+        </a>
+
+        <a href="../index.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Log Out
+        </a>
+
+
+    </div>
+
+    <!-- OVERLAY -->
+
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <!-- MENU BUTTON -->
+        <div class="menu-btn" onclick="openSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="../home.html">
+                <img src="../images/ElysiaHire.png" alt="ElysiaHire Logo">
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="tracker-page">
+
+        <!-- ================= TITLE ================= -->
+
+        <div class="page-title">
+
+            <h1>Job Application Tracker</h1>
+
+            <p>
+                Manage applications, track interview progress,
+                monitor company responses, and stay organized
+                throughout your placement journey.
+            </p>
+
+        </div>
+
+        <!-- ================= GRID ================= -->
+
+        <div class="tracker-grid">
+
+            <!-- APPLICATION STATUS -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <h2>Application Status</h2>
+
+                <p>
+                    Track applied, shortlisted, rejected,
+                    and accepted applications efficiently.
+                </p>
+
+            </div>
+
+            <!-- INTERVIEW SCHEDULE -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <h2>Interview Schedule</h2>
+
+                <p>
+                    Organize interview dates, timings,
+                    meeting links, and reminders.
+                </p>
+
+            </div>
+
+            <!-- COMPANY TRACKING -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <h2>Company Tracking</h2>
+
+                <p>
+                    Save company details, job roles,
+                    locations, and hiring information.
+                </p>
+
+            </div>
+
+            <!-- JOB DEADLINES -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <h2>Application Deadlines</h2>
+
+                <p>
+                    Never miss deadlines with smart
+                    reminders and application alerts.
+                </p>
+
+            </div>
+
+            <!-- APPLICATION NOTES -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-note-sticky"></i>
+                </div>
+
+                <h2>Application Notes</h2>
+
+                <p>
+                    Store interview notes, recruiter feedback,
+                    and preparation points.
+                </p>
+
+            </div>
+
+            <!-- ANALYTICS -->
+
+            <div class="tracker-card">
+
+                <div class="card-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h2>Application Analytics</h2>
+
+                <p>
+                    View placement statistics, interview rates,
+                    and application performance insights.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-bottom">
+            <p>© 2026 ElysiaHire. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function openSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.add("active");
+
+            document
+                .getElementById("overlay")
+                .classList.add("active");
+        }
+
+        function closeSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.remove("active");
+
+            document
+                .getElementById("overlay")
+                .classList.remove("active");
+        }
+
+    </script>
+
+</body>
+
+</html>
