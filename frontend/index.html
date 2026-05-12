@@ -5,38 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElysiaHire</title>
+
     <link rel="stylesheet" href="css/style_01.css">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href="../index.html"><img src="images/ElysiaHire.png" alt=""></a>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div id="sidebar" class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>ElysiaHire</h2>
+
+            <span class="close-btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    Elysia Compass
-                    <ul>
-                        <li><a href="#1">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="./Header/about.html">About</a></li>
-                        <li><a href="./Header/contact.html">Contact</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <ul>
-            <li><a href="./Header/login.html">Log In</a></li>
-            <li><a href="./Header/signup.html">Sign Up</a></li>
-            <!-- Place these in the right corner of the header. -->
-        </ul>
+
+        <a href="#1">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="#features">
+            <i class="fa-solid fa-layer-group"></i>
+            Features
+        </a>
+
+        <a href="./Header/dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="./Header/about.html">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="./Header/contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+        </a>
+
+        <a href="./Header/login.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Log In
+        </a>
+
+        <a href="./Header/signup.html">
+            <i class="fa-solid fa-user-plus"></i>
+            Sign Up
+        </a>
+
+    </div>
+
+    <!-- OVERLAY -->
+
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <!-- MENU BUTTON -->
+        <div class="menu-btn" onclick="openSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="../index.html">
+                <img src="images/ElysiaHire.png" alt="ElysiaHire Logo">
+            </a>
+        </div>
+
+
+
     </header>
-    <!-- HERO SECTION -->
+
+    <!-- ================= HERO SECTION ================= -->
+
     <main class="hero" id="1">
 
-        <!-- Left Content -->
+        <!-- LEFT CONTENT -->
+
         <div class="hero-content">
+
             <h1>Your Path to the Dream Career</h1>
 
             <p>
@@ -45,13 +103,26 @@
                 and aspiring professionals.
             </p>
 
+            <!-- BUTTONS -->
+
             <div class="hero-buttons">
-                <button><a href="./Header/login.html">Get Started</a></button>
-                <button>Upload Resume</button>
+
+                <button>
+                    <a href="./Header/login.html">
+                        Get Started
+                    </a>
+                </button>
+
+                <button>
+                    Upload Resume
+                </button>
+
             </div>
 
-            <!-- Small Stats -->
+            <!-- STATS -->
+
             <div class="hero-stats">
+
                 <div>
                     <h3>1000+</h3>
                     <p>Resumes Analyzed</p>
@@ -66,75 +137,92 @@
                     <h3>95%</h3>
                     <p>ATS Optimization</p>
                 </div>
+
             </div>
+
         </div>
 
-        <!-- Right Image / Illustration -->
+        <!-- RIGHT IMAGE -->
+
         <div class="hero-image">
+
             <img src="images/career-image.jpg" alt="Career Illustration">
+
         </div>
 
     </main>
 
+    <!-- ================= FEATURES ================= -->
 
-    <!-- FEATURES SECTION -->
     <section class="features" id="features">
 
         <h2>Everything You Need to Build Your Career</h2>
 
         <div class="feature-cards">
 
-            <!-- Card 1 -->
+            <!-- CARD 1 -->
+
             <div class="card">
                 <h3>Resume Analyzer</h3>
+
                 <p>
                     Analyze your resume and improve ATS score
                     with AI-powered suggestions.
                 </p>
             </div>
 
-            <!-- Card 2 -->
+            <!-- CARD 2 -->
+
             <div class="card">
                 <h3>AI Interview Prep</h3>
+
                 <p>
                     Practice mock interviews and get instant
                     feedback to improve confidence.
                 </p>
             </div>
 
-            <!-- Card 3 -->
+            <!-- CARD 3 -->
+
             <div class="card">
                 <h3>Career Roadmaps</h3>
+
                 <p>
                     Get personalized learning paths and career
                     guidance based on your goals.
                 </p>
             </div>
 
-            <!-- Card 4 -->
+            <!-- CARD 4 -->
+
             <div class="card">
                 <h3>Job Tracker</h3>
+
                 <p>
-                    Track job applications, interviews, and
-                    application progress easily.
+                    Track job applications, interviews,
+                    and application progress easily.
                 </p>
             </div>
 
-            <!-- Card 5 -->
+            <!-- CARD 5 -->
+
             <div class="card">
                 <h3>Skill Gap Analysis</h3>
+
                 <p>
                     Identify missing skills and receive
                     recommendations to improve.
                 </p>
             </div>
 
-            <!-- Card 6 -->
+            <!-- CARD 6 -->
+
             <div class="card">
                 <h3>Portfolio Builder</h3>
+
                 <p>
-                    Create professional portfolios and showcase
-                    your projects effectively.
+                    Create professional portfolios and
+                    showcase your projects effectively.
                 </p>
             </div>
 
@@ -142,21 +230,27 @@
 
     </section>
 
+    <!-- ================= FOOTER ================= -->
 
-    <!-- FOOTER -->
     <footer>
 
-        <!-- Brand Section -->
+        <!-- BRAND -->
+
         <div class="footer-brand">
+
             <h2>ElysiaHire</h2>
+
             <p>
                 Helping students and professionals build
                 their dream careers with AI-powered tools.
             </p>
+
         </div>
 
-        <!-- Quick Links -->
+        <!-- QUICK LINKS -->
+
         <div class="footer-links">
+
             <h3>Quick Links</h3>
 
             <ul>
@@ -165,10 +259,13 @@
                 <li><a href="./Header/about.html">About</a></li>
                 <li><a href="./Header/contact.html">Contact</a></li>
             </ul>
+
         </div>
 
-        <!-- Resources -->
+        <!-- RESOURCES -->
+
         <div class="footer-resources">
+
             <h3>Resources</h3>
 
             <ul>
@@ -176,23 +273,65 @@
                 <li><a href="#">Resume Tips</a></li>
                 <li><a href="#">Career Guides</a></li>
             </ul>
+
         </div>
 
-        <!-- Social Links -->
+        <!-- SOCIAL -->
+
         <div class="footer-social">
+
             <h3>Follow Us</h3>
 
-            <a href="https://www.linkedin.com/in/shivam-pawar0118/">LinkedIn</a>
-            <a href="https://github.com/shivampawar1812">GitHub</a>
-            <a href="https://www.instagram.com/shivam_pawar_18?igsh=MWNucHU1ZWZlNHR4Ng==">Instagram</a>
+            <a href="https://www.linkedin.com/in/shivam-pawar0118/">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/shivampawar1812">
+                GitHub
+            </a>
+
+            <a href="https://www.instagram.com/shivam_pawar_18">
+                Instagram
+            </a>
+
         </div>
 
-        <!-- Copyright -->
+        <!-- COPYRIGHT -->
+
         <div class="footer-bottom">
             <p>© 2026 ElysiaHire. All rights reserved.</p>
         </div>
 
     </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function openSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.add("active");
+
+            document
+                .getElementById("overlay")
+                .classList.add("active");
+        }
+
+        function closeSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.remove("active");
+
+            document
+                .getElementById("overlay")
+                .classList.remove("active");
+        }
+
+    </script>
+
 </body>
 
 </html>

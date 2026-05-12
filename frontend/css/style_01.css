@@ -1,6 +1,5 @@
-/* styles.css */
+/* ================= RESET ================= */
 
-/* ---------- RESET ---------- */
 *{
     margin: 0;
     padding: 0;
@@ -8,10 +7,15 @@
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background: #0f172a;
     color: #e8e8ec;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 a{
@@ -23,77 +27,151 @@ ul{
     list-style: none;
 }
 
-/* ---------- HEADER ---------- */
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -280px;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #111827;
+
+    padding-top: 20px;
+
+    z-index: 2000;
+
+    transition: 0.35s ease;
+
+    box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+}
+
+.sidebar.active{
+    left: 0;
+}
+
+/* SIDEBAR HEADER */
+
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 25px 25px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-header h2{
+    color: #f8f6f0;
+
+    font-size: 1.4rem;
+
+    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* SIDEBAR LINKS */
+
+.sidebar a{
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px 28px;
+
+    color: #e2e8f0;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover{
+    background: #1e293b;
+    color: #c9b48a;
+}
+
+.sidebar a i{
+    width: 20px;
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 1500;
+}
+
+.overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ================= HEADER ================= */
+
 header{
     width: 100%;
     height: 80px;
+
     background: linear-gradient(135deg, #f8f6f0, #e6e1d3, #fdfcf7);
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
-    padding: 0 40px;
+    padding: 12px 40px;
 
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 
-    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 
-/* ---------- FEATURES LEFT ---------- */
-header nav{
-    position: absolute;
-    left: 40px;
-}
+/* MENU BUTTON */
 
-header nav > ul{
-    display: flex;
-    gap: 30px;
-    position: relative;
-}
-
-header nav > ul > li{
-    position: relative;
-    font-weight: 600;
+.menu-btn{
+    font-size: 1.8rem;
     color: #111827;
     cursor: pointer;
-    padding: 8px 0;
+
+    transition: 0.2s ease;
 }
 
-/* ---------- DROPDOWN ---------- */
-header nav ul ul{
-    display: none;
-
-    position: absolute;
-    top: 35px;
-    left: 0;
-
-    background: white;
-
-    min-width: 170px;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-header nav ul li:hover > ul{
-    display: block;
-}
-
-header nav ul ul li a{
-    display: block;
-    padding: 12px 18px;
-    color: #111827;
-    transition: 0.2s;
-}
-
-header nav ul ul li a:hover{
-    background: #ece6d5;
+.menu-btn:hover{
+    color: #b68b2f;
 }
 
 /* ---------- CENTER LOGO ---------- */
@@ -108,38 +186,9 @@ header .logo img{
     object-fit: contain;
 }
 
-/* ---------- RIGHT BUTTONS ---------- */
-header > ul{
-    display: flex;
-    gap: 18px;
-    margin-left: auto;
-}
 
-header > ul li a{
-    padding: 8px 18px;
-    border-radius: 8px;
+/* ================= HERO SECTION ================= */
 
-    font-weight: 600;
-
-    transition: 0.25s;
-}
-
-/* Login */
-header > ul li:first-child a{
-    color: #111827;
-}
-
-/* Signup */
-header > ul li:last-child a{
-    background: #111827;
-    color: #f8f6f0;
-}
-
-header > ul li:last-child a:hover{
-    background: #1e293b;
-}
-
-/* ---------- HERO SECTION ---------- */
 .hero{
     min-height: 95vh;
 
@@ -154,17 +203,18 @@ header > ul li:last-child a:hover{
     background: #0f172a;
 }
 
-/* ---------- HERO CONTENT ---------- */
+/* HERO CONTENT */
+
 .hero-content{
     flex: 1;
     max-width: 600px;
 }
 
 .hero-content h1{
-    font-size: 3.5rem;
-    line-height: 1.2;
+    font-size: 4rem;
+    line-height: 1.15;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
     background: linear-gradient(90deg, #f8f6f0, #c9b48a);
 
@@ -175,42 +225,50 @@ header > ul li:last-child a:hover{
 }
 
 .hero-content p{
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #cbd5e1;
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
-/* ---------- HERO BUTTONS ---------- */
+/* HERO BUTTONS */
+
 .hero-buttons{
     display: flex;
-    gap: 16px;
+    gap: 18px;
 
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .hero-buttons button{
-    padding: 12px 26px;
+    padding: 14px 28px;
 
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
 
     font-size: 1rem;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
+
+/* PRIMARY BUTTON */
 
 .hero-buttons button:first-child{
     background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+
     color: #111827;
 }
 
+/* SECONDARY BUTTON */
+
 .hero-buttons button:last-child{
     background: transparent;
+
     border: 1px solid #f8f6f0;
+
     color: #f8f6f0;
 }
 
@@ -218,39 +276,43 @@ header > ul li:last-child a:hover{
     transform: translateY(-3px);
 }
 
-/* ---------- HERO STATS ---------- */
+/* HERO STATS */
+
 .hero-stats{
     display: flex;
-    gap: 40px;
+    gap: 50px;
 }
 
 .hero-stats h3{
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #f8f6f0;
 }
 
 .hero-stats p{
-    font-size: 0.9rem;
     color: #94a3b8;
 }
 
-/* ---------- HERO IMAGE ---------- */
+/* HERO IMAGE */
+
 .hero-image{
     flex: 1;
+
     display: flex;
     justify-content: center;
 }
 
 .hero-image img{
-    max-width: 80%;
-    border-radius: 18px;
+    max-width: 85%;
 
-    filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5));
+    border-radius: 20px;
+
+    filter: drop-shadow(0 14px 30px rgba(0,0,0,0.5));
 }
 
-/* ---------- FEATURES ---------- */
+/* ================= FEATURES ================= */
+
 .features{
-    padding: 80px 60px;
+    padding: 90px 60px;
 
     background: #111827;
 
@@ -258,22 +320,23 @@ header > ul li:last-child a:hover{
 }
 
 .features h2{
-    font-size: 2.4rem;
+    font-size: 2.6rem;
 
-    margin-bottom: 50px;
+    margin-bottom: 55px;
 
     color: #f8f6f0;
 }
 
-/* ---------- FEATURE CARDS ---------- */
+/* FEATURE CARDS */
+
 .feature-cards{
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
-    gap: 25px;
+    gap: 28px;
 
-    max-width: 1200px;
+    max-width: 1250px;
 
     margin: auto;
 }
@@ -281,19 +344,19 @@ header > ul li:last-child a:hover{
 .card{
     background: linear-gradient(145deg, #1a2235, #141c2f);
 
-    padding: 30px 25px;
+    padding: 32px 28px;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
     border: 1px solid rgba(255,255,255,0.05);
 
     text-align: left;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .card:hover{
-    transform: translateY(-6px);
+    transform: translateY(-8px);
 
     border-color: #c9b48a;
 }
@@ -301,22 +364,23 @@ header > ul li:last-child a:hover{
 .card h3{
     color: #f8f6f0;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
-    font-size: 1.3rem;
+    font-size: 1.35rem;
 }
 
 .card p{
     color: #cbd5e1;
 
-    font-size: 0.95rem;
+    font-size: 0.96rem;
 }
 
-/* ---------- FOOTER ---------- */
+/* ================= FOOTER ================= */
+
 footer{
     background: #080c16;
 
-    padding: 60px 60px 20px;
+    padding: 65px 60px 25px;
 
     display: grid;
 
@@ -327,7 +391,8 @@ footer{
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Footer Logo Gradient */
+/* FOOTER TITLES */
+
 footer h2{
     background: linear-gradient(90deg, #f8f6f0, #c9b48a);
 
@@ -349,11 +414,11 @@ footer p,
 footer a{
     color: #94a3b8;
 
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 footer ul li{
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 footer a:hover{
@@ -363,7 +428,7 @@ footer a:hover{
 .footer-social a{
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .footer-bottom{
@@ -373,33 +438,35 @@ footer a:hover{
 
     border-top: 1px solid rgba(255,255,255,0.05);
 
-    padding-top: 20px;
+    padding-top: 22px;
 
     margin-top: 20px;
 
     font-size: 0.85rem;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px){
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px){
 
     header{
-        padding: 0 20px;
+        padding: 12px 22px;
     }
 
-    header .logo img{
-        height: 90px;
+    .logo img{
+        width: 160px;
     }
 
     .hero{
         flex-direction: column;
+
         text-align: center;
 
-        padding: 60px 25px;
+        padding: 70px 30px;
     }
 
     .hero-content h1{
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .hero-buttons,
@@ -408,33 +475,60 @@ footer a:hover{
     }
 
     .features{
-        padding: 60px 25px;
+        padding: 70px 30px;
     }
 
     footer{
         grid-template-columns: 1fr 1fr;
 
-        padding: 40px 25px 20px;
+        padding: 50px 30px 20px;
     }
 }
 
-@media (max-width: 500px){
+/* MOBILE */
+
+@media (max-width: 650px){
 
     header{
-        height: auto;
-        padding: 15px;
+        padding: 14px 18px;
     }
 
-    header .logo img{
-        height: 70px;
+    .logo img{
+        width: 140px;
     }
 
-    footer{
-        grid-template-columns: 1fr;
+    .auth-buttons{
+        gap: 10px;
+    }
+
+    .login-btn,
+    .signup-btn{
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero{
+        padding: 60px 22px;
+    }
+
+    .hero-content h1{
+        font-size: 2.3rem;
+    }
+
+    .hero-buttons{
+        flex-direction: column;
     }
 
     .hero-stats{
         flex-direction: column;
-        gap: 20px;
+        gap: 22px;
+    }
+
+    .features h2{
+        font-size: 2rem;
+    }
+
+    footer{
+        grid-template-columns: 1fr;
     }
 }
