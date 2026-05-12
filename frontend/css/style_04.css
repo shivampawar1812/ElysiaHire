@@ -1,4 +1,4 @@
-/* styles.css - ElysiaHire About Page */
+/* styles.css - ElysiaHire Login Page */
 
 * {
     margin: 0;
@@ -17,14 +17,16 @@ body {
 
 /* ---------- HEADER ---------- */
 
-header {
+header{
     width: 100%;
     height: 80px;
 
-    background: linear-gradient(135deg,
-            #f8f6f0,
-            #e6e1d3,
-            #fdfcf7);
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #e6e1d3,
+        #fdfcf7
+    );
 
     display: flex;
     align-items: center;
@@ -34,22 +36,22 @@ header {
     top: 0;
     z-index: 100;
 
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 
 /* ---------- LOGO ---------- */
 
-.hero-logo {
+.hero-logo{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-.hero-logo img {
+.hero-logo img{
     width: 370px;
     height: auto;
 
@@ -61,173 +63,403 @@ header {
 
 /* Hover Effect */
 
-.hero-logo img:hover {
+.hero-logo img:hover{
     transform: scale(1.05);
 }
 
-/* ===== MAIN HERO SECTION ===== */
 
-.hero{
-    min-height: 100vh;
+/* ===== Hero / Main ===== */
+
+.hero {
+    flex: 1;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    padding: 80px 20px;
+    padding: 3rem 1.5rem;
 
-    background:
-        radial-gradient(
-            ellipse at top,
-            #1a2235 0%,
-            #0f172a 70%
-        );
+    background: radial-gradient(
+        ellipse at top,
+        #1a2235 0%,
+        #0f172a 70%
+    );
 }
 
 
-/* ===== CONTENT CONTAINER ===== */
+/* ===== Hero Content ===== */
 
-.hero-content{
+.hero-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-    width: 100%;
-    max-width: 1000px;
+.hero-content h1 {
+    font-size: 2.5rem;
 
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #c9b48a
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+
+/* ===== Form ===== */
+
+form {
     background: linear-gradient(
         145deg,
         #1a2235,
         #141c2f
     );
 
-    padding: 50px;
+    padding: 2rem;
 
-    border-radius: 24px;
+    border-radius: 16px;
+
+    width: 100%;
+    max-width: 400px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 
     border: 1px solid rgba(255,255,255,0.05);
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
 
-    color: #cbd5e1;
+    gap: 0.75rem;
+}
 
-    line-height: 1.9;
+form label {
+    color: #c9b48a;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+form input[type="email"],
+form input[type="password"] {
+
+    background: #0f172a;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 8px;
+
+    padding: 0.7rem 0.9rem;
+
+    color: #f8f6f0;
+
+    font-size: 0.95rem;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+
+    outline: none;
+
+    border-color: #c9b48a;
+
+    box-shadow: 0 0 0 3px rgba(201, 180, 138, 0.15);
 }
 
 
-/* ===== MAIN HEADING ===== */
+/* ===== Remember Me / Forgot Password ===== */
 
-.hero-content h1{
+.options {
 
-    font-size: 3rem;
+    display: flex;
 
-    margin-bottom: 25px;
+    justify-content: space-between;
+    align-items: center;
 
-    text-align: center;
+    width: 100%;
+
+    margin-top: 0.8rem;
+
+    padding: 0 0.2rem;
+
+    font-size: 0.85rem;
+
+    color: #cbd5e1;
+
+    gap: 40px;
+}
+
+
+/* Forgot Password Link */
+
+.options a{
+
+    color: #c9b48a;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.options a:hover{
+
+    color: #f8f6f0;
+
+    text-decoration: underline;
+}
+
+
+/* ===== Main Buttons ===== */
+
+.hero-buttons {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.75rem;
+
+    margin-top: 1.25rem;
+
+    width: 100%;
+    max-width: 400px;
+}
+
+.hero-buttons button {
+
+    width: 100%;
+
+    padding: 0.75rem 1.25rem;
+
+    border: 1px solid rgba(201, 180, 138, 0.3);
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #1a2235,
+        #141c2f
+    );
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.hero-buttons button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 16px rgba(201, 180, 138, 0.2);
+
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #c9b48a
+    );
+}
+
+.hero-buttons button a {
+
+    color: #f8f6f0;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 0.95rem;
+
+    display: block;
+
+    width: 100%;
+}
+
+.hero-buttons button:hover a {
+    color: #111827;
+}
+
+.hero-buttons span {
+
+    color: #cbd5e1;
+
+    font-size: 0.9rem;
+
+    margin-right: 0.4rem;
+}
+
+.hero-buttons > a {
+
+    color: #c9b48a;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.hero-buttons > a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===== OR Divider ===== */
+
+.or-divider {
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 400px;
+
+    margin: 1.5rem 0 0.5rem;
+
+    color: #94a3b8;
+
+    font-size: 0.85rem;
+}
+
+.or-divider::before,
+.or-divider::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
 
     background: linear-gradient(
         90deg,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+}
+
+.or-divider span {
+
+    padding: 0 1rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* ===== Social Buttons ===== */
+
+.social-buttons{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 400px;
+
+    margin-top: 1rem;
+}
+
+
+.social-buttons button{
+
+    flex: 1;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(201, 180, 138, 0.3);
+
+    background: linear-gradient(
+        135deg,
+        #1a2235,
+        #141c2f
+    );
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.social-buttons button:hover{
+
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
         #f8f6f0,
         #c9b48a
     );
 
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    box-shadow: 0 6px 16px rgba(201, 180, 138, 0.2);
 }
 
 
-/* ===== SUB HEADINGS ===== */
+.social-buttons button a{
 
-.hero-content h3{
-
-    margin-top: 35px;
-    margin-bottom: 15px;
-
-    font-size: 1.5rem;
-
-    color: #f8f6f0;
-}
-
-
-/* ===== PARAGRAPHS ===== */
-
-.hero-content p{
-
-    margin-bottom: 18px;
-
-    font-size: 1.05rem;
-
-    color: #cbd5e1;
-}
-
-
-/* ===== LIST ===== */
-
-.hero-content ul{
-
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
-.hero-content ul li{
-
-    margin-bottom: 12px;
-
-    color: #cbd5e1;
-
-    position: relative;
-}
-
-
-/* ===== FINAL TEXT ===== */
-
-.hero-content div{
-
-    margin-top: 35px;
-
-    padding: 20px;
-
-    border-left: 4px solid #c9b48a;
-
-    background: rgba(255,255,255,0.03);
-
-    border-radius: 12px;
+    text-decoration: none;
 
     color: #f8f6f0;
 
-    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 
-/* ===== RESPONSIVE ===== */
+.social-buttons button:hover a{
+    color: #111827;
+}
 
-@media (max-width: 768px){
 
-    .hero{
-        padding: 50px 15px;
-    }
+/* ===== Signup Link ===== */
 
-    .hero-content{
+.signup-link{
 
-        padding: 30px 25px;
-    }
+    margin-top: 1.2rem;
 
-    .hero-content h1{
+    display: flex;
 
-        font-size: 2.2rem;
-    }
+    gap: 0.4rem;
 
-    .hero-content h3{
+    color: #cbd5e1;
 
-        font-size: 1.3rem;
-    }
+    font-size: 0.9rem;
+}
 
-    .hero-content p,
-    .hero-content li{
 
-        font-size: 0.98rem;
-    }
-}/* ===== Footer ===== */
+.signup-link a{
+
+    color: #c9b48a;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.signup-link a:hover{
+    text-decoration: underline;
+}
+
+
+/* ===== Footer ===== */
 
 footer {
 
@@ -245,4 +477,28 @@ footer {
     color: #94a3b8;
 
     font-size: 0.85rem;
+}
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 500px) {
+
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    form,
+    .hero-buttons,
+    .or-divider {
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .social-buttons{
+        flex-direction: column;
+    }
 }

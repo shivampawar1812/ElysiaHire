@@ -5,15 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | ElysiaHire</title>
-    <link rel="stylesheet" href="../css/style_04.css">
+
+    <link rel="stylesheet" href="../css/style_02.css">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div id="sidebar" class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>ElysiaHire</h2>
+
+            <span class="close-btn" onclick="closeSidebar()">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+        </div>
+
+        <a href="../index.html#1">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="../index.html#features">
+            <i class="fa-solid fa-layer-group"></i>
+            Features
+        </a>
+
+        <a href="./dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <a href="./contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+        </a>
+
+        <a href="./login.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Log In
+        </a>
+
+        <a href="./signup.html">
+            <i class="fa-solid fa-user-plus"></i>
+            Sign Up
+        </a>
+
+    </div>
+
+    <!-- OVERLAY -->
+
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <!-- ================= HEADER ================= -->
+
     <header>
-        <div class="hero-logo">
-            <a href="../index.html"><img src="../images/ElysiaHire.png" alt=""></a>
+
+        <!-- MENU BUTTON -->
+        <div class="menu-btn" onclick="openSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="../index.html">
+                <img src="/frontend/images/ElysiaHire.png" alt="ElysiaHire Logo">
+            </a>
         </div>
     </header>
+
+
     <main class="hero">
         <div class="hero-content">
             <h1>About ElysiaHire</h1>
@@ -49,11 +120,39 @@
                     journey ahead.</b></div>
         </div>
     </main>
-     <footer><!-- Copyright -->
+    <footer><!-- Copyright -->
         <div class="footer-bottom">
             <p>© 2026 ElysiaHire. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function openSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.add("active");
+
+            document
+                .getElementById("overlay")
+                .classList.add("active");
+        }
+
+        function closeSidebar() {
+
+            document
+                .getElementById("sidebar")
+                .classList.remove("active");
+
+            document
+                .getElementById("overlay")
+                .classList.remove("active");
+        }
+
+    </script>
 </body>
 
 </html>

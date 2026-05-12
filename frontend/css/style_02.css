@@ -1,463 +1,354 @@
-/* styles.css - ElysiaHire Login Page */
+/* ================= RESET ================= */
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-body {
-    background: #0f172a;
-    color: #e8e8ec;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+html{
+    scroll-behavior: smooth;
 }
 
-/* ---------- HEADER ---------- */
+body{
+    background: #0f172a;
+    color: #e8e8ec;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position: fixed;
+
+    top: 0;
+    left: -280px;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #111827;
+
+    padding-top: 20px;
+
+    z-index: 2000;
+
+    transition: 0.35s ease;
+
+    box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+}
+
+.sidebar.active{
+    left: 0;
+}
+
+/* SIDEBAR HEADER */
+
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 25px 25px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-header h2{
+    color: #f8f6f0;
+
+    font-size: 1.4rem;
+
+    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* SIDEBAR LINKS */
+
+.sidebar a{
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px 28px;
+
+    color: #e2e8f0;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.sidebar a:hover{
+    background: #1e293b;
+    color: #c9b48a;
+}
+
+.sidebar a i{
+    width: 20px;
+}
+
+/* ================= OVERLAY ================= */
+
+.overlay{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 1500;
+}
+
+.overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ================= HEADER ================= */
 
 header{
     width: 100%;
     height: 80px;
 
-    background: linear-gradient(
-        135deg,
-        #f8f6f0,
-        #e6e1d3,
-        #fdfcf7
-    );
+    background: linear-gradient(135deg, #f8f6f0, #e6e1d3, #fdfcf7);
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+
+    padding: 12px 40px;
 
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-
-    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
+/* MENU BUTTON */
 
-/* ---------- LOGO ---------- */
+.menu-btn{
+    font-size: 1.8rem;
+    color: #111827;
+    cursor: pointer;
 
-.hero-logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: 0.2s ease;
 }
 
+.menu-btn:hover{
+    color: #b68b2f;
+}
 
-.hero-logo img{
-    width: 370px;
-    height: auto;
+/* ---------- CENTER LOGO ---------- */
+header .logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
+header .logo img{
+    height: 370px;   /* Increased logo size */
     object-fit: contain;
-
-    transition: transform 0.3s ease;
 }
 
+/* ===== MAIN HERO SECTION ===== */
 
-/* Hover Effect */
-
-.hero-logo img:hover{
-    transform: scale(1.05);
-}
-
-
-/* ===== Hero / Main ===== */
-
-.hero {
-    flex: 1;
+.hero{
+    min-height: 100vh;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    padding: 3rem 1.5rem;
+    padding: 80px 20px;
 
-    background: radial-gradient(
-        ellipse at top,
-        #1a2235 0%,
-        #0f172a 70%
-    );
+    background:
+        radial-gradient(
+            ellipse at top,
+            #1a2235 0%,
+            #0f172a 70%
+        );
 }
 
 
-/* ===== Hero Content ===== */
+/* ===== CONTENT CONTAINER ===== */
 
-.hero-content {
-    text-align: center;
-    margin-bottom: 2rem;
-}
+.hero-content{
 
-.hero-content h1 {
-    font-size: 2.5rem;
+    width: 100%;
+    max-width: 1000px;
 
-    background: linear-gradient(
-        135deg,
-        #f8f6f0,
-        #c9b48a
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-
-    margin-bottom: 0.5rem;
-}
-
-.hero-content p {
-    color: #cbd5e1;
-    font-size: 1rem;
-}
-
-
-/* ===== Form ===== */
-
-form {
     background: linear-gradient(
         145deg,
         #1a2235,
         #141c2f
     );
 
-    padding: 2rem;
+    padding: 50px;
 
-    border-radius: 16px;
-
-    width: 100%;
-    max-width: 400px;
-
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
 
     border: 1px solid rgba(255,255,255,0.05);
 
-    display: flex;
-    flex-direction: column;
-
-    gap: 0.75rem;
-}
-
-form label {
-    color: #c9b48a;
-
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-form input[type="email"],
-form input[type="password"] {
-
-    background: #0f172a;
-
-    border: 1px solid rgba(255,255,255,0.05);
-
-    border-radius: 8px;
-
-    padding: 0.7rem 0.9rem;
-
-    color: #f8f6f0;
-
-    font-size: 0.95rem;
-
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-
-    outline: none;
-
-    border-color: #c9b48a;
-
-    box-shadow: 0 0 0 3px rgba(201, 180, 138, 0.15);
-}
-
-
-/* ===== Remember Me / Forgot Password ===== */
-
-.options {
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-
-    margin-top: 0.8rem;
-
-    padding: 0 0.2rem;
-
-    font-size: 0.85rem;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.45);
 
     color: #cbd5e1;
 
-    gap: 40px;
+    line-height: 1.9;
 }
 
 
-/* Forgot Password Link */
+/* ===== MAIN HEADING ===== */
 
-.options a{
+.hero-content h1{
 
-    color: #c9b48a;
+    font-size: 3rem;
 
-    text-decoration: none;
+    margin-bottom: 25px;
 
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.options a:hover{
-
-    color: #f8f6f0;
-
-    text-decoration: underline;
-}
-
-
-/* ===== Main Buttons ===== */
-
-.hero-buttons {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 0.75rem;
-
-    margin-top: 1.25rem;
-
-    width: 100%;
-    max-width: 400px;
-}
-
-.hero-buttons button {
-
-    width: 100%;
-
-    padding: 0.75rem 1.25rem;
-
-    border: 1px solid rgba(201, 180, 138, 0.3);
-
-    border-radius: 10px;
-
-    background: linear-gradient(
-        135deg,
-        #1a2235,
-        #141c2f
-    );
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        background 0.2s;
-}
-
-.hero-buttons button:hover {
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 6px 16px rgba(201, 180, 138, 0.2);
-
-    background: linear-gradient(
-        135deg,
-        #f8f6f0,
-        #c9b48a
-    );
-}
-
-.hero-buttons button a {
-
-    color: #f8f6f0;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    font-size: 0.95rem;
-
-    display: block;
-
-    width: 100%;
-}
-
-.hero-buttons button:hover a {
-    color: #111827;
-}
-
-.hero-buttons span {
-
-    color: #cbd5e1;
-
-    font-size: 0.9rem;
-
-    margin-right: 0.4rem;
-}
-
-.hero-buttons > a {
-
-    color: #c9b48a;
-
-    text-decoration: none;
-
-    font-weight: 600;
-}
-
-.hero-buttons > a:hover {
-    text-decoration: underline;
-}
-
-
-/* ===== OR Divider ===== */
-
-.or-divider {
-
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-    max-width: 400px;
-
-    margin: 1.5rem 0 0.5rem;
-
-    color: #94a3b8;
-
-    font-size: 0.85rem;
-}
-
-.or-divider::before,
-.or-divider::after {
-
-    content: "";
-
-    flex: 1;
-
-    height: 1px;
+    text-align: center;
 
     background: linear-gradient(
         90deg,
-        transparent,
-        rgba(255,255,255,0.08),
-        transparent
-    );
-}
-
-.or-divider span {
-
-    padding: 0 1rem;
-
-    letter-spacing: 2px;
-}
-
-
-/* ===== Social Buttons ===== */
-
-.social-buttons{
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 1rem;
-
-    width: 100%;
-    max-width: 400px;
-
-    margin-top: 1rem;
-}
-
-
-.social-buttons button{
-
-    flex: 1;
-
-    padding: 0.75rem 1rem;
-
-    border-radius: 10px;
-
-    border: 1px solid rgba(201, 180, 138, 0.3);
-
-    background: linear-gradient(
-        135deg,
-        #1a2235,
-        #141c2f
-    );
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-
-.social-buttons button:hover{
-
-    transform: translateY(-2px);
-
-    background: linear-gradient(
-        135deg,
         #f8f6f0,
         #c9b48a
     );
 
-    box-shadow: 0 6px 16px rgba(201, 180, 138, 0.2);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 }
 
 
-.social-buttons button a{
+/* ===== SUB HEADINGS ===== */
 
-    text-decoration: none;
+.hero-content h3{
+
+    margin-top: 35px;
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
 
     color: #f8f6f0;
-
-    font-weight: 600;
 }
 
 
-.social-buttons button:hover a{
-    color: #111827;
+/* ===== PARAGRAPHS ===== */
+
+.hero-content p{
+
+    margin-bottom: 18px;
+
+    font-size: 1.05rem;
+
+    color: #cbd5e1;
 }
 
 
-/* ===== Signup Link ===== */
+/* ===== LIST ===== */
 
-.signup-link{
+.hero-content ul{
 
-    margin-top: 1.2rem;
+    margin-top: 15px;
+    margin-left: 20px;
+}
 
-    display: flex;
+.hero-content ul li{
 
-    gap: 0.4rem;
+    margin-bottom: 12px;
 
     color: #cbd5e1;
 
-    font-size: 0.9rem;
+    position: relative;
 }
 
 
-.signup-link a{
+/* ===== FINAL TEXT ===== */
 
-    color: #c9b48a;
+.hero-content div{
 
-    text-decoration: none;
+    margin-top: 35px;
 
-    font-weight: 600;
+    padding: 20px;
+
+    border-left: 4px solid #c9b48a;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius: 12px;
+
+    color: #f8f6f0;
+
+    font-size: 1.05rem;
 }
 
 
-.signup-link a:hover{
-    text-decoration: underline;
-}
+/* ===== RESPONSIVE ===== */
 
+@media (max-width: 768px){
+
+    .hero{
+        padding: 50px 15px;
+    }
+
+    .hero-content{
+
+        padding: 30px 25px;
+    }
+
+    .hero-content h1{
+
+        font-size: 2.2rem;
+    }
+
+    .hero-content h3{
+
+        font-size: 1.3rem;
+    }
+
+    .hero-content p,
+    .hero-content li{
+
+        font-size: 0.98rem;
+    }
+}
 
 /* ===== Footer ===== */
 
@@ -480,25 +371,90 @@ footer {
 }
 
 
-/* ===== Responsive ===== */
+/* ================= RESPONSIVE ================= */
 
-@media (max-width: 500px) {
+@media (max-width: 1000px){
 
-    .hero-content h1 {
-        font-size: 1.9rem;
+    header{
+        padding: 12px 22px;
     }
 
-    form,
-    .hero-buttons,
-    .or-divider {
-        max-width: 100%;
+    .logo img{
+        width: 160px;
     }
 
-    .hero {
-        padding: 2rem 1rem;
-    }
-
-    .social-buttons{
+    .hero{
         flex-direction: column;
+
+        text-align: center;
+
+        padding: 70px 30px;
+    }
+
+    .hero-content h1{
+        font-size: 3rem;
+    }
+
+    .hero-buttons,
+    .hero-stats{
+        justify-content: center;
+    }
+
+    .features{
+        padding: 70px 30px;
+    }
+
+    footer{
+        grid-template-columns: 1fr 1fr;
+
+        padding: 50px 30px 20px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px){
+
+    header{
+        padding: 14px 18px;
+    }
+
+    .logo img{
+        width: 140px;
+    }
+
+    .auth-buttons{
+        gap: 10px;
+    }
+
+    .login-btn,
+    .signup-btn{
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero{
+        padding: 60px 22px;
+    }
+
+    .hero-content h1{
+        font-size: 2.3rem;
+    }
+
+    .hero-buttons{
+        flex-direction: column;
+    }
+
+    .hero-stats{
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .features h2{
+        font-size: 2rem;
+    }
+
+    footer{
+        grid-template-columns: 1fr;
     }
 }
