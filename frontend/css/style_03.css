@@ -266,6 +266,8 @@ header .logo img{
 
     font-size: 1.5rem;
 
+    text-align: center;
+
     color: #f8f6f0;
 }
 
@@ -279,8 +281,9 @@ header .logo img{
     font-size: 1.05rem;
 
     color: #cbd5e1;
-}
 
+    text-align: center;
+}
 
 /* ===== LIST ===== */
 
@@ -297,6 +300,8 @@ header .logo img{
     color: #cbd5e1;
 
     position: relative;
+    
+    text-align: center;
 }
 
 

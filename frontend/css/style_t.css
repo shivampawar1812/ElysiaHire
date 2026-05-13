@@ -1,10 +1,9 @@
-/* ================= RESET ================= */
+/* styles.css - ElysiaHire About Page */
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
@@ -14,15 +13,18 @@ html{
 
 body{
     background: #0f172a;
-
     color: #e8e8ec;
-
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
 a{
     text-decoration: none;
     color: inherit;
+}
+
+ul{
+    list-style: none;
 }
 
 /* ================= SIDEBAR ================= */
@@ -64,6 +66,8 @@ a{
 }
 
 .sidebar-header h2{
+    color: #f8f6f0;
+
     font-size: 1.4rem;
 
     background: linear-gradient(90deg, #f8f6f0, #c9b48a);
@@ -78,9 +82,7 @@ a{
 
 .close-btn{
     font-size: 1.8rem;
-
     color: white;
-
     cursor: pointer;
 }
 
@@ -104,7 +106,6 @@ a{
 
 .sidebar a:hover{
     background: #1e293b;
-
     color: #c9b48a;
 }
 
@@ -123,7 +124,7 @@ a{
     width: 100%;
     height: 100%;
 
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.5);
 
     opacity: 0;
     visibility: hidden;
@@ -137,6 +138,7 @@ a{
     opacity: 1;
     visibility: visible;
 }
+
 /* ================= HEADER ================= */
 
 header{
@@ -184,27 +186,69 @@ header .logo img{
     object-fit: contain;
 }
 
+/* ===== MAIN HERO SECTION ===== */
 
-/* ================= MAIN SECTION ================= */
+.hero{
+    min-height: 100vh;
 
-main{
-    padding: 70px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            #1a2235 0%,
+            #0f172a 70%
+        );
 }
 
-/* ================= SECTION TITLE ================= */
 
-.section-title{
-    text-align: center;
+/* ===== CONTENT CONTAINER ===== */
 
-    margin-bottom: 50px;
+.hero-content{
+
+    width: 100%;
+    max-width: 1000px;
+
+    background: linear-gradient(
+        145deg,
+        #1a2235,
+        #141c2f
+    );
+
+    padding: 50px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.45);
+
+    color: #cbd5e1;
+
+    line-height: 1.9;
 }
 
-.section-title h2{
+
+/* ===== MAIN HEADING ===== */
+
+.hero-content h2{
+
     font-size: 3rem;
 
-    margin-bottom: 16px;
+    margin-bottom: 25px;
 
-    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        #f8f6f0,
+        #c9b48a
+    );
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -212,119 +256,119 @@ main{
     -webkit-text-fill-color: transparent;
 }
 
-.section-title p{
-    color: #94a3b8;
 
-    max-width: 760px;
+/* ===== SUB HEADINGS ===== */
 
-    margin: auto;
+.hero-content h3{
 
-    line-height: 1.8;
+    margin-top: 35px;
+    margin-bottom: 15px;
 
-    font-size: 1rem;
+    font-size: 1.5rem;
+
+    color: #f8f6f0;
 }
 
-/* ================= PORTFOLIO GRID ================= */
+.hero-content p{
 
-.portfolio-grid{
-    display: grid;
+    margin-bottom: 18px;
 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 370px));
+    font-size: 1.05rem;
 
-    justify-content: center;
+    color: #cbd5e1;
 
-    gap: 28px;
+    text-align: center;
+}
+/* ===== LIST ===== */
+
+.hero-content ul{
+
+    margin-top: 15px;
+    margin-left: 20px;
 }
 
-/* ================= CARD ================= */
+.hero-content ul li{
 
-.portfolio-card{
-    background: linear-gradient(145deg, #1a2235, #141c2f);
+    margin-bottom: 12px;
 
-    padding: 30px;
+    color: #cbd5e1;
 
-    border-radius: 24px;
-
-    border: 1px solid rgba(255,255,255,0.05);
-
-    transition: 0.3s ease;
-
-    cursor: pointer;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    position: relative;
 }
 
-.portfolio-card:hover{
-    transform: translateY(-8px);
 
-    border-color: #c9b48a;
+/* ===== FINAL TEXT ===== */
 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.35);
-}
+.hero-content div{
 
-/* ================= ICON ================= */
+    margin-top: 35px;
 
-.card-icon{
-    width: 70px;
-    height: 70px;
+    padding: 20px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-left: 4px solid #c9b48a;
 
-    border-radius: 18px;
+    background: rgba(255,255,255,0.03);
 
-    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
 
-    margin-bottom: 22px;
-}
-
-.card-icon i{
-    font-size: 1.8rem;
-
-    color: #c9b48a;
-}
-
-/* ================= CARD CONTENT ================= */
-
-.portfolio-card h3{
     color: #f8f6f0;
 
-    font-size: 1.35rem;
-
-    margin-bottom: 14px;
+    font-size: 1.05rem;
 }
 
-.portfolio-card p{
-    color: #94a3b8;
 
-    line-height: 1.7;
+/* ===== RESPONSIVE ===== */
 
-    font-size: 0.95rem;
+@media (max-width: 768px){
+
+    .hero{
+        padding: 50px 15px;
+    }
+
+    .hero-content{
+
+        padding: 30px 25px;
+    }
+
+    .hero-content h2{
+
+        font-size: 2.2rem;
+    }
+
+    .hero-content h3{
+
+        font-size: 1.3rem;
+    }
+
+    .hero-content p,
+    .hero-content li{
+
+        font-size: 0.98rem;
+    }
 }
 
-/* ================= FOOTER ================= */
+/* ===== Footer ===== */
 
-footer{
-    margin-top: 80px;
-
-    padding: 25px;
-
-    border-top: 1px solid rgba(255,255,255,0.05);
+footer {
 
     background: #080c16;
+
+    padding: 1.25rem;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.footer-bottom{
-    text-align: center;
+.footer-bottom p {
 
     color: #94a3b8;
 
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
-/* ================= RESPONSIVE ================= */
 
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 1000px){
 
@@ -344,7 +388,7 @@ footer{
         padding: 70px 30px;
     }
 
-    .hero-content h1{
+    .hero-content h2{
         font-size: 3rem;
     }
 
@@ -390,7 +434,7 @@ footer{
         padding: 60px 22px;
     }
 
-    .hero-content h1{
+    .hero-content h2{
         font-size: 2.3rem;
     }
 
