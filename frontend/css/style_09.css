@@ -325,14 +325,42 @@ footer{
 
 /* ================= RESPONSIVE ================= */
 
+
 @media (max-width: 1000px){
 
-    main{
-        padding: 60px 30px;
+    header{
+        padding: 12px 22px;
     }
 
-    .section-title h2{
-        font-size: 2.5rem;
+    .logo img{
+        width: 160px;
+    }
+
+    .hero{
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 70px 30px;
+    }
+
+    .hero-content h1{
+        font-size: 3rem;
+    }
+
+    .hero-buttons,
+    .hero-stats{
+        justify-content: center;
+    }
+
+    .features{
+        padding: 70px 30px;
+    }
+
+    footer{
+        grid-template-columns: 1fr 1fr;
+
+        padding: 50px 30px 20px;
     }
 }
 
@@ -341,35 +369,45 @@ footer{
 @media (max-width: 650px){
 
     header{
-        padding: 12px 20px;
+        padding: 14px 18px;
     }
 
-    main{
-        padding: 50px 20px;
+    .logo img{
+        width: 140px;
     }
 
-    .section-title h2{
+    .auth-buttons{
+        gap: 10px;
+    }
+
+    .login-btn,
+    .signup-btn{
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero{
+        padding: 60px 22px;
+    }
+
+    .hero-content h1{
+        font-size: 2.3rem;
+    }
+
+    .hero-buttons{
+        flex-direction: column;
+    }
+
+    .hero-stats{
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .features h2{
         font-size: 2rem;
     }
 
-    .section-title p{
-        font-size: 0.95rem;
-    }
-
-    .portfolio-grid{
+    footer{
         grid-template-columns: 1fr;
-    }
-
-    .portfolio-card{
-        padding: 24px;
-    }
-
-    .card-icon{
-        width: 60px;
-        height: 60px;
-    }
-
-    .card-icon i{
-        font-size: 1.5rem;
     }
 }
