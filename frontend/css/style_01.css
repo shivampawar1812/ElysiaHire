@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
@@ -13,130 +14,20 @@ html{
 
 body{
     background: #0f172a;
+
     color: #e8e8ec;
-    line-height: 1.6;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
     overflow-x: hidden;
 }
 
 a{
     text-decoration: none;
     color: inherit;
-}
-
-ul{
-    list-style: none;
-}
-
-/* ================= SIDEBAR ================= */
-
-.sidebar{
-    position: fixed;
-
-    top: 0;
-    left: -280px;
-
-    width: 280px;
-    height: 100vh;
-
-    background: #111827;
-
-    padding-top: 20px;
-
-    z-index: 2000;
-
-    transition: 0.35s ease;
-
-    box-shadow: 4px 0 20px rgba(0,0,0,0.4);
-}
-
-.sidebar.active{
-    left: 0;
-}
-
-/* SIDEBAR HEADER */
-
-.sidebar-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 25px 25px;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.sidebar-header h2{
-    color: #f8f6f0;
-
-    font-size: 1.4rem;
-
-    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-}
-
-/* CLOSE BUTTON */
-
-.close-btn{
-    font-size: 1.8rem;
-    color: white;
-    cursor: pointer;
-}
-
-/* SIDEBAR LINKS */
-
-.sidebar a{
-    display: flex;
-    align-items: center;
-
-    gap: 14px;
-
-    padding: 18px 28px;
-
-    color: #e2e8f0;
-
-    font-size: 1rem;
-    font-weight: 500;
-
-    transition: 0.25s ease;
-}
-
-.sidebar a:hover{
-    background: #1e293b;
-    color: #c9b48a;
-}
-
-.sidebar a i{
-    width: 20px;
-}
-
-/* ================= OVERLAY ================= */
-
-.overlay{
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.5);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.3s ease;
-
-    z-index: 1500;
-}
-
-.overlay.active{
-    opacity: 1;
-    visibility: visible;
 }
 
 /* ================= HEADER ================= */
@@ -159,62 +50,51 @@ header{
 
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
+/* LOGO */
 
-/* MENU BUTTON */
+.hero-logo img{
+    width: 300px;
 
-.menu-btn{
-    font-size: 1.8rem;
-    color: #111827;
-    cursor: pointer;
+    height: auto;
 
-    transition: 0.2s ease;
-}
+    display: block;
 
-.menu-btn:hover{
-    color: #b68b2f;
-}
-
-/* ---------- CENTER LOGO ---------- */
-header .logo{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-header .logo img{
-    height: 370px;   /* Increased logo size */
     object-fit: contain;
 }
-
 
 /* ================= HERO SECTION ================= */
 
 .hero{
-    min-height: 95vh;
+    flex: 1;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
 
     gap: 60px;
 
-    padding: 80px 60px;
+    padding: 70px 60px;
 
-    background: #0f172a;
+    align-items: start;
 }
 
-/* HERO CONTENT */
+/* ================= LEFT CONTENT ================= */
+
+.hero section:first-child{
+    display: flex;
+    justify-content: center;
+}
 
 .hero-content{
-    flex: 1;
-    max-width: 600px;
+    max-width: 550px;
 }
 
 .hero-content h1{
-    font-size: 4rem;
+    font-size: 3.5rem;
+
     line-height: 1.15;
 
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 
     background: linear-gradient(90deg, #f8f6f0, #c9b48a);
 
@@ -225,19 +105,19 @@ header .logo img{
 }
 
 .hero-content p{
-    font-size: 1.15rem;
     color: #cbd5e1;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
 
     margin-bottom: 35px;
 }
 
-/* HERO BUTTONS */
+/* HERO BUTTON */
 
 .hero-buttons{
-    display: flex;
-    gap: 18px;
-
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .hero-buttons button{
@@ -246,30 +126,16 @@ header .logo img{
     border: none;
     border-radius: 12px;
 
+    background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+
+    color: #111827;
+
     font-size: 1rem;
     font-weight: 600;
 
     cursor: pointer;
 
     transition: 0.25s ease;
-}
-
-/* PRIMARY BUTTON */
-
-.hero-buttons button:first-child{
-    background: linear-gradient(135deg, #f8f6f0, #c9b48a);
-
-    color: #111827;
-}
-
-/* SECONDARY BUTTON */
-
-.hero-buttons button:last-child{
-    background: transparent;
-
-    border: 1px solid #f8f6f0;
-
-    color: #f8f6f0;
 }
 
 .hero-buttons button:hover{
@@ -280,99 +146,255 @@ header .logo img{
 
 .hero-stats{
     display: flex;
-    gap: 50px;
+
+    gap: 45px;
 }
 
 .hero-stats h3{
-    font-size: 2rem;
+    font-size: 1.9rem;
+
     color: #f8f6f0;
+
+    margin-bottom: 6px;
 }
 
 .hero-stats p{
     color: #94a3b8;
+
+    font-size: 0.92rem;
 }
 
-/* HERO IMAGE */
-
-.hero-image{
-    flex: 1;
-
+/* ================= RIGHT LOGIN SECTION ================= */
+.hero section:last-child{
     display: flex;
-    justify-content: center;
-}
+    flex-direction: column;
+    justify-content: flex-start;
 
-.hero-image img{
-    max-width: 85%;
-
-    border-radius: 20px;
-
-    filter: drop-shadow(0 14px 30px rgba(0,0,0,0.5));
-}
-
-/* ================= FEATURES ================= */
-
-.features{
-    padding: 90px 60px;
-
-    background: #111827;
-
-    text-align: center;
-}
-
-.features h2{
-    font-size: 2.6rem;
-
-    margin-bottom: 55px;
-
-    color: #f8f6f0;
-}
-
-/* FEATURE CARDS */
-
-.feature-cards{
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
-    gap: 28px;
-
-    max-width: 1750px;
-
-    margin: auto;
-}
-
-.card{
     background: linear-gradient(145deg, #1a2235, #141c2f);
 
-    padding: 32px 28px;
+    padding: 35px 40px 40px;
 
-    border-radius: 18px;
+    border-radius: 28px;
 
     border: 1px solid rgba(255,255,255,0.05);
 
-    text-align: left;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 
-    transition: 0.3s ease;
+    max-width: 550px;
+
+    margin: auto;
+
+    width: 100%;
 }
 
-.card:hover{
-    transform: translateY(-8px);
+/* LOGIN HEADING */
 
-    border-color: #c9b48a;
+.hero section:last-child .hero-content{
+    max-width: 100%;
 }
 
-.card h3{
+.hero section:last-child .hero-content h1{
+    font-size: 2.8rem;
+
+    margin-bottom: 12px;
+}
+
+.hero section:last-child .hero-content p{
+    margin-bottom: 30px;
+}
+
+/* FORM */
+
+form{
+    width: 100%;
+}
+
+/* LABELS */
+
+form label{
+    display: block;
+
+    margin-bottom: 10px;
+
     color: #f8f6f0;
 
-    margin-bottom: 14px;
-
-    font-size: 1.35rem;
+    font-size: 0.95rem;
 }
 
-.card p{
+/* INPUTS */
+
+form input{
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.04);
+
+    color: #f8f6f0;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+form input:focus{
+    border-color: #c9b48a;
+
+    box-shadow: 0 0 0 3px rgba(201,180,138,0.12);
+}
+
+/* OPTIONS */
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+
+    gap: 20px;
+}
+
+.options label{
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 0;
+
     color: #cbd5e1;
 
-    font-size: 0.96rem;
+    font-size: 0.9rem;
+}
+
+.options input{
+    width: auto;
+
+    margin-bottom: 0;
+}
+
+.options a{
+    color: #c9b48a;
+
+    font-size: 0.9rem;
+}
+
+.options a:hover{
+    text-decoration: underline;
+}
+
+/* LOGIN BUTTON */
+
+section:last-child .hero-buttons{
+    margin-bottom: 30px;
+}
+
+section:last-child .hero-buttons button{
+    width: 100%;
+}
+
+/* OR DIVIDER */
+
+.or-divider{
+    position: relative;
+
+    text-align: center;
+
+    margin: 10px 0 25px;
+}
+
+.or-divider::before{
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: rgba(255,255,255,0.08);
+}
+
+.or-divider span{
+    position: relative;
+
+    background: #141c2f;
+
+    padding: 0 18px;
+
+    color: #94a3b8;
+
+    font-size: 0.9rem;
+}
+
+/* SOCIAL BUTTONS */
+
+.social-buttons{
+    display: flex;
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.social-buttons button{
+    flex: 1;
+
+    padding: 13px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.04);
+
+    color: #f8f6f0;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.social-buttons button:hover{
+    background: rgba(255,255,255,0.08);
+
+    transform: translateY(-2px);
+}
+
+/* SIGNUP LINK */
+
+.signup-link{
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 0.95rem;
+}
+
+.signup-link a{
+    color: #c9b48a;
+
+    font-weight: 600;
+
+    margin-left: 6px;
+}
+
+.signup-link a:hover{
+    text-decoration: underline;
 }
 
 /* ================= FOOTER ================= */
@@ -380,108 +402,46 @@ header .logo img{
 footer{
     background: #080c16;
 
-    padding: 65px 60px 25px;
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-
-    gap: 40px;
+    padding: 20px;
 
     border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* FOOTER TITLES */
-
-footer h2{
-    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-}
-
-footer h3{
-    color: #f8f6f0;
-
-    margin-bottom: 16px;
-
-    font-size: 1rem;
-}
-
-footer p,
-footer a{
-    color: #94a3b8;
-
-    font-size: 0.92rem;
-}
-
-footer ul li{
-    margin-bottom: 10px;
-}
-
-footer a:hover{
-    color: #c9b48a;
-}
-
-.footer-social a{
-    display: block;
-
-    margin-bottom: 10px;
 }
 
 .footer-bottom{
-    grid-column: 1 / -1;
-
     text-align: center;
 
-    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #94a3b8;
 
-    padding-top: 22px;
-
-    margin-top: 20px;
-
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1000px){
 
-    header{
-        padding: 12px 22px;
-    }
-
-    .logo img{
-        width: 160px;
-    }
-
     .hero{
-        flex-direction: column;
+        grid-template-columns: 1fr;
 
+        gap: 60px;
+
+        padding: 60px 30px;
+    }
+
+    .hero section:first-child{
         text-align: center;
-
-        padding: 70px 30px;
     }
 
-    .hero-content h1{
-        font-size: 3rem;
+    .hero-buttons{
+        display: flex;
+        justify-content: center;
     }
 
-    .hero-buttons,
     .hero-stats{
         justify-content: center;
     }
 
-    .features{
-        padding: 70px 30px;
-    }
-
-    footer{
-        grid-template-columns: 1fr 1fr;
-
-        padding: 50px 30px 20px;
+    .hero section:last-child{
+        max-width: 650px;
     }
 }
 
@@ -489,46 +449,30 @@ footer a:hover{
 
 @media (max-width: 650px){
 
-    header{
-        padding: 14px 18px;
-    }
-
-    .logo img{
-        width: 140px;
-    }
-
-    .auth-buttons{
-        gap: 10px;
-    }
-
-    .login-btn,
-    .signup-btn{
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
-
     .hero{
-        padding: 60px 22px;
+        padding: 50px 20px;
     }
 
     .hero-content h1{
-        font-size: 2.3rem;
-    }
-
-    .hero-buttons{
-        flex-direction: column;
+        font-size: 2.4rem;
     }
 
     .hero-stats{
         flex-direction: column;
-        gap: 22px;
+
+        gap: 25px;
     }
 
-    .features h2{
-        font-size: 2rem;
+    .social-buttons{
+        flex-direction: column;
     }
 
-    footer{
-        grid-template-columns: 1fr;
+    .options{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero section:last-child{
+        padding: 35px 24px;
     }
 }

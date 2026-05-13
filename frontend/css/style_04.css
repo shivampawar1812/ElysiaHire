@@ -1,4 +1,4 @@
-/* styles.css - ElysiaHire About Page */
+/* styles.css - ElysiaHire Contact Page */
 
 *{
     margin: 0;
@@ -186,41 +186,81 @@ header .logo img{
     object-fit: contain;
 }
 
+/* ===== MAIN SECTION ===== */
 
+.hero{
 
+    padding: 80px 40px;
 
-
-
-/* ================= MAIN SECTION ================= */
-
-.features-page{
-    min-height: calc(100vh - 160px);
-
-    padding: 70px 60px 90px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background:
+        radial-gradient(
+            ellipse at top,
+            #1a2235 0%,
+            #0f172a 70%
+        );
 }
 
-/* ================= TITLE ================= */
 
-.page-title{
-    text-align: center;
+/* ===== CONTACT CONTAINER ===== */
 
-    margin-bottom: 60px;
+.contact-container{
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+}
+/* ================= TABLET ================= */
+
+@media (max-width: 950px){
+
+    .contact-container{
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
 }
 
-.page-title h1{
-    font-size: clamp(2.4rem, 4vw, 4rem);
+/* ===== LEFT SIDE ===== */
 
-    line-height: 1.5;
+.contact-info{
 
-    margin-bottom: 12px;
+    background: linear-gradient(
+        145deg,
+        #1a2235,
+        #141c2f
+    );
 
-    font-weight: 400;
+    padding: 45px;
 
-    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+/* ===== HEADING ===== */
+
+.contact-info h1{
+
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #f8f6f0,
+        #c9b48a
+    );
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -228,196 +268,299 @@ header .logo img{
     -webkit-text-fill-color: transparent;
 }
 
-.page-title p{
-    color: #94a3b8;
+.contact-info p{
 
-    max-width: 850px;
+    color: #cbd5e1;
 
-    margin: auto;
+    line-height: 1.8;
 
-    line-height: 1.9;
-
-    font-size: 1.08rem;
-}
-
-/* ================= FEATURE GRID ================= */
-
-.feature-grid{
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
-    gap: 40px;
-
-    align-items: stretch;
-}
-
-/* ================= FEATURE CARD ================= */
-
-.feature-card{
-    background:
-        linear-gradient(145deg,
-        rgba(26,34,53,0.95),
-        rgba(20,28,47,0.95));
-
-    border: 1px solid rgba(255,255,255,0.06);
-
-    border-radius: 30px;
-
-    padding: 42px 40px;
-
-    transition: 0.35s ease;
-
-    cursor: pointer;
-
-    min-height: 445px;
-
-    display: flex;
-    flex-direction: column;
-
-    position: relative;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.03);
-}
-
-/* HOVER EFFECT */
-
-.feature-card:hover{
-    transform: translateY(-12px);
-
-    border-color: rgba(201,180,138,0.45);
-
-    box-shadow:
-        0 22px 45px rgba(0,0,0,0.35),
-        0 0 30px rgba(201,180,138,0.08);
+    margin-bottom: 20px;
 }
 
 
-/* ================= ICON ================= */
+/* ===== INFO CARDS ===== */
 
-.feature-icon{
-    width: 95px;
-    height: 95px;
+.info-card{
 
-    border-radius: 26px;
+    background: rgba(255,255,255,0.03);
 
-    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.05);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 18px 20px;
 
-    margin-bottom: 34px;
+    border-radius: 14px;
 
-    backdrop-filter: blur(10px);
+    margin-bottom: 18px;
 }
 
-.feature-icon i{
-    font-size: 2.5rem;
-
-    color: #d8bf8b;
-}
-
-/* ================= CONTENT ================= */
-
-.feature-card h2{
-    font-size: 2.2rem;
-
-    line-height: 1.2;
-
-    margin-bottom: 22px;
+.info-card h3{
 
     color: #f8f6f0;
 
-    font-weight: 700;
+    margin-bottom: 8px;
 }
 
-.feature-card p{
-    color: #9aa8bf;
+.info-card p{
 
-    line-height: 1.9;
+    margin-bottom: 0;
 
-    font-size: 1.03rem;
-
-    margin-bottom: 35px;
+    color: #94a3b8;
 }
 
-/* ================= LINK ================= */
 
-.feature-link{
-    margin-top: auto;
+/* ===== SOCIAL LINKS ===== */
 
-    color: #d8bf8b;
+.social-links{
 
-    font-weight: 600;
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.social-links a{
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #f8f6f0;
+
+    background: linear-gradient(
+        135deg,
+        #1a2235,
+        #141c2f
+    );
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    transition: 0.3s;
+}
+
+.social-links a:hover{
+
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #c9b48a
+    );
+
+    color: #111827;
+}
+
+
+/* ===== FORM SIDE ===== */
+
+.contact-form form{
+
+    background: linear-gradient(
+        145deg,
+        #1a2235,
+        #141c2f
+    );
+
+    padding: 45px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* ===== FORM HEADING ===== */
+
+.contact-form h2{
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+
+    color: #f8f6f0;
+}
+
+
+/* ===== LABELS ===== */
+
+.contact-form label{
+
+    color: #c9b48a;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+}
+
+
+/* ===== INPUTS ===== */
+
+.contact-form input,
+.contact-form textarea{
+
+    background: #0f172a;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    border-radius: 10px;
+
+    padding: 14px 16px;
+
+    color: #f8f6f0;
+
+    font-size: 0.95rem;
+
+    resize: none;
+
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    outline: none;
+
+    border-color: #c9b48a;
+
+    box-shadow:
+        0 0 0 3px rgba(201,180,138,0.15);
+}
+
+
+/* ===== BUTTON ===== */
+
+.contact-form button{
+
+    margin-top: 10px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
 
     font-size: 1rem;
 
-    transition: 0.25s ease;
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #c9b48a
+    );
+
+    color: #111827;
+
+    transition: 0.3s;
 }
 
-.feature-card:hover .feature-link{
-    transform: translateX(6px);
+.contact-form button:hover{
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(201,180,138,0.2);
 }
 
-/* ================= RESPONSIVE ================= */
 
-@media (max-width: 1100px){
+/* ===== FAQ SECTION ===== */
 
-    .feature-grid{
-        grid-template-columns: 1fr;
-    }
+.faq{
 
-    .feature-card{
-        min-height: 340px;
-    }
+    padding: 80px 40px;
+
+    background: #111827;
 }
 
-@media (max-width: 700px){
+.faq h2{
 
-    .features-page{
-        padding: 55px 20px 70px;
-    }
+    text-align: center;
 
-    .page-title{
-        margin-bottom: 50px;
-    }
+    font-size: 2.5rem;
 
-    .page-title h1{
-        font-size: 2.5rem;
-    }
+    margin-bottom: 50px;
 
-    .page-title p{
-        font-size: 0.96rem;
-    }
-
-    .feature-grid{
-        gap: 28px;
-    }
-
-    .feature-card{
-        padding: 32px 26px;
-
-        min-height: 320px;
-    }
-
-    .feature-card h2{
-        font-size: 1.8rem;
-    }
-
-    .feature-icon{
-        width: 80px;
-        height: 80px;
-    }
-
-    .feature-icon i{
-        font-size: 2rem;
-    }
+    color: #f8f6f0;
 }
+
+
+/* ===== FAQ CONTAINER ===== */
+
+.faq-container{
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px,1fr)
+    );
+
+    gap: 25px;
+}
+
+
+/* ===== FAQ CARD ===== */
+
+.faq-card{
+
+    background: linear-gradient(
+        145deg,
+        #1a2235,
+        #141c2f
+    );
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    transition: 0.3s;
+}
+
+.faq-card:hover{
+
+    transform: translateY(-5px);
+
+    border-color: #c9b48a;
+}
+
+.faq-card h3{
+
+    color: #f8f6f0;
+
+    margin-bottom: 15px;
+}
+
+.faq-card p{
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+}
+
+
+
 
 /* ===== Footer ===== */
 

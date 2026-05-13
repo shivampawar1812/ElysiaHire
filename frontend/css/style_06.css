@@ -182,7 +182,7 @@ header .logo{
 }
 
 header .logo img{
-    height: 370px;   /* Increased logo size */
+    height: 80px;   /* Increased logo size */
     object-fit: contain;
 }
 

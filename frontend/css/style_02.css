@@ -1,4 +1,4 @@
-/* styles.css - ElysiaHire About Page */
+/* ================= RESET ================= */
 
 *{
     margin: 0;
@@ -182,73 +182,41 @@ header .logo{
 }
 
 header .logo img{
-    height: 370px;   /* Increased logo size */
+    height: 80px;   /* Increased logo size */
     object-fit: contain;
 }
 
-/* ===== MAIN HERO SECTION ===== */
+
+/* ================= HERO SECTION ================= */
 
 .hero{
-    min-height: 100vh;
+    min-height: 95vh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 
-    padding: 80px 20px;
+    gap: 60px;
 
-    background:
-        radial-gradient(
-            ellipse at top,
-            #1a2235 0%,
-            #0f172a 70%
-        );
+    padding: 80px 60px;
+
+    background: #0f172a;
 }
 
-
-/* ===== CONTENT CONTAINER ===== */
+/* HERO CONTENT */
 
 .hero-content{
-
-    width: 100%;
-    max-width: 1000px;
-
-    background: linear-gradient(
-        145deg,
-        #1a2235,
-        #141c2f
-    );
-
-    padding: 50px;
-
-    border-radius: 24px;
-
-    border: 1px solid rgba(255,255,255,0.05);
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,0.45);
-
-    color: #cbd5e1;
-
-    line-height: 1.9;
+    flex: 1;
+    max-width: 600px;
 }
 
-
-/* ===== MAIN HEADING ===== */
-
 .hero-content h1{
-
-    font-size: 3rem;
+    font-size: 4rem;
+    line-height: 1.15;
 
     margin-bottom: 25px;
 
-    text-align: center;
-
-    background: linear-gradient(
-        90deg,
-        #f8f6f0,
-        #c9b48a
-    );
+    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
 
     -webkit-background-clip: text;
     background-clip: text;
@@ -256,120 +224,226 @@ header .logo img{
     -webkit-text-fill-color: transparent;
 }
 
-
-/* ===== SUB HEADINGS ===== */
-
-.hero-content h3{
-
-    margin-top: 35px;
-    margin-bottom: 15px;
-
-    font-size: 1.5rem;
-
-    color: #f8f6f0;
-}
-
-
-/* ===== PARAGRAPHS ===== */
-
 .hero-content p{
-
-    margin-bottom: 18px;
-
-    font-size: 1.05rem;
-
-    color: #cbd5e1;
-}
-
-
-/* ===== LIST ===== */
-
-.hero-content ul{
-
-    margin-top: 15px;
-    margin-left: 20px;
-}
-
-.hero-content ul li{
-
-    margin-bottom: 12px;
-
+    font-size: 1.15rem;
     color: #cbd5e1;
 
-    position: relative;
+    margin-bottom: 35px;
 }
 
+/* HERO BUTTONS */
 
-/* ===== FINAL TEXT ===== */
+.hero-buttons{
+    display: flex;
+    gap: 18px;
 
-.hero-content div{
+    margin-bottom: 45px;
+}
 
-    margin-top: 35px;
+.hero-buttons button{
+    padding: 14px 28px;
 
-    padding: 20px;
-
-    border-left: 4px solid #c9b48a;
-
-    background: rgba(255,255,255,0.03);
-
+    border: none;
     border-radius: 12px;
 
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+/* PRIMARY BUTTON */
+
+.hero-buttons button:first-child{
+    background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+
+    color: #111827;
+}
+
+/* SECONDARY BUTTON */
+
+.hero-buttons button:last-child{
+    background: transparent;
+
+    border: 1px solid #f8f6f0;
+
     color: #f8f6f0;
-
-    font-size: 1.05rem;
 }
 
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 768px){
-
-    .hero{
-        padding: 50px 15px;
-    }
-
-    .hero-content{
-
-        padding: 30px 25px;
-    }
-
-    .hero-content h1{
-
-        font-size: 2.2rem;
-    }
-
-    .hero-content h3{
-
-        font-size: 1.3rem;
-    }
-
-    .hero-content p,
-    .hero-content li{
-
-        font-size: 0.98rem;
-    }
+.hero-buttons button:hover{
+    transform: translateY(-3px);
 }
 
-/* ===== Footer ===== */
+/* HERO STATS */
 
-footer {
+.hero-stats{
+    display: flex;
+    gap: 50px;
+}
 
-    background: #080c16;
+.hero-stats h3{
+    font-size: 2rem;
+    color: #f8f6f0;
+}
 
-    padding: 1.25rem;
+.hero-stats p{
+    color: #94a3b8;
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img{
+    max-width: 85%;
+
+    border-radius: 20px;
+
+    filter: drop-shadow(0 14px 30px rgba(0,0,0,0.5));
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    padding: 90px 60px;
+
+    background: #111827;
 
     text-align: center;
+}
+
+.features h2{
+    font-size: 2.6rem;
+
+    margin-bottom: 55px;
+
+    color: #f8f6f0;
+}
+
+/* FEATURE CARDS */
+
+.feature-cards{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 28px;
+
+    max-width: 1750px;
+
+    margin: auto;
+}
+
+.card{
+    background: linear-gradient(145deg, #1a2235, #141c2f);
+
+    padding: 32px 28px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    text-align: left;
+
+    transition: 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+
+    border-color: #c9b48a;
+}
+
+.card h3{
+    color: #f8f6f0;
+
+    margin-bottom: 14px;
+
+    font-size: 1.35rem;
+}
+
+.card p{
+    color: #cbd5e1;
+
+    font-size: 0.96rem;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background: #080c16;
+
+    padding: 65px 60px 25px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 40px;
 
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.footer-bottom p {
+/* FOOTER TITLES */
 
+footer h2{
+    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+footer h3{
+    color: #f8f6f0;
+
+    margin-bottom: 16px;
+
+    font-size: 1rem;
+}
+
+footer p,
+footer a{
     color: #94a3b8;
+
+    font-size: 0.92rem;
+}
+
+footer ul li{
+    margin-bottom: 10px;
+}
+
+footer a:hover{
+    color: #c9b48a;
+}
+
+.footer-social a{
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+.footer-bottom{
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+    padding-top: 22px;
+
+    margin-top: 20px;
 
     font-size: 0.85rem;
 }
-
 
 /* ================= RESPONSIVE ================= */
 

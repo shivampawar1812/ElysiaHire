@@ -187,7 +187,7 @@ header .logo{
 }
 
 header .logo img{
-    height: 370px;
+    height: 80px;
 
     object-fit: contain;
 }
