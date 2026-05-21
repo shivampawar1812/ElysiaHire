@@ -4,6 +4,8 @@ const bcrypt = require("bcryptjs");
 
 const User = require("../models/User");
 
+const sendEmail = require("../utils/sendEmail");
+
 const registerUser = async (req, res) => {
 
     try {
@@ -14,6 +16,8 @@ const registerUser = async (req, res) => {
             mobile,
             password
         } = req.body;
+
+        console.log(req.body);
 
         // ================= MOBILE VALIDATION =================
 
@@ -50,16 +54,28 @@ const registerUser = async (req, res) => {
             salt
         );
 
+        const otp = Math.floor(
+            100000 + Math.random() * 900000
+        ).toString();
         // ================= CREATE USER =================
 
         const user = await User.create({
 
             name,
+
             email,
+
             mobile,
+
             password: hashedPassword,
 
+            otp,
+
+            otpExpiry: Date.now() + 10 * 60 * 1000,
+
         });
+
+        await sendEmail(email, otp);
 
         // ================= RESPONSE =================
 
@@ -70,6 +86,74 @@ const registerUser = async (req, res) => {
             name: user.name,
 
             email: user.email,
+
+            message: "OTP sent to email",
+
+            userId: user._id,
+
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+
+            message: error.message,
+
+        });
+
+    }
+
+};
+
+const verifyOTP = async (req, res) => {
+
+    try {
+
+        const { email, otp } = req.body;
+
+        const user = await User.findOne({ email });
+
+        if (!user) {
+
+            return res.status(404).json({
+
+                message: "User not found",
+
+            });
+
+        }
+
+        if (user.otp !== otp) {
+
+            return res.status(400).json({
+
+                message: "Invalid OTP",
+
+            });
+
+        }
+
+        if (user.otpExpiry < Date.now()) {
+
+            return res.status(400).json({
+
+                message: "OTP expired",
+
+            });
+
+        }
+
+        user.isVerified = true;
+
+        user.otp = undefined;
+
+        user.otpExpiry = undefined;
+
+        await user.save();
+
+        res.status(200).json({
+
+            message: "Email verified successfully",
 
             token: generateToken(user._id),
 
@@ -121,7 +205,24 @@ const loginUser = async (req, res) => {
     }
 };
 
+const logoutUser = async (req, res) => {
+
+    res.status(200).json({
+
+        message: "Logout successful",
+
+    });
+
+};
+
 module.exports = {
+
     registerUser,
+
     loginUser,
+
+    verifyOTP,
+
+    logoutUser,
+
 };
