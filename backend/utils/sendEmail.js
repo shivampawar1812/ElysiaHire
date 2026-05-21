@@ -24,27 +24,15 @@ const sendEmail = async (email, otp) => {
 
             to: email,
 
-            subject: "ElysiaHire Email Verification",
+            subject: "ElysiaHire OTP Verification",
 
-            html: `
-
-                <h2>ElysiaHire Verification</h2>
-
-                <p>Your OTP is:</p>
-
-                <h1>${otp}</h1>
-
-                <p>This OTP expires in 10 minutes.</p>
-
-            `,
+            text: `Your OTP is ${otp}`,
 
         };
 
-        const info = await transporter.sendMail(
-            mailOptions
-        );
+        await transporter.sendMail(mailOptions);
 
-        console.log("EMAIL SENT:", info.response);
+        console.log("Email sent successfully");
 
     } catch (error) {
 
