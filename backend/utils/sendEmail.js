@@ -1,8 +1,5 @@
 const nodemailer = require("nodemailer");
 
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PASS);
-
 const sendEmail = async (email, otp) => {
 
     try {
@@ -50,7 +47,5 @@ const sendEmail = async (email, otp) => {
     }
 
 };
-
-console.log("MAIL SENT");
 
 module.exports = sendEmail;
