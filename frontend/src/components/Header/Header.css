@@ -1,0 +1,62 @@
+header{
+
+    width: 100%;
+
+    height: 80px;
+
+    background: linear-gradient(
+        135deg,
+        #f8f6f0,
+        #e6e1d3,
+        #fdfcf7
+    );
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 40px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.menu-btn{
+
+    font-size: 2.3rem;
+
+    color: #111827;
+
+    cursor: pointer;
+    
+    transition: 0.2s ease;
+
+    font-weight: 400;
+}
+
+
+.menu-btn:hover{
+    color: #b68b2f;
+}
+.logo{
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.logo img{
+
+    height: 80px;
+
+    object-fit: contain;
+}

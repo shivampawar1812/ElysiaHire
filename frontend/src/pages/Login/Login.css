@@ -1,0 +1,594 @@
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+
+    color: #e8e8ec;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ================= HEADER ================= */
+
+.login-header {
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    background: linear-gradient(135deg, #f8f6f0, #e6e1d3, #fdfcf7);
+
+    padding: 12px 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= LOGO ================= */
+
+.header-logo img {
+    width: 300px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+/* ================= PAGE ================= */
+
+.login-page {
+
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    padding: 70px 60px;
+
+    align-items: start;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.login-left {
+    display: flex;
+    justify-content: center;
+}
+
+.left-content {
+    max-width: 550px;
+}
+
+
+.left-content h1 {
+
+    font-size: 3.5rem;
+
+    line-height: 1.15;
+
+    margin-bottom: 24px;
+
+    font-weight: 800;
+
+    background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.left-content p {
+
+    color: #cbd5e1;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    margin-bottom: 40px;
+}
+
+.hero-buttons button {
+    padding: 14px 38px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+
+    color: #111827;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.hero-buttons button:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= STATS ================= */
+
+.stats {
+
+    display: flex;
+
+    gap: 45px;
+}
+
+.stats h3 {
+
+    font-size: 2rem;
+
+    color: #f8f6f0;
+
+    margin-bottom: 6px;
+}
+
+.stats span {
+
+    color: #94a3b8;
+
+    font-size: 0.92rem;
+}
+
+/* ================= RIGHT LOGIN CARD ================= */
+
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: linear-gradient(145deg, #1a2235, #141c2f);
+
+    padding: 35px 40px 40px;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
+
+    max-width: 580px;
+
+    width: 100%;
+
+    position: relative;
+
+    margin: auto;
+
+    overflow: hidden;
+}
+
+/* ================= CARD TITLE ================= */
+
+.login-card h1 {
+    text-align: center;
+
+    font-size: 2.8rem;
+
+    margin-bottom: 12px;
+
+    background: linear-gradient(90deg,
+            #f8f6f0,
+            #c9b48a);
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* ================= CARD PARAGRAPH ================= */
+
+.login-card>p {
+    text-align: center;
+
+    color: #cbd5e1;
+
+    font-size: 1.2rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 38px;
+}
+
+/* ================= FORM ================= */
+
+.login-card form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+/* ================= INPUTS ================= */
+
+.login-card form input {
+
+    width: 100%;
+
+    padding: 17px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #f8f6f0;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+.login-card form input::placeholder {
+
+    color: #7f8aa0;
+}
+
+/* ================= INPUT FOCUS ================= */
+
+.login-card form input:focus {
+
+    border-color: #c9b48a;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 0 0 4px rgba(201, 180, 138, 0.1);
+}
+
+/* OPTIONS */
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2 px;
+
+    gap: 20px;
+}
+
+.options label{
+    display: flex;
+    align-items: center;
+
+    gap: 1 px;
+
+    margin-bottom: 0;
+
+    color: #cbd5e1;
+
+    font-size: 0.9rem;
+}
+
+.options input{
+    width: auto;
+
+    margin-bottom: 0;
+}
+
+.options a{
+    color: #c9b48a;
+
+    font-size: 0.9rem;
+}
+
+.options a:hover{
+    text-decoration: underline;
+}
+
+/* ================= LOGIN BUTTON ================= */
+
+.login-card form button {
+
+    width: 100%;
+
+    padding: 17px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg,
+            #f8f6f0,
+            #c9b48a);
+
+    color: #111827;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* ================= BUTTON HOVER ================= */
+
+.login-card form button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(201, 180, 138, 0.2);
+}
+
+/* ================= FOOTER ================= */
+
+.login-footer {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 0.96rem;
+}
+
+.login-footer a {
+
+    color: #c9b48a;
+
+    font-weight: 600;
+
+    margin-left: 6px;
+}
+
+.login-footer a:hover {
+
+    text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+    .login-page {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding: 60px 35px;
+    }
+
+    .login-left {
+
+        text-align: center;
+    }
+
+    .left-content {
+
+        max-width: 100%;
+    }
+
+    .stats {
+
+        justify-content: center;
+    }
+
+    .login-card {
+
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .login-page {
+
+        padding: 45px 20px;
+    }
+
+    .left-content h1 {
+
+        font-size: 2.9rem;
+    }
+
+    .left-content p {
+
+        font-size: 1rem;
+    }
+
+    .stats {
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .login-card {
+
+        padding: 38px 26px;
+    }
+
+    .login-card h2 {
+
+        font-size: 2rem;
+    }
+
+    .login-logo {
+
+        width: 170px;
+    }
+}
+
+/* ================= FOOTER ================= */
+
+.login-footer-bottom {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 42px;
+
+    background: rgba(15, 23, 42, 0.96);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    z-index: 1000;
+}
+
+.login-footer-bottom p {
+
+    color: #94a3b8;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.3px;
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding: 60px 30px;
+    }
+
+    .hero section:first-child {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero section:last-child {
+        max-width: 650px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 14px 18px;
+    }
+
+    .logo img {
+        width: 140px;
+    }
+
+    .auth-buttons {
+        gap: 10px;
+    }
+
+    .login-btn,
+    .login-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero section:last-child {
+        padding: 35px 24px;
+    }
+}
