@@ -1,11 +1,16 @@
 const express = require("express");
+
 const cors = require("cors");
+
 require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
 
 const connectDB = require("./config/db");
+
 const authRoutes = require("./routes/authRoutes");
+
+const path = require("path");
 
 const app = express();
 
@@ -14,11 +19,14 @@ connectDB();
 
 
 app.use(cors());
+
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 
 app.use("/api/users", userRoutes);
+
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.get("/", (req, res) => {
   res.send("ElysiaHire Backend Running");
