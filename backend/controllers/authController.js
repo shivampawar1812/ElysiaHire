@@ -75,13 +75,7 @@ const registerUser = async (req, res) => {
 
         });
 
-        const emailSent = await sendEmail(email, otp);
-
-        if (!emailSent) {
-            return res.status(500).json({
-                message: "Email failed"
-            });
-        }
+        await sendEmail(email, otp);
 
         // ================= RESPONSE =================
 
