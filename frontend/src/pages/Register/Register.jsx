@@ -198,8 +198,11 @@ const Register = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Enter Password"
                 onChange={handleChange}
+                required
+                pattern="^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$"
+                title="Password must be at least 6 characters long and contain at least one special character."
               />
 
               <input

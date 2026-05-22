@@ -34,7 +34,7 @@ const sendEmail = async (email, otp) => {
 
                 <h1>${otp}</h1>
 
-                <p>This OTP expires in 10 minutes.</p>
+                <p>This OTP expires in 1 minute.</p>
 
             `,
 

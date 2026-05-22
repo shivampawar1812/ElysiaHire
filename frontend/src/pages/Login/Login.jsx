@@ -82,7 +82,7 @@ const Login = () => {
               and aspiring professionals.
 
             </p>
-            <div class="hero-buttons">
+            <div className="hero-buttons">
 
               <button>
                 <a href="#signup">Get Started</a>
@@ -150,9 +150,9 @@ const Login = () => {
                 placeholder="Enter Password"
                 onChange={handleChange}
               />
-              <div class="options">
+              <div className="options">
                 <br/>
-                  <a href="#">Forgot Password?</a>
+                  <Link to="/forgot-password">Forgot Password ?</Link>
               </div>
               <button type="submit">
                 Login
@@ -173,7 +173,7 @@ const Login = () => {
       </div>
 
       <footer>
-        <div class="footer-bottom">
+        <div className="footer-bottom">
           <p>© 2026 ElysiaHire. All rights reserved.</p>
         </div>
       </footer>

@@ -9,6 +9,10 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
 import OTPVerification from "./pages/OTPVerification/OTPVerification";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ResetOTPVerification from "./pages/ResetOTPVerification/ResetOTPVerification";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
+
 
 function App() {
 
@@ -43,6 +47,20 @@ function App() {
           element={<OTPVerification />}
         />
 
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+        <Route
+          path="/reset-otp-verification"
+          element={<ResetOTPVerification />}
+        />
+
+        <Route
+          path="/reset-password"
+          element={<ResetPassword />}
+        />
       </Routes>
 
     </BrowserRouter>

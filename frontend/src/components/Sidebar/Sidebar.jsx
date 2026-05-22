@@ -100,6 +100,15 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
           </Link>
 
+          <Link
+            to="/settings"
+            onClick={() => setIsOpen(false)}
+          >
+
+            Settings
+
+          </Link>
+
         </nav>
 
         {/* ================= LOGOUT ================= */}
