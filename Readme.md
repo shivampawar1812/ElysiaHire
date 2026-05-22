@@ -1,63 +1,173 @@
-# ElysiaHire
+# ElysiaHire  
+### Your Path to the Next Opportunity  
 
-### Your Path to the Next Opportunity
+ElysiaHire is an AI-powered career preparation platform built to help students and job seekers become industry-ready through intelligent interview practice, resume analysis, personalized career roadmaps, and AI-driven feedback systems.  
 
-ElysiaHire is an AI-powered mock interview and career preparation platform designed to help students and job seekers improve their interview performance, communication skills, and career readiness through intelligent feedback and personalized practice sessions.
+The platform focuses on bridging the gap between academic learning and real-world hiring expectations by combining modern web technologies with artificial intelligence to create an interactive and personalized placement preparation experience.
 
 ---
 
-## Features
+# Features
 
+## Current Features
+- Secure authentication system
+- Responsive modern UI/UX
+- Dynamic dashboard structure
+- Resume upload system *(in progress)*
+- Backend integration
+- Career-focused platform architecture
+
+---
+
+## AI Features *(Under Development)*
 - AI-powered mock interviews
+- Resume analysis and ATS feedback
+- Personalized career roadmap generation
 - Technical and HR interview preparation
-- Resume analysis and feedback
-- Personalized performance insights
-- Career guidance and preparation tools
-- Modern and responsive UI/UX
+- AI-generated improvement suggestions
+- Performance insights and progress tracking
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-### Frontend
-- HTML
-- CSS
+## Frontend
+- HTML5
+- CSS3
 - JavaScript
-
-### Backend *(Planned)*
-- Python
-- Flask / FastAPI
-
-### AI & ML *(Planned)*
-- Machine Learning
-- Natural Language Processing (NLP)
-- Speech & Response Analysis
+- Responsive Design
+- Modern UI Components
 
 ---
 
-## Project Vision
-
-ElysiaHire aims to bridge the gap between academic learning and real-world hiring expectations by providing an intelligent, accessible, and interactive interview preparation experience.
+## Backend
+- Node.js
+- Express.js
+- REST APIs
+- JWT Authentication
+- MongoDB Atlas
 
 ---
 
-## Future Enhancements
+## AI & Machine Learning
+- OpenAI API
+- NLP-based response analysis
+- Prompt Engineering
+- Resume Parsing & Evaluation
+- AI-generated career guidance
 
-- Real-time voice interview simulation
+---
+
+# Project Goals
+
+ElysiaHire aims to:
+- Improve interview confidence among students
+- Provide accessible AI-based career preparation
+- Help users optimize resumes for modern hiring systems
+- Deliver personalized learning and career guidance
+- Simulate real-world interview experiences
+- Build a centralized career growth ecosystem
+
+---
+
+# Planned Features
+
+- Real-time AI mock interview simulation
+- Voice-based interview analysis
 - AI-generated interview questions
-- Emotion and confidence analysis
+- Emotion & confidence analysis
+- Personalized learning recommendations
 - Placement preparation dashboard
+- Job and internship recommendation system
+- Resume version tracking
+- Company-specific interview preparation
 - Recruiter and student analytics
-- Multi-domain interview support
 
 ---
 
-## Author
+# Project Structure
 
-Developed by Shivam Pawar
+```bash
+ElysiaHire/
+│
+├── frontend/
+│   ├── pages/
+│   ├── components/
+│   ├── assets/
+│   └── styles/
+│
+├── backend/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   ├── middleware/
+│   └── config/
+│
+└── README.md
+```
 
 ---
 
-## Status
+# Development Status
 
-Currently under development.
+## Current Progress
+- Frontend Structure: ~80% Complete
+- Authentication System: Complete
+- Backend Integration: In Progress
+- Resume Analyzer: Under Development
+- AI Modules: Planned & In Progress
+
+---
+
+# Future Vision
+
+ElysiaHire is envisioned as a complete AI-powered career ecosystem that assists students from skill development to interview preparation and job readiness through intelligent automation and personalized guidance.
+
+---
+
+# Installation & Setup
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/your-username/ElysiaHire.git
+```
+
+---
+
+## Navigate to Project Directory
+
+```bash
+cd ElysiaHire
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Run the Development Server
+
+```bash
+npm start
+```
+
+---
+
+# Author
+
+Developed by **Shivam Pawar**
+
+- GitHub: https://github.com/
+- LinkedIn: https://linkedin.com/
+
+---
+
+# Status
+
+🚧 Currently Under Active Development 🚧
