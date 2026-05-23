@@ -6,9 +6,11 @@ require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
 
-const connectDB = require("./config/db");
-
 const authRoutes = require("./routes/authRoutes");
+
+const resumeRoutes = require("./routes/resumeRoutes");
+
+const connectDB = require("./config/db");
 
 const path = require("path");
 
@@ -27,6 +29,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+app.use("/api/resume", resumeRoutes);
 
 app.get("/", (req, res) => {
   res.send("ElysiaHire Backend Running");

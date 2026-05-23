@@ -64,40 +64,6 @@ const userSchema = new mongoose.Schema(
       default: "student",
     },
 
-    profileImage: {
-      type: String,
-      default: "",
-
-      bio: {
-        type: String,
-        default: "",
-      },
-
-      skills: {
-        type: [String],
-        default: [],
-      },
-
-      college: {
-        type: String,
-        default: "",
-      },
-
-      github: {
-        type: String,
-        default: "",
-      },
-
-      linkedin: {
-        type: String,
-        default: "",
-      },
-
-      resume: {
-        type: String,
-        default: "",
-      },
-    },
   },
   {
     timestamps: true,

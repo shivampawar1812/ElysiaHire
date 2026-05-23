@@ -3,23 +3,46 @@ const path = require("path");
 
 const storage = multer.diskStorage({
 
-  destination: function (req, file, cb) {
+    destination: (req, file, cb) => {
 
-    cb(null, "uploads/");
+        cb(null, "uploads/");
+    },
 
-  },
+    filename: (req, file, cb) => {
 
-  filename: function (req, file, cb) {
+        const uniqueName =
+            Date.now() + "-" + file.originalname;
 
-    cb(
-      null,
-      Date.now() + path.extname(file.originalname)
-    );
-
-  },
+        cb(null, uniqueName);
+    }
 
 });
 
-const upload = multer({ storage });
+const fileFilter = (req, file, cb) => {
+
+    const fileType =
+        path.extname(file.originalname);
+
+    if (fileType === ".pdf") {
+
+        cb(null, true);
+
+    } else {
+
+        cb(new Error("Only PDF files allowed"), false);
+    }
+};
+
+
+const upload = multer({
+
+    storage,
+    fileFilter,
+    limits: {
+        fileSize: 2 * 1024 * 1024
+    }
+
+
+});
 
 module.exports = upload;
