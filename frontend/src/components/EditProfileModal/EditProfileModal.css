@@ -1,4 +1,36 @@
 /* =========================
+   AUTOFILL FIX
+========================= */
+
+.modal-container input:-webkit-autofill,
+
+.modal-container input:-webkit-autofill:hover,
+
+.modal-container input:-webkit-autofill:focus,
+
+.modal-container textarea:-webkit-autofill,
+
+.modal-container textarea:-webkit-autofill:hover,
+
+.modal-container textarea:-webkit-autofill:focus {
+
+  -webkit-box-shadow:
+  0 0 0 1000px
+  rgba(255,255,255,0.05)
+  inset !important;
+
+  -webkit-text-fill-color:
+  white !important;
+
+  caret-color: white;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  transition:
+  background-color 9999s ease-in-out 0s;
+}
+/* =========================
    MODAL OVERLAY
 ========================= */
 
@@ -18,7 +50,7 @@
 
   padding-top: 100px;
 
-  z-index: 999;
+  z-index: 9999;
 
   overflow-y: auto;
 }
@@ -97,64 +129,150 @@
 
 
 /* =========================
-   INPUTS
+   FORM ELEMENTS
 ========================= */
 
 .modal-container input,
 
-.modal-container textarea {
+.modal-container textarea,
+
+.modal-container select {
 
     width: 100%;
 
-    padding: 17px 18px;
+    padding: 17px 20px;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border:
+    1px solid rgba(255,255,255,0.07);
 
-    background: rgba(255, 255, 255, 0.04);
+    background:
+    rgba(255,255,255,0.045);
 
     color: #f8f6f0;
 
     font-size: 1rem;
 
+    font-weight: 500;
+
     outline: none;
 
-    transition: all 0.3s ease;
+    transition:
+    all 0.28s ease;
+
+    backdrop-filter: blur(8px);
 }
 
 
-/* PLACEHOLDER */
+/* =========================
+   PLACEHOLDER
+========================= */
 
 .modal-container input::placeholder,
 
 .modal-container textarea::placeholder {
-   color: #7f8aa0;
+
+    color: #7f8aa0;
+
+    font-weight: 400;
 }
 
 
-/* FOCUS EFFECT */
+/* =========================
+   HOVER
+========================= */
+
+.modal-container input:hover,
+
+.modal-container textarea:hover,
+
+.modal-container select:hover {
+
+    border-color:
+    rgba(255,255,255,0.12);
+
+    background:
+    rgba(255,255,255,0.055);
+}
+
+
+/* =========================
+   FOCUS
+========================= */
 
 .modal-container input:focus,
 
-.modal-container textarea:focus {
+.modal-container textarea:focus,
+
+.modal-container select:focus {
 
     border-color: #c9b48a;
 
-    background: rgba(255, 255, 255, 0.06);
+    background:
+    rgba(255,255,255,0.065);
 
     box-shadow:
-        0 0 0 4px rgba(201, 180, 138, 0.1);
+    0 0 0 4px
+    rgba(201,180,138,0.12);
 }
 
 
-/* TEXTAREA */
+/* =========================
+   TEXTAREA
+========================= */
 
 .modal-container textarea {
 
-  min-height: 8px;
+    min-height: 120px;
 
-  resize: none;
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
+.modal-container select {
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    -moz-appearance: none;
+
+    cursor: pointer;
+
+    color: #f8f6f0;
+
+    background-image:
+    linear-gradient(45deg, transparent 50%, #f8f6f0 50%),
+    linear-gradient(135deg, #f8f6f0 50%, transparent 50%);
+
+    background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+
+    background-size:
+    6px 6px,
+    6px 6px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* =========================
+   SELECT OPTIONS
+========================= */
+
+.modal-container select option {
+
+    background: #1a2235;
+
+    color: #f8f6f0;
 }
 
 

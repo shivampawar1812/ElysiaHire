@@ -18,11 +18,14 @@ const EditProfileModal = ({
   const [formData, setFormData] =
     useState({
 
-      bio:
-        dashboard?.profile?.bio || "",
+      shortBio:
+        dashboard?.profile?.shortBio || "",
 
-      careerGoal:
-        dashboard?.profile?.careerGoal || "",
+      preferredRole:
+        dashboard?.profile?.preferredRole || "",
+
+      location:
+        dashboard?.profile?.location || "",
 
       github:
         dashboard?.profile?.github || "",
@@ -30,11 +33,19 @@ const EditProfileModal = ({
       linkedin:
         dashboard?.profile?.linkedin || "",
 
-      location:
-        dashboard?.profile?.location || "",
+      targetCompanies:
+        dashboard?.profile?.targetCompanies
+          ?.join(", ") || "",
 
-      preferredRole:
-        dashboard?.profile?.preferredRole || "",
+      experienceLevel:
+        dashboard?.profile?.experienceLevel || "Student",
+
+      graduationYear:
+        dashboard?.profile?.graduationYear || "",
+
+      currentEducationLevel:
+        dashboard?.profile
+          ?.currentEducationLevel || "",
     });
 
 
@@ -58,8 +69,22 @@ const EditProfileModal = ({
       e.preventDefault();
 
       try {
+        const payload = {
 
-        await updateProfile(formData);
+          ...formData,
+
+          targetCompanies:
+            formData.targetCompanies
+
+              .split(",")
+
+              .map((company) =>
+                company.trim()
+              )
+
+              .filter(Boolean),
+        };
+        await updateProfile(payload);
 
         await refreshDashboard();
 
@@ -141,13 +166,11 @@ const EditProfileModal = ({
 
           <input
 
-            type="text"
+            name="shortBio"
 
-            name="careerGoal"
+            placeholder="Short Professional Bio"
 
-            placeholder="Career Goal"
-
-            value={formData.careerGoal}
+            value={formData.shortBio}
 
             onChange={handleChange}
           />
@@ -157,15 +180,111 @@ const EditProfileModal = ({
 
             type="text"
 
-            name="bio"
+            name="targetCompanies"
 
-            placeholder="Bio"
+            placeholder="Target Companies (comma separated)"
 
-            value={formData.bio}
+            value={formData.targetCompanies}
 
             onChange={handleChange}
           />
 
+          <select
+
+            name="experienceLevel"
+
+            value={formData.experienceLevel}
+
+            onChange={handleChange}
+          >
+
+            <option value="Student">
+              Student
+            </option>
+
+            <option value="Beginner">
+              Beginner
+            </option>
+
+            <option value="Intermediate">
+              Intermediate
+            </option>
+
+            <option value="Advanced">
+              Advanced
+            </option>
+
+          </select>
+
+          <input
+
+            type="number"
+
+            name="graduationYear"
+
+            placeholder="Graduation Year"
+
+            value={formData.graduationYear}
+
+            onChange={handleChange}
+          />
+
+          <select
+
+            name="currentEducationLevel"
+
+            value={
+              formData.currentEducationLevel
+            }
+
+            onChange={handleChange}
+          >
+
+            <option value="">
+              Select Education Level
+            </option>
+
+            <option value="High School">
+              High School
+            </option>
+
+            <option value="Diploma">
+              Diploma
+            </option>
+
+            <option value="BTech">
+              BTech
+            </option>
+
+            <option value="BCA">
+              BCA
+            </option>
+
+            <option value="BSc">
+              BSc
+            </option>
+
+            <option value="MTech">
+              MTech
+            </option>
+
+            <option value="MCA">
+              MCA
+            </option>
+
+            <option value="MSc">
+              MSc
+            </option>
+
+            <option value="MBA">
+              MBA
+            </option>
+
+            <option value="Self-Taught">
+              Self-Taught
+            </option>
+
+          </select>
 
           <div className="modal-buttons">
 

@@ -2,6 +2,7 @@ import React, { Link, useEffect, useState, } from "react";
 
 import { getDashboardData, uploadResume } from "../../services/dashboardServices";
 import EditProfileModal from "../../components/EditProfileModal/EditProfileModal";
+import { uploadProfilePhoto, } from "../../services/dashboardServices";
 
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -22,22 +23,68 @@ const Dashboard = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const handleProfilePhotoUpload =
+        async (e) => {
+
+            try {
+
+                const file =
+                    e.target.files[0];
+
+                if (!file) return;
+
+
+                const formData =
+                    new FormData();
+
+                formData.append(
+                    "profilePhoto",
+                    file
+                );
+
+
+                await uploadProfilePhoto(
+                    formData
+                );
+
+
+                await fetchDashboard();
+
+            } catch (error) {
+
+                console.log(error);
+            }
+        };
+
     // FETCH DASHBOARD
     const fetchDashboard =
         async () => {
 
             try {
 
+                console.log("FETCH START");
+
                 const data =
                     await getDashboardData();
-                console.log(data);
-                setDashboard(data.dashboard);
+
+                console.log("API RESPONSE:", data);
+
+                setDashboard(
+                    data.dashboard
+                );
 
             } catch (error) {
 
-                console.log(error);
+                console.log(
+                    "DASHBOARD ERROR:",
+                    error
+                );
 
             } finally {
+
+                console.log(
+                    "FETCH FINISHED"
+                );
 
                 setLoading(false);
             }
@@ -58,10 +105,12 @@ const Dashboard = () => {
                 selectedResume
             );
 
-            await uploadResume(formData);
+            const response =
+                await uploadResume(formData);
+
+            console.log(response);
 
             await fetchDashboard();
-            console.log(response);
             setSelectedResume(null);
 
         } catch (error) {
@@ -87,45 +136,27 @@ const Dashboard = () => {
             <div
                 style={{
 
-                    color:
-                        "#f8f6f0",
+                    minHeight: "100vh",
 
-                    background:
-                        "#0f172a",
+                    display: "flex",
 
-                    minHeight:
-                        "100vh",
+                    justifyContent: "center",
 
-                    display:
-                        "flex",
+                    alignItems: "center",
 
-                    justifyContent:
-                        "center",
+                    background: "#0f172a",
 
-                    alignItems:
-                        "center",
+                    color: "#f8f6f0",
 
-                    textAlign:
-                        "center",
+                    fontSize: "1.2rem",
 
-                    padding:
-                        "20px",
+                    fontWeight: "600",
 
-                    fontSize:
-                        "clamp(1.5rem, 4vw, 2.8rem)",
-
-                    fontWeight:
-                        "700",
-
-                    fontFamily:
-                        "Segoe UI, sans-serif",
-
-                    letterSpacing:
-                        "1px",
+                    letterSpacing: "0.5px"
                 }}
             >
 
-                Loading Dashboard...
+                Loading...
 
             </div>
         );
@@ -140,7 +171,7 @@ const Dashboard = () => {
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
             />
-            <main>
+            <main className="profile-main">
                 <section className="profile-section">
                     <div className="profile-card">
 
@@ -149,9 +180,52 @@ const Dashboard = () => {
 
                         <div className="profile-top">
 
-                            <img src={dashboard?.profile?.profilePhoto ||
-                                "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                            } alt="profile" className="profile-image" />
+                            <div className="profile-image-wrapper">
+
+                                <img
+
+                                    src={
+                                        dashboard?.profile?.profilePhoto
+
+                                            ? `http://localhost:3000/${dashboard?.profile?.profilePhoto}`
+
+                                            : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                    }
+
+                                    alt="profile"
+
+                                    className="profile-image"
+                                />
+
+
+                                {/* CAMERA ICON */}
+
+                                <label
+                                    htmlFor="profilePhotoUpload"
+                                    className="profile-camera-icon"
+                                >
+
+                                    <i className="fa-solid fa-camera"></i>
+
+                                </label>
+
+
+                                {/* HIDDEN INPUT */}
+
+                                <input
+
+                                    id="profilePhotoUpload"
+
+                                    type="file"
+
+                                    accept="image/*"
+
+                                    hidden
+
+                                    onChange={handleProfilePhotoUpload}
+                                />
+
+                            </div>
 
 
                             <div className="profile-info">
@@ -161,15 +235,81 @@ const Dashboard = () => {
                                         ?.extractedData?.name || "User"
                                 }</h1>
                                 <p className="profile-role">
+
                                     {
-                                        dashboard?.profile
-                                            ?.preferredRole ||
-                                        "Aspiring Professional"
+                                        dashboard?.profile?.shortBio
+                                        || "Add a short bio"
                                     }
+
+                                </p>
+
+                                <p className="profile-location">
+
+                                    <i className="fa-solid fa-location-dot"></i>
+
+                                    {
+                                        dashboard?.profile?.location
+                                        || "Location not added"
+                                    }
+
                                 </p>
                             </div>
 
                         </div>
+
+
+                        <div className="education-info">
+
+                            {
+                                dashboard?.profile
+                                    ?.currentEducationLevel && (
+
+                                    <span>
+
+                                        {
+                                            dashboard.profile
+                                                .currentEducationLevel
+                                        }
+
+                                    </span>
+                                )
+                            }
+
+                            {
+                                dashboard?.profile
+                                    ?.graduationYear && (
+
+                                    <span>
+
+                                        Class of {
+
+                                            dashboard.profile
+                                                .graduationYear
+                                        }
+
+                                    </span>
+                                )
+                            }
+
+                        </div>
+
+                        {
+                            dashboard?.profile?.experienceLevel && (
+
+                                <div className="profile-level">
+
+                                    <span>
+
+                                        {
+                                            dashboard.profile
+                                                .experienceLevel
+                                        }
+
+                                    </span>
+
+                                </div>
+                            )
+                        }
 
                         {/* READINESS */}
 
@@ -177,7 +317,7 @@ const Dashboard = () => {
 
                             <div className="progress-text">
 
-                                <h3>Placement Readiness</h3>
+                                <h3>Profile Completion</h3>
 
                                 <span>{
                                     dashboard?.analytics?.profileCompletion ||
@@ -192,8 +332,9 @@ const Dashboard = () => {
                                 <div
                                     className="progress-fill"
                                     style={{
+
                                         width:
-                                            `${dashboard?.analytics?.profileCompletion}%`,
+                                            `${dashboard?.analytics?.profileCompletion}%`
                                     }}
                                 ></div>
 
@@ -237,6 +378,40 @@ const Dashboard = () => {
 
                         </div>
 
+                        {
+                            dashboard?.profile
+                                ?.targetCompanies?.length > 0 && (
+
+                                <div className="target-companies">
+
+                                    <h3>
+                                        Target Companies
+                                    </h3>
+
+                                    <div className="company-tags">
+
+                                        {
+                                            dashboard.profile
+                                                .targetCompanies
+                                                .map((company, index) => (
+
+                                                    <span
+                                                        key={index}
+                                                        className="company-tag"
+                                                    >
+
+                                                        {company}
+
+                                                    </span>
+                                                ))
+                                        }
+
+                                    </div>
+
+                                </div>
+                            )
+                        }
+
 
                         {/* CAREER GOAL */}
 
@@ -245,14 +420,59 @@ const Dashboard = () => {
                             <h3>Career Goal</h3>
 
                             <p>
+
                                 {
-                                    dashboard?.profile
-                                        ?.careerGoal ||
-                                    "Add your career goal to personalize dashboard."
+                                    dashboard?.profile?.preferredRole
+                                    || "Add your preferred role"
                                 }
+
                             </p>
                         </div>
 
+                        <div className="profile-socials">
+
+                            {
+                                dashboard?.profile?.github && (
+
+                                    <a
+
+                                        href={
+                                            dashboard.profile.github
+                                        }
+
+                                        target="_blank"
+
+                                        rel="noreferrer"
+                                    >
+
+                                        <i className="fa-brands fa-github"></i>
+
+                                    </a>
+                                )
+                            }
+
+
+                            {
+                                dashboard?.profile?.linkedin && (
+
+                                    <a
+
+                                        href={
+                                            dashboard.profile.linkedin
+                                        }
+
+                                        target="_blank"
+
+                                        rel="noreferrer"
+                                    >
+
+                                        <i className="fa-brands fa-linkedin"></i>
+
+                                    </a>
+                                )
+                            }
+
+                        </div>
 
                         <div className="profile-buttons">
                             <button
@@ -415,6 +635,7 @@ const Dashboard = () => {
         </>
     );
 };
+
 
 
 export default Dashboard;

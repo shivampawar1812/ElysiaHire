@@ -45,7 +45,7 @@ async (profileData) => {
 
   const response =
     await API.put(
-      "/profile",
+      "/profile/update",
       profileData
     );
 
@@ -76,4 +76,31 @@ async (formData) => {
     );
 
   return response.data;
+};
+
+export const uploadProfilePhoto =
+async (formData) => {
+
+    const response =
+    await axios.post(
+
+        "http://localhost:3000/api/profile/upload-photo",
+
+        formData,
+
+        {
+
+            headers: {
+
+                Authorization:
+                `Bearer ${
+                    localStorage.getItem(
+                        "token"
+                    )
+                }`,
+            },
+        }
+    );
+
+    return response.data;
 };

@@ -16,7 +16,7 @@ const getDashboard = async (req, res) => {
     // USER
     const user =
       await User.findById(req.user.id)
-      .select("-password");
+        .select("-password");
 
     // RESUME
     const resume =
@@ -45,59 +45,56 @@ const getDashboard = async (req, res) => {
       resume: resume
         ? {
 
-            uploaded: true,
+          uploaded: true,
 
-            originalFileName:
-              resume.originalFileName,
+          originalFileName:
+            resume.originalFileName,
 
-            resumeUrl:
-              resume.resumeUrl,
+          resumeUrl:
+            resume.resumeUrl,
 
-            extractedData:
-              resume.extractedData,
-          }
+          extractedData:
+            resume.extractedData,
+        }
 
         : {
 
-            uploaded: false,
-          },
+          uploaded: false,
+        },
 
       profile: profile
         ? {
 
-            profilePhoto:
-              profile.profilePhoto,
+          profilePhoto:
+            profile.profilePhoto,
 
-            bio:
-              profile.bio,
+          shortBio:
+            profile.shortBio,
 
-            careerGoal:
-              profile.careerGoal,
+          preferredRole:
+            profile.preferredRole,
 
-            github:
-              profile.github,
+          location:
+            profile.location,
 
-            linkedin:
-              profile.linkedin,
+          github:
+            profile.github,
 
-            portfolio:
-              profile.portfolio,
+          linkedin:
+            profile.linkedin,
 
-            location:
-              profile.location,
+          targetCompanies:
+            profile.targetCompanies,
 
-            preferredRole:
-              profile.preferredRole,
+          experienceLevel:
+            profile.experienceLevel,
 
-            preferredIndustry:
-              profile.preferredIndustry,
+          graduationYear:
+            profile.graduationYear,
 
-            achievements:
-              profile.achievements,
-
-            socialLinks:
-              profile.socialLinks,
-          }
+          currentEducationLevel:
+            profile.currentEducationLevel,
+        }
 
         : null,
 
@@ -166,17 +163,15 @@ const calculateProfileCompletion = (
   // PROFILE
   if (profile) {
 
-    if (profile.bio) completion += 10;
+    if (profile.shortBio) completion += 10;
 
     if (profile.github) completion += 10;
 
     if (profile.linkedin) completion += 10;
 
-    if (profile.careerGoal)
-      completion += 10;
+    if (profile.preferredRole) completion += 10;
 
-    if (profile.profilePhoto)
-      completion += 10;
+    if (profile.profilePhoto) completion += 10;
   }
 
   return Math.min(completion, 100);

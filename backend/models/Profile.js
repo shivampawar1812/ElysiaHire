@@ -1,66 +1,134 @@
-const mongoose = require("mongoose");
+const mongoose =
+require("mongoose");
 
-const profileSchema = new mongoose.Schema(
+
+const profileSchema =
+new mongoose.Schema(
+
   {
+
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+
+      type:
+      mongoose.Schema.Types.ObjectId,
+
       ref: "User",
+
       required: true,
+
       unique: true,
     },
 
+
     profilePhoto: {
+
       type: String,
+
       default: "",
     },
 
-    bio: {
+
+    shortBio: {
+
       type: String,
+
+      trim: true,
+
       default: "",
     },
 
-    careerGoal: {
-      type: String,
-      default: "",
-    },
-
-    github: {
-      type: String,
-      default: "",
-    },
-
-    linkedin: {
-      type: String,
-      default: "",
-    },
-
-    portfolio: {
-      type: String,
-      default: "",
-    },
-
-    location: {
-      type: String,
-      default: "",
-    },
 
     preferredRole: {
+
       type: String,
+
+      trim: true,
+
       default: "",
     },
 
-    preferredIndustry: {
+
+    location: {
+
       type: String,
+
+      trim: true,
+
       default: "",
     },
 
-    achievements: [String],
 
-    socialLinks: [String],
+    github: {
+
+      type: String,
+
+      trim: true,
+
+      default: "",
+    },
+
+
+    linkedin: {
+
+      type: String,
+
+      trim: true,
+
+      default: "",
+    },
+
+
+    targetCompanies: [
+
+      {
+
+        type: String,
+      },
+    ],
+
+
+    experienceLevel: {
+
+      type: String,
+
+      enum: [
+
+        "Student",
+
+        "Beginner",
+
+        "Intermediate",
+
+        "Advanced",
+      ],
+
+      default: "Student",
+    },
+
+
+    graduationYear: {
+
+      type: Number,
+    },
+
+
+    currentEducationLevel: {
+
+      type: String,
+
+      default: "",
+    },
   },
+
   {
+
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Profile", profileSchema);
+
+module.exports =
+mongoose.model(
+  "Profile",
+  profileSchema
+);

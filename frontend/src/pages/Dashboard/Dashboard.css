@@ -1,615 +1,805 @@
-/* ================= PROFILE SECTION ================= */
+/* Dashboard.css - ElysiaHire Modern Dashboard */
 
-.profile-section {
-  padding: 50px 40px;
-
-  display: flex;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* PROFILE CARD */
+body {
+  background: #0f172a;
+  color: #e8e8ec;
+  min-height: 100vh;
+}
+
+/* ============ LAYOUT ============ */
+.profile-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 3vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ============ PROFILE CARD ============ */
+.profile-section {
+  position: sticky;
+
+  top: 100px; /* prevents overlap with fixed header */
+
+  z-index: 2;
+
+  align-self: start;
+}
+
 
 .profile-card {
-  width: 100%;
-  max-width: 1000px;
-
   background: linear-gradient(145deg, #1a2235, #141c2f);
+
+  border: 1px solid rgba(201, 180, 138, 0.12);
 
   border-radius: 24px;
 
-  padding: 40px;
+  padding: 2rem 1.75rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+
+  overflow: hidden;
+
+  z-index: 2;
 }
 
-/* TOP SECTION */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 90px;
+  background: linear-gradient(135deg, rgba(201, 180, 138, 0.18), rgba(248, 246, 240, 0.04));
+  pointer-events: none;
+}
 
 .profile-top {
   display: flex;
+  flex-direction: column;
   align-items: center;
-
-  gap: 28px;
-
-  margin-bottom: 25px;
+  text-align: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* PROFILE IMAGE */
-
-.profile-top img {
-  width: 120px;
-  height: 120px;
-
+.profile-image {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-
   object-fit: cover;
-
-  border: 4px solid #c9b48a;
+  border: 3px solid #c9b48a;
+  box-shadow: 0 6px 20px rgba(201, 180, 138, 0.25);
+  background: #0f172a;
 }
 
-/* PROFILE INFO */
-
-.profile-info h2 {
-  font-size: 2rem;
-
-  color: #f8f6f0;
-
-  margin-bottom: 26px;
+.profile-info h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.35rem;
 }
 
-.profile-info p {
+.profile-role {
   color: #cbd5e1;
-
-  margin-bottom: 10px;
-
-  margin-top: 15px;
-
-  font-size: 1rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
 
+.profile-location {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
 
-/* PROGRESS SECTION */
+.profile-location i {
+  color: #c9b48a;
+}
 
+/* Education / level chips */
+.education-info,
+.profile-level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.education-info span,
+.profile-level span {
+  background: rgba(201, 180, 138, 0.08);
+  border: 1px solid rgba(201, 180, 138, 0.25);
+  color: #e8e8ec;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+/* Progress */
 .progress-section {
-  margin-bottom: 35px;
+  margin-top: 1.75rem;
 }
 
 .progress-text {
   display: flex;
   justify-content: space-between;
-
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 0.6rem;
 }
 
 .progress-text h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #f8f6f0;
 }
 
 .progress-text span {
   color: #c9b48a;
-
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
-
-/* PROGRESS BAR */
 
 .progress-bar {
   width: 100%;
-  height: 14px;
-
-  background: #0f172a;
-
-  border-radius: 20px;
-
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .progress-fill {
-  width: 68%;
   height: 100%;
-
-  background: linear-gradient(90deg, #f8f6f0, #c9b48a);
-
-  border-radius: 20px;
+  background: linear-gradient(90deg, #c9b48a, #f8f6f0);
+  border-radius: 999px;
+  transition: width 0.6s ease;
 }
 
-/* SKILLS */
-
-.skills-section {
-  margin-bottom: 35px;
+/* Sections inside card */
+.skills-section,
+.target-companies,
+.goals-section {
+  margin-top: 1.75rem;
 }
 
-.skills-section h3 {
-  color: #f8f6f0;
-
-  margin-bottom: 16px;
+.skills-section h3,
+.target-companies h3,
+.goals-section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
 }
 
-.skills {
+.skills,
+.company-tags {
   display: flex;
   flex-wrap: wrap;
-
-  gap: 14px;
+  gap: 0.5rem;
 }
 
-.skills span {
-  padding: 10px 18px;
-
-  background: rgba(255, 255, 255, 0.06);
-
+.skill-badge,
+.company-tag {
+  background: rgba(248, 246, 240, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
-
-  border-radius: 30px;
-
-  color: #e2e8f0;
-
-  font-size: 0.9rem;
+  color: #e8e8ec;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
 }
 
-/* GOALS */
-
-.goals-section {
-  margin-bottom: 35px;
-}
-
-.goals-section h3 {
-  color: #f8f6f0;
-
-  margin-bottom: 14px;
+.skill-badge:hover,
+.company-tag:hover {
+  border-color: #c9b48a;
+  color: #c9b48a;
+  transform: translateY(-1px);
 }
 
 .goals-section p {
   color: #cbd5e1;
-
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-/* BUTTONS */
-
-.profile-buttons {
+/* Socials */
+.profile-socials {
   display: flex;
-
-  gap: 18px;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
 }
 
-.profile-buttons button {
-  padding: 12px 24px;
+.profile-socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f8f6f0;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
 
+.profile-socials a:hover {
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.profile-buttons {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-btn {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+  color: #111827;
   border: none;
   border-radius: 12px;
-
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 180, 138, 0.3);
+}
+
+/* PROFILE IMAGE WRAPPER */
+
+.profile-image-wrapper {
+  position: relative;
+
+  width: fit-content;
+}
+
+/* CAMERA BUTTON */
+
+.profile-camera-icon {
+  position: absolute;
+
+  bottom: 4px;
+
+  right: 4px;
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #c9b48a;
+
+  color: #111827;
 
   cursor: pointer;
+
+  border: 3px solid #1a2235;
+
+  z-index: 5;
 
   transition: 0.25s ease;
 }
 
-/* FIRST BUTTON */
-
-.profile-buttons button:first-child {
-  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
-
-  color: #111827;
-}
-
-/* SECOND BUTTON */
-
-.profile-buttons button:last-child {
-  background: transparent;
-
-  border: 1px solid #f8f6f0;
-
-  color: #f8f6f0;
-}
-
-.profile-buttons button:hover {
-  transform: translateY(-3px);
+.profile-camera-icon:hover {
+  transform: scale(1.08);
 }
 
 
-/* ================= RESUME ANALYZER ================= */
-
+/* ============ RESUME ANALYZER ============ */
 .resume-analyzer {
-  padding: 60px 40px;
-}
-
-/* SECTION TITLE */
-
-.section-title {
-  margin-bottom: 40px;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-
-  margin-bottom: 12px;
-
-  background: linear-gradient(90deg, #f8f6f0, #c9b48a);
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-}
-
-.section-title p {
-  color: #94a3b8;
-
-  max-width: 1000px;
-}
-
-/* TOP GRID */
-
-.resume-top-grid {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 25px;
-
-  margin-bottom: 25px;
-}
-
-/* COMMON CARD */
-
-.resume-card {
-  background: linear-gradient(145deg, #1a2235, #141c2f);
-
-  border-radius: 22px;
-
-  padding: 30px;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* CARD TITLES */
-
-.resume-card h3 {
-  color: #f8f6f0;
-
-  margin-bottom: 18px;
-
-  font-size: 1.3rem;
-}
-
-/* =========================
-   UPLOAD CARD
-========================= */
-
-.upload-card {
-  text-align: center;
-}
-
-
-/* =========================
-   TEXT
-========================= */
-
-.upload-card p {
-
-  color: #94a3b8;
-
-  margin-bottom: 25px;
-}
-
-
-/* =========================
-   FILE STATUS
-========================= */
-
-.resume-status {
-
-  margin-bottom: 22px;
-}
-
-
-.resume-success {
-
-  color: #8fffa2;
-
-  font-weight: 600;
-
-  margin-bottom: 8px;
-}
-
-
-.resume-name {
-
-  color: #cbd5e1;
-
-  font-size: 0.95rem;
-
-  word-break: break-word;
-}
-
-
-/* =========================
-   FILE INPUT
-========================= */
-
-.file-input-wrapper {
-
   display: flex;
 
   flex-direction: column;
 
-  align-items: center;
+  gap: 1.5rem;
 
-  gap: 18px;
+  position: relative;
+
+  z-index: 1;
+
+  min-width: 0;
 }
 
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
 
-/* HIDE DEFAULT INPUT */
+.section-title p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.resume-top-grid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 1fr;
+
+  gap: 1.5rem;
+
+  align-items: stretch;
+}
+
+.resume-card {
+  background: linear-gradient(145deg, #1a2235, #141c2f);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.resume-card:hover {
+  border-color: rgba(201, 180, 138, 0.25);
+  transform: translateY(-3px);
+}
+
+.resume-card h3 {
+  font-size: 1.1rem;
+  color: #f8f6f0;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Upload card */
+
+/* .upload-card {
+  display: card;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+} */
+
+.resume-status {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.resume-success {
+  color: #4ade80;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.resume-name {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  word-break: break-all;
+  text-align: center;
+}
+
+.no-resume {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.file-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
 
 .file-input-wrapper input[type="file"] {
-
   display: none;
 }
 
-
-/* CUSTOM BUTTON */
-
 .custom-file-upload {
-
-  padding: 13px 28px;
-
-  border-radius: 14px;
-
-  background:
-    rgba(255, 255, 255, 0.06);
-
-  border:
-    1px solid rgba(255, 255, 255, 0.08);
-
-  color: white;
-
-  font-weight: 600;
-
+  display: inline-block;
+  text-align: center;
+  padding: 0.8rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #f8f6f0;
+  font-size: 0.9rem;
   cursor: pointer;
-
-  transition: 0.3s;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
+  transition: all 0.2s ease;
 }
-
 
 .custom-file-upload:hover {
-
-  background:
-    rgba(255, 255, 255, 0.1);
-
-  transform: translateY(-2px);
+  border-color: #c9b48a;
+  color: #c9b48a;
 }
-
-
-/* FILE NAME */
 
 .selected-file-name {
-
-  color: #94a3b8;
-
-  font-size: 0.9rem;
-
+  color: #c9b48a;
+  font-size: 0.85rem;
+  word-break: break-all;
   text-align: center;
-
-  word-break: break-word;
 }
 
-
-/* =========================
-   BUTTON
-========================= */
-
-.upload-card button {
-
-  padding: 14px 32px;
-
-  border: none;
-
-  border-radius: 14px;
-
-  background:
-    linear-gradient(135deg,
-      #f8f6f0,
-      #c9b48a);
-
+.file-input-wrapper button {
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
   color: #111827;
-
-  font-size: 1rem;
-
-  font-weight: 700;
-
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-
-  transition: 0.25s ease;
-
-  min-width: 220px;
+  transition: all 0.25s ease;
 }
 
-
-.upload-card button:hover {
-
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 10px 25px rgba(201, 180, 138, 0.25);
+.file-input-wrapper button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 180, 138, 0.3);
 }
 
-
-.upload-card button:disabled {
-
-  opacity: 0.5;
-
+.file-input-wrapper button:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
-
-  transform: none;
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 768px) {
-
-  .upload-card {
-
-    padding: 35px 25px;
-  }
-
-  .upload-card h2 {
-
-    font-size: 1.6rem;
-  }
-}
-
-/* ATS SCORE */
-
+/* ATS card */
 .ats-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding-top: 30px;
 }
 
 .ats-circle {
-  width: 160px;
-  height: 160px;
-
-  margin: 25px auto;
-
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  display: grid;
+  place-items: center;
   background:
-    conic-gradient(#c9b48a 0% 82%,
-      #23304b 82% 100%);
-
+    radial-gradient(circle at center, #1a2235 60%, transparent 61%),
+    conic-gradient(#c9b48a 0% 82%, rgba(255, 255, 255, 0.08) 82% 100%);
+  margin: 0.5rem 0 1rem;
   position: relative;
-}
-
-.ats-circle::before {
-  content: "";
-
-  position: absolute;
-
-  width: 125px;
-  height: 125px;
-
-  border-radius: 50%;
-
-  background: #141c2f;
 }
 
 .ats-circle span {
-  position: relative;
-
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-
-  color: #f8f6f0;
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .ats-card p {
   color: #94a3b8;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  max-width: 240px;
 }
 
 
+/* =========================================================
+   RESPONSIVE DESIGN - ELYSIAHIRE DASHBOARD
+========================================================= */
 
+/* ---------- LARGE TABLETS ---------- */
 
+@media (max-width: 1200px) {
 
-.footer-bottom p {
-
-  color: #94a3b8;
-
-  font-size: 0.9rem;
-
-  letter-spacing: 0.3px
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 700px) {
-
-  .profile-card {
-    padding: 30px 22px;
+  .profile-main {
+    grid-template-columns: 320px 1fr;
+    gap: 1.5rem;
   }
 
-  .profile-top {
-    flex-direction: column;
+  .resume-top-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .ats-card {
+    min-height: 320px;
+  }
+}
+
+
+/* ---------- TABLETS ---------- */
+
+@media (max-width: 1024px) {
+
+  .profile-main {
+    grid-template-columns: 1fr;
+    padding: 6rem 1.5rem 2rem;
+  }
+
+  .profile-section {
+    position: static;
+    width: 100%;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+
+  .resume-analyzer {
+    width: 100%;
+  }
+
+  .section-title {
     text-align: center;
   }
 
-  .profile-buttons {
-    flex-direction: column;
+  .section-title p {
+    margin: 0 auto;
   }
 
-  .profile-info h2 {
-    font-size: 1.6rem;
+  .resume-top-grid {
+    grid-template-columns: 1fr;
   }
 
-  .profile-top img {
-    width: 100px;
-    height: 100px;
+  .ats-card {
+    padding: 2rem;
   }
 }
 
-/* ================= RESPONSIVE ================= */
 
-@media (max-width: 850px){
+/* ---------- SMALL TABLETS ---------- */
 
-    .resume-top-grid,
-    .analytics-grid{
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 768px) {
 
-    .preview-top{
-        flex-direction: column;
+  .profile-main {
+    padding: 5.5rem 1rem 2rem;
+    gap: 1.25rem;
+  }
 
-        align-items: flex-start;
+  .profile-card,
+  .resume-card {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
 
-        gap: 15px;
-    }
+  .profile-info h1 {
+    font-size: 1.35rem;
+  }
+
+  .profile-role {
+    font-size: 0.9rem;
+  }
+
+  .profile-location {
+    font-size: 0.8rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .section-title p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .skills,
+  .company-tags {
+    justify-content: center;
+  }
+
+  .skill-badge,
+  .company-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .edit-btn,
+  .file-input-wrapper button,
+  .custom-file-upload {
+    width: 100%;
+  }
+
+  .ats-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ats-circle span {
+    font-size: 1.5rem;
+  }
 }
 
-/* MOBILE */
 
-@media (max-width: 600px){
+/* ---------- MOBILE ---------- */
 
-    .resume-analyzer{
-        padding: 40px 20px;
-    }
+@media (max-width: 600px) {
 
-    .section-title h2{
-        font-size: 2rem;
-    }
+  body {
+    overflow-x: hidden;
+  }
 
-    .resume-card{
-        padding: 24px;
-    }
+  .profile-main {
+    padding: 5rem 0.8rem 1.5rem;
+  }
 
-    .ats-circle{
-        width: 130px;
-        height: 130px;
-    }
+  .profile-card,
+  .resume-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
 
-    .ats-circle::before{
-        width: 100px;
-        height: 100px;
-    }
+  .profile-image {
+    width: 90px;
+    height: 90px;
+  }
 
-    .ats-circle span{
-        font-size: 1.5rem;
-    }
+  .profile-camera-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .profile-info h1 {
+    font-size: 1.2rem;
+  }
+
+  .education-info,
+  .profile-level {
+    gap: 0.4rem;
+  }
+
+  .education-info span,
+  .profile-level span {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .progress-text h3,
+  .progress-text span {
+    font-size: 0.8rem;
+  }
+
+  .skills-section h3,
+  .target-companies h3,
+  .goals-section h3 {
+    font-size: 0.78rem;
+  }
+
+  .goals-section p {
+    font-size: 0.85rem;
+  }
+
+  .profile-socials {
+    gap: 0.7rem;
+  }
+
+  .profile-socials a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .resume-card h3 {
+    font-size: 1rem;
+  }
+
+  .custom-file-upload,
+  .file-input-wrapper button {
+    padding: 0.8rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  .resume-status,
+  .no-resume {
+    padding: 0.75rem;
+  }
+
+  .resume-name,
+  .selected-file-name {
+    font-size: 0.75rem;
+  }
+
+  .ats-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .ats-circle {
+    width: 105px;
+    height: 105px;
+  }
+
+  .ats-circle span {
+    font-size: 1.3rem;
+  }
+
+  .ats-card p {
+    font-size: 0.82rem;
+  }
+}
+
+
+/* ---------- EXTRA SMALL DEVICES ---------- */
+
+@media (max-width: 400px) {
+
+  .profile-main {
+    padding-inline: 0.6rem;
+  }
+
+  .profile-card,
+  .resume-card {
+    padding: 1rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.45rem;
+  }
+
+  .section-title p {
+    font-size: 0.82rem;
+  }
+
+  .profile-image {
+    width: 82px;
+    height: 82px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.05rem;
+  }
+
+  .skill-badge,
+  .company-tag {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ats-circle {
+    width: 95px;
+    height: 95px;
+  }
+
+  .ats-circle span {
+    font-size: 1.1rem;
+  }
 }

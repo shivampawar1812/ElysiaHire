@@ -1,4 +1,38 @@
 /* ================= RESET ================= */
+/* =========================
+   AUTOFILL FIX
+========================= */
+
+.modal-container input:-webkit-autofill,
+
+.modal-container input:-webkit-autofill:hover,
+
+.modal-container input:-webkit-autofill:focus,
+
+.modal-container textarea:-webkit-autofill,
+
+.modal-container textarea:-webkit-autofill:hover,
+
+.modal-container textarea:-webkit-autofill:focus {
+
+    -webkit-box-shadow:
+    0 0 0 1000px
+    rgba(255,255,255,0.045)
+    inset !important;
+
+    -webkit-text-fill-color:
+    #f8f6f0 !important;
+
+    caret-color:
+    #f8f6f0;
+
+    border:
+    1px solid rgba(255,255,255,0.07);
+
+    transition:
+    background-color 9999s ease-in-out 0s;
+}
+
 
 * {
     margin: 0;

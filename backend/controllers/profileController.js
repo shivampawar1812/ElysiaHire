@@ -10,17 +10,27 @@ const updateProfile = async (req, res) => {
   try {
 
     const {
+
       profilePhoto,
-      bio,
-      careerGoal,
-      github,
-      linkedin,
-      portfolio,
-      location,
+
+      shortBio,
+
       preferredRole,
-      preferredIndustry,
-      achievements,
-      socialLinks,
+
+      location,
+
+      github,
+
+      linkedin,
+
+      targetCompanies,
+
+      experienceLevel,
+
+      graduationYear,
+
+      currentEducationLevel,
+
     } = req.body;
 
     const profile =
@@ -31,29 +41,28 @@ const updateProfile = async (req, res) => {
         },
 
         {
+
           user: req.user.id,
 
           profilePhoto,
 
-          bio,
+          shortBio,
 
-          careerGoal,
+          preferredRole,
+
+          location,
 
           github,
 
           linkedin,
 
-          portfolio,
+          targetCompanies,
 
-          location,
+          experienceLevel,
 
-          preferredRole,
+          graduationYear,
 
-          preferredIndustry,
-
-          achievements,
-
-          socialLinks,
+          currentEducationLevel,
         },
 
         {
@@ -80,6 +89,104 @@ const updateProfile = async (req, res) => {
 
       message:
         "Error updating profile",
+
+      error: error.message,
+    });
+  }
+};
+
+
+const fs =
+require("fs");
+
+
+// ======================================
+// UPLOAD PROFILE PHOTO
+// ======================================
+
+const uploadProfilePhoto =
+async (req, res) => {
+
+  try {
+
+    if (!req.file) {
+
+      return res.status(400).json({
+
+        success: false,
+
+        message:
+        "Profile image is required",
+      });
+    }
+
+
+    // FIND EXISTING PROFILE
+    const existingProfile =
+      await Profile.findOne({
+
+        user: req.user.id,
+      });
+
+
+    // DELETE OLD PHOTO
+    if (
+      existingProfile &&
+      existingProfile.profilePhoto &&
+      fs.existsSync(
+        existingProfile.profilePhoto
+      )
+    ) {
+
+      fs.unlinkSync(
+        existingProfile.profilePhoto
+      );
+    }
+
+
+    // UPDATE PROFILE PHOTO
+    const profile =
+      await Profile.findOneAndUpdate(
+
+        {
+          user: req.user.id,
+        },
+
+        {
+          profilePhoto:
+          req.file.path,
+        },
+
+        {
+
+          upsert: true,
+
+          returnDocument:
+          "after",
+        }
+      );
+
+
+    return res.status(200).json({
+
+      success: true,
+
+      message:
+      "Profile photo uploaded successfully",
+
+      profile,
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    return res.status(500).json({
+
+      success: false,
+
+      message:
+      "Error uploading profile photo",
 
       error: error.message,
     });
@@ -137,4 +244,6 @@ module.exports = {
   updateProfile,
 
   getProfile,
+
+  uploadProfilePhoto,
 };
