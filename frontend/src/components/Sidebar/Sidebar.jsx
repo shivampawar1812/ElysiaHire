@@ -55,10 +55,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           <Link
             to="/home"
           onClick={() =>
-            setIsOpen(false),window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })
+            setIsOpen(false)
           }
           >
             Home

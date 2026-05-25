@@ -1,0 +1,311 @@
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding-top: 100px;
+
+  z-index: 999;
+
+  overflow-y: auto;
+}
+
+
+/* =========================
+   MODAL CONTAINER
+========================= */
+
+.modal-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background: linear-gradient(145deg, #1a2235, #141c2f);
+
+    width: 100%;
+
+    max-width: 700px;
+
+    border-radius: 28px;
+
+    padding: 35px 40px 40px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    position: center;
+
+    margin-top: 10px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.modal-container h2 {
+    text-align: center;
+
+    font-size: 2rem;
+
+    margin-bottom: 12px;
+
+    background: linear-gradient(90deg,
+            #f8f6f0,
+            #c9b48a);
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.modal-container form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.modal-container input,
+
+.modal-container textarea {
+
+    width: 100%;
+
+    padding: 17px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #f8f6f0;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+
+/* PLACEHOLDER */
+
+.modal-container input::placeholder,
+
+.modal-container textarea::placeholder {
+   color: #7f8aa0;
+}
+
+
+/* FOCUS EFFECT */
+
+.modal-container input:focus,
+
+.modal-container textarea:focus {
+
+    border-color: #c9b48a;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 0 0 4px rgba(201, 180, 138, 0.1);
+}
+
+
+/* TEXTAREA */
+
+.modal-container textarea {
+
+  min-height: 8px;
+
+  resize: none;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.modal-buttons {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 10px;
+}
+
+
+.modal-buttons button {
+
+  flex: 1;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+/* SAVE BUTTON */
+
+.modal-buttons button[type="submit"] {
+
+    width: 90%;
+
+    padding: 1px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg,
+            #f8f6f0,
+            #c9b48a);
+
+    color: #111827;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.modal-buttons button[type="submit"]:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(201, 180, 138, 0.2);
+}
+
+
+/* CANCEL BUTTON */
+
+.modal-buttons button[type="button"] {
+
+    width: 90%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    border:1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color:#f8f6f0;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.modal-buttons button[type="button"]:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(201, 180, 138, 0.2);
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes modalFade {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+  .modal-container {
+
+    width: 90%;
+
+    padding: 25px;
+  }
+
+  .modal-buttons {
+
+    flex-direction: column;
+  }
+}

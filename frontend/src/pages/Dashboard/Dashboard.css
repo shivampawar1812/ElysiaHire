@@ -1,0 +1,615 @@
+/* ================= PROFILE SECTION ================= */
+
+.profile-section {
+  padding: 50px 40px;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* PROFILE CARD */
+
+.profile-card {
+  width: 100%;
+  max-width: 1000px;
+
+  background: linear-gradient(145deg, #1a2235, #141c2f);
+
+  border-radius: 24px;
+
+  padding: 40px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* TOP SECTION */
+
+.profile-top {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-bottom: 25px;
+}
+
+/* PROFILE IMAGE */
+
+.profile-top img {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 4px solid #c9b48a;
+}
+
+/* PROFILE INFO */
+
+.profile-info h2 {
+  font-size: 2rem;
+
+  color: #f8f6f0;
+
+  margin-bottom: 26px;
+}
+
+.profile-info p {
+  color: #cbd5e1;
+
+  margin-bottom: 10px;
+
+  margin-top: 15px;
+
+  font-size: 1rem;
+}
+
+
+/* PROGRESS SECTION */
+
+.progress-section {
+  margin-bottom: 35px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+.progress-text h3 {
+  color: #f8f6f0;
+}
+
+.progress-text span {
+  color: #c9b48a;
+
+  font-weight: 600;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+
+  background: #0f172a;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 68%;
+  height: 100%;
+
+  background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+  border-radius: 20px;
+}
+
+/* SKILLS */
+
+.skills-section {
+  margin-bottom: 35px;
+}
+
+.skills-section h3 {
+  color: #f8f6f0;
+
+  margin-bottom: 16px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+}
+
+.skills span {
+  padding: 10px 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 30px;
+
+  color: #e2e8f0;
+
+  font-size: 0.9rem;
+}
+
+/* GOALS */
+
+.goals-section {
+  margin-bottom: 35px;
+}
+
+.goals-section h3 {
+  color: #f8f6f0;
+
+  margin-bottom: 14px;
+}
+
+.goals-section p {
+  color: #cbd5e1;
+
+  line-height: 1.7;
+}
+
+/* BUTTONS */
+
+.profile-buttons {
+  display: flex;
+
+  gap: 18px;
+}
+
+.profile-buttons button {
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+/* FIRST BUTTON */
+
+.profile-buttons button:first-child {
+  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
+
+  color: #111827;
+}
+
+/* SECOND BUTTON */
+
+.profile-buttons button:last-child {
+  background: transparent;
+
+  border: 1px solid #f8f6f0;
+
+  color: #f8f6f0;
+}
+
+.profile-buttons button:hover {
+  transform: translateY(-3px);
+}
+
+
+/* ================= RESUME ANALYZER ================= */
+
+.resume-analyzer {
+  padding: 60px 40px;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, #f8f6f0, #c9b48a);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title p {
+  color: #94a3b8;
+
+  max-width: 1000px;
+}
+
+/* TOP GRID */
+
+.resume-top-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  margin-bottom: 25px;
+}
+
+/* COMMON CARD */
+
+.resume-card {
+  background: linear-gradient(145deg, #1a2235, #141c2f);
+
+  border-radius: 22px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* CARD TITLES */
+
+.resume-card h3 {
+  color: #f8f6f0;
+
+  margin-bottom: 18px;
+
+  font-size: 1.3rem;
+}
+
+/* =========================
+   UPLOAD CARD
+========================= */
+
+.upload-card {
+  text-align: center;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.upload-card p {
+
+  color: #94a3b8;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   FILE STATUS
+========================= */
+
+.resume-status {
+
+  margin-bottom: 22px;
+}
+
+
+.resume-success {
+
+  color: #8fffa2;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+
+.resume-name {
+
+  color: #cbd5e1;
+
+  font-size: 0.95rem;
+
+  word-break: break-word;
+}
+
+
+/* =========================
+   FILE INPUT
+========================= */
+
+.file-input-wrapper {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* HIDE DEFAULT INPUT */
+
+.file-input-wrapper input[type="file"] {
+
+  display: none;
+}
+
+
+/* CUSTOM BUTTON */
+
+.custom-file-upload {
+
+  padding: 13px 28px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.custom-file-upload:hover {
+
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  transform: translateY(-2px);
+}
+
+
+/* FILE NAME */
+
+.selected-file-name {
+
+  color: #94a3b8;
+
+  font-size: 0.9rem;
+
+  text-align: center;
+
+  word-break: break-word;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.upload-card button {
+
+  padding: 14px 32px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(135deg,
+      #f8f6f0,
+      #c9b48a);
+
+  color: #111827;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  min-width: 220px;
+}
+
+
+.upload-card button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(201, 180, 138, 0.25);
+}
+
+
+.upload-card button:disabled {
+
+  opacity: 0.5;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .upload-card {
+
+    padding: 35px 25px;
+  }
+
+  .upload-card h2 {
+
+    font-size: 1.6rem;
+  }
+}
+
+/* ATS SCORE */
+
+.ats-card {
+  text-align: center;
+}
+
+.ats-circle {
+  width: 160px;
+  height: 160px;
+
+  margin: 25px auto;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    conic-gradient(#c9b48a 0% 82%,
+      #23304b 82% 100%);
+
+  position: relative;
+}
+
+.ats-circle::before {
+  content: "";
+
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  background: #141c2f;
+}
+
+.ats-circle span {
+  position: relative;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #f8f6f0;
+}
+
+.ats-card p {
+  color: #94a3b8;
+}
+
+
+
+
+
+.footer-bottom p {
+
+  color: #94a3b8;
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.3px
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+  .profile-card {
+    padding: 30px 22px;
+  }
+
+  .profile-top {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .profile-buttons {
+    flex-direction: column;
+  }
+
+  .profile-info h2 {
+    font-size: 1.6rem;
+  }
+
+  .profile-top img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px){
+
+    .resume-top-grid,
+    .analytics-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .preview-top{
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px){
+
+    .resume-analyzer{
+        padding: 40px 20px;
+    }
+
+    .section-title h2{
+        font-size: 2rem;
+    }
+
+    .resume-card{
+        padding: 24px;
+    }
+
+    .ats-circle{
+        width: 130px;
+        height: 130px;
+    }
+
+    .ats-circle::before{
+        width: 100px;
+        height: 100px;
+    }
+
+    .ats-circle span{
+        font-size: 1.5rem;
+    }
+}

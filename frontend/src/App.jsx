@@ -12,6 +12,8 @@ import OTPVerification from "./pages/OTPVerification/OTPVerification";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetOTPVerification from "./pages/ResetOTPVerification/ResetOTPVerification";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 
 
 function App() {
@@ -61,6 +63,14 @@ function App() {
           path="/reset-password"
           element={<ResetPassword />}
         />
+
+        <Route
+          path="/dashboard"
+          element={
+              <Dashboard />
+          }
+        />
+
       </Routes>
 
     </BrowserRouter>

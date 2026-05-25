@@ -176,6 +176,7 @@ const Register = () => {
                 name="name"
                 placeholder="Full Name"
                 onChange={handleChange}
+                required
               />
 
               <input
@@ -183,6 +184,7 @@ const Register = () => {
                 name="email"
                 placeholder="Email Address"
                 onChange={handleChange}
+                required
               />
 
               <input
@@ -210,6 +212,7 @@ const Register = () => {
                 name="confirmPassword"
                 placeholder="Confirm Password"
                 onChange={handleChange}
+                required
               />
 
               <button type="submit">

@@ -1,37 +1,85 @@
 const mongoose = require("mongoose");
-const resumeSchema = new mongoose.Schema({
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: false
+
+const resumeSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      unique: true,
     },
 
-    filename: {
-        type: String,
-        required: true
-    },
-
-    originalName: {
-        type: String,
-        required: true
+    originalFileName: {
+      type: String,
+      required: true,
     },
 
     resumeUrl: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
 
-    extractedText: {
-        type: String,
-        default: ""
+    parsedText: {
+      type: String,
+      default: "",
     },
 
-    uploadDate: {
-        type: Date,
-        default: Date.now
-    }
-}
+    extractedData: {
+      name: String,
+
+      email: String,
+
+      phone: String,
+
+      location: String,
+
+      github: String,
+
+      linkedin: String,
+
+      college: String,
+
+      education: [
+        {
+          degree: String,
+          institution: String,
+          year: String,
+        },
+      ],
+
+      skills: [
+        {
+          name: String,
+          level: {
+            type: String,
+            default: "Intermediate",
+          },
+        },
+      ],
+
+      projects: [
+        {
+          title: String,
+          description: String,
+          techStack: [String],
+        },
+      ],
+
+      experience: [
+        {
+          company: String,
+          role: String,
+          duration: String,
+          description: String,
+        },
+      ],
+
+      certifications: [String],
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = mongoose.model("Resume", resumeSchema);
-

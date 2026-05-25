@@ -14,13 +14,9 @@ const userSchema = new mongoose.Schema(
     },
 
     mobile: {
-
       type: String,
-
       required: true,
-
       match: [/^[0-9]{10}$/, "Mobile number must be 10 digits"],
-
     },
 
     password: {
@@ -29,21 +25,17 @@ const userSchema = new mongoose.Schema(
     },
 
     otp: {
-
       type: String,
 
     },
 
     otpExpiry: {
-
       type: Date,
 
     },
 
     isVerified: {
-
       type: Boolean,
-
       default: false,
 
     },
@@ -62,6 +54,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["student", "recruiter", "admin"],
       default: "student",
+    },
+
+    activeResume: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Resume"
     },
 
   },
