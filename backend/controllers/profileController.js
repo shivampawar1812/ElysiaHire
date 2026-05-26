@@ -104,6 +104,9 @@ require("fs");
 // UPLOAD PROFILE PHOTO
 // ======================================
 
+const imagekit =
+require("../config/imagekit");
+
 const uploadProfilePhoto =
 async (req, res) => {
 
@@ -120,31 +123,55 @@ async (req, res) => {
       });
     }
 
-
     // FIND EXISTING PROFILE
+
     const existingProfile =
       await Profile.findOne({
 
         user: req.user.id,
       });
 
+    // DELETE OLD IMAGE FROM IMAGEKIT
 
-    // DELETE OLD PHOTO
     if (
-      existingProfile &&
-      existingProfile.profilePhoto &&
-      fs.existsSync(
-        existingProfile.profilePhoto
-      )
+      existingProfile?.profilePhotoFileId
     ) {
 
-      fs.unlinkSync(
-        existingProfile.profilePhoto
-      );
+      try {
+
+        await imagekit.deleteFile(
+
+          existingProfile
+          .profilePhotoFileId
+        );
+
+      } catch (deleteError) {
+
+        console.log(
+          "Old image delete failed:"
+        );
+
+        console.log(deleteError);
+      }
     }
 
+    // UPLOAD NEW IMAGE
 
-    // UPDATE PROFILE PHOTO
+    const uploadedImage =
+      await imagekit.upload({
+
+        file:
+          req.file.buffer,
+
+        fileName:
+          `${Date.now()}-${req.file.originalname}`,
+
+        folder:
+          "/elysiahire/profile-photos",
+      });
+
+    // UPDATE DATABASE
+
     const profile =
       await Profile.findOneAndUpdate(
 
@@ -153,19 +180,21 @@ async (req, res) => {
         },
 
         {
+
           profilePhoto:
-          req.file.path,
+            uploadedImage.url,
+
+          profilePhotoFileId:
+            uploadedImage.fileId,
         },
 
         {
 
           upsert: true,
 
-          returnDocument:
-          "after",
+          new: true,
         }
       );
-
 
     return res.status(200).json({
 
@@ -188,12 +217,11 @@ async (req, res) => {
       message:
       "Error uploading profile photo",
 
-      error: error.message,
+      error:
+      error.message,
     });
   }
 };
-
-
 // ==========================================
 // GET PROFILE
 // ==========================================

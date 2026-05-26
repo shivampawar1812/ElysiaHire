@@ -1,4 +1,4 @@
-const fs = require("fs");
+
 const path = require("path");
 const pdfParse = require("pdf-parse");
 const mammoth = require("mammoth");
@@ -9,70 +9,76 @@ const textract = require("textract");
 // EXTRACT TEXT FROM FILE
 // ================================
 
-const extractTextFromFile = async (filePath) => {
+const extractTextFromFile =
+  async (
+    fileBuffer,
+    fileName
+  ) => {
 
-  const ext = path.extname(filePath).toLowerCase();
+    const ext =
+      path.extname(fileName)
+        .toLowerCase();
 
-  try {
+    try {
 
-    // PDF FILES
-    if (ext === ".pdf") {
+      // PDF FILES
 
-      const dataBuffer = fs.readFileSync(filePath);
+      if (ext === ".pdf") {
 
-      const pdfData = await pdfParse(dataBuffer);
+        const pdfData =
+          await pdfParse(fileBuffer);
 
-      return pdfData.text;
-    }
+        return pdfData.text;
+      }
 
-    // DOCX FILES
-    else if (ext === ".docx") {
+      // DOCX FILES
 
-      const result = await mammoth.extractRawText({
-        path: filePath,
-      });
+      else if (ext === ".docx") {
 
-      return result.value;
-    }
+        const result =
+          await mammoth.extractRawText({
 
-    // DOC FILES
-    else if (ext === ".doc") {
+            buffer:
+              fileBuffer,
+          });
 
-      return new Promise((resolve, reject) => {
+        return result.value;
+      }
 
-        textract.fromFileWithPath(
-          filePath,
-          function (error, text) {
+      // TXT FILES
 
-            if (error) {
-              reject(error);
-            } else {
-              resolve(text);
-            }
-          }
+      else if (ext === ".txt") {
+
+        return fileBuffer.toString(
+          "utf8"
         );
-      });
+      }
+
+      // DOC FILES
+
+      else if (ext === ".doc") {
+
+        throw new Error(
+          ".doc files are not supported yet"
+        );
+      }
+
+      else {
+
+        throw new Error(
+          "Unsupported file type"
+        );
+      }
+
+    } catch (error) {
+
+      console.log(error);
+
+      throw new Error(
+        "Error extracting text from resume"
+      );
     }
-
-    // TXT FILES
-    else if (ext === ".txt") {
-
-      return fs.readFileSync(filePath, "utf8");
-    }
-
-    else {
-
-      throw new Error("Unsupported file type");
-    }
-
-  } catch (error) {
-
-    throw new Error(
-      "Error extracting text from resume"
-    );
-  }
-};
-
+  };
 
 // ================================
 // NORMALIZE TEXT
@@ -460,21 +466,34 @@ const extractName = (text) => {
 // MAIN PARSER FUNCTION
 // ================================
 
-const parseResume = async (filePath) => {
+const parseResume =
+async (
+  fileBuffer,
+  fileName
+) => {
 
   // EXTRACT RAW TEXT
+
   const rawText =
-    await extractTextFromFile(filePath);
+    await extractTextFromFile(
+
+      fileBuffer,
+
+      fileName
+    );
 
   // NORMALIZE TEXT
+
   const normalizedText =
     normalizeText(rawText);
 
   // EXTRACT SECTIONS
+
   const sections =
     extractSections(rawText);
 
   // STRUCTURED DATA
+
   const extractedData = {
 
     name:
@@ -515,7 +534,8 @@ const parseResume = async (filePath) => {
 
   return {
 
-    parsedText: normalizedText,
+    parsedText:
+      normalizedText,
 
     extractedData,
   };

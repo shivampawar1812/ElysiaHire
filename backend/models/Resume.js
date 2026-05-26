@@ -19,6 +19,10 @@ const resumeSchema = new mongoose.Schema(
       required: true,
     },
 
+    resumeFileId: {
+      type: String,
+    },
+
     parsedText: {
       type: String,
       default: "",

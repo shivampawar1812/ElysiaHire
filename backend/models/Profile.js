@@ -1,134 +1,138 @@
 const mongoose =
-require("mongoose");
+  require("mongoose");
 
 
 const profileSchema =
-new mongoose.Schema(
+  new mongoose.Schema(
 
-  {
+    {
 
-    user: {
+      user: {
 
-      type:
-      mongoose.Schema.Types.ObjectId,
+        type:
+          mongoose.Schema.Types.ObjectId,
 
-      ref: "User",
+        ref: "User",
 
-      required: true,
+        required: true,
 
-      unique: true,
-    },
-
-
-    profilePhoto: {
-
-      type: String,
-
-      default: "",
-    },
+        unique: true,
+      },
 
 
-    shortBio: {
-
-      type: String,
-
-      trim: true,
-
-      default: "",
-    },
-
-
-    preferredRole: {
-
-      type: String,
-
-      trim: true,
-
-      default: "",
-    },
-
-
-    location: {
-
-      type: String,
-
-      trim: true,
-
-      default: "",
-    },
-
-
-    github: {
-
-      type: String,
-
-      trim: true,
-
-      default: "",
-    },
-
-
-    linkedin: {
-
-      type: String,
-
-      trim: true,
-
-      default: "",
-    },
-
-
-    targetCompanies: [
-
-      {
+      profilePhoto: {
 
         type: String,
+
+        default: "",
       },
-    ],
+
+      profilePhotoFileId: {
+        type: String,
+      },
 
 
-    experienceLevel: {
+      shortBio: {
 
-      type: String,
+        type: String,
 
-      enum: [
+        trim: true,
 
-        "Student",
+        default: "",
+      },
 
-        "Beginner",
 
-        "Intermediate",
+      preferredRole: {
 
-        "Advanced",
+        type: String,
+
+        trim: true,
+
+        default: "",
+      },
+
+
+      location: {
+
+        type: String,
+
+        trim: true,
+
+        default: "",
+      },
+
+
+      github: {
+
+        type: String,
+
+        trim: true,
+
+        default: "",
+      },
+
+
+      linkedin: {
+
+        type: String,
+
+        trim: true,
+
+        default: "",
+      },
+
+
+      targetCompanies: [
+
+        {
+
+          type: String,
+        },
       ],
 
-      default: "Student",
+
+      experienceLevel: {
+
+        type: String,
+
+        enum: [
+
+          "Student",
+
+          "Beginner",
+
+          "Intermediate",
+
+          "Advanced",
+        ],
+
+        default: "Student",
+      },
+
+
+      graduationYear: {
+
+        type: Number,
+      },
+
+
+      currentEducationLevel: {
+
+        type: String,
+
+        default: "",
+      },
     },
 
+    {
 
-    graduationYear: {
-
-      type: Number,
-    },
-
-
-    currentEducationLevel: {
-
-      type: String,
-
-      default: "",
-    },
-  },
-
-  {
-
-    timestamps: true,
-  }
-);
+      timestamps: true,
+    }
+  );
 
 
 module.exports =
-mongoose.model(
-  "Profile",
-  profileSchema
-);
+  mongoose.model(
+    "Profile",
+    profileSchema
+  );

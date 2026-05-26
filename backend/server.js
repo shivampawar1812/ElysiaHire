@@ -34,8 +34,6 @@ app.use("/api/profile", profileRoutes);
 
 app.use("/api/dashboard",dashboardRoutes);
 
-app.use("/uploads",express.static("uploads"));
-
 app.get("/", (req, res) => {
   res.send("ElysiaHire Backend Running");
 });

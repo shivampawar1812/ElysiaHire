@@ -1,42 +1,61 @@
-const multer = require("multer");
-const path = require("path");
+const multer =
+require("multer");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/resumes");
-  },
+const path =
+require("path");
 
-  filename: function (req, file, cb) {
-    const uniqueName =
-      Date.now() + "-" + Math.round(Math.random() * 1e9);
+const storage =
+multer.memoryStorage();
 
-    cb(
-      null,
-      uniqueName + path.extname(file.originalname)
-    );
-  },
-});
+const fileFilter =
+(req, file, cb) => {
 
-const fileFilter = (req, file, cb) => {
   const allowedFileTypes = [
+
     ".pdf",
+
     ".doc",
+
     ".docx",
+
     ".txt",
   ];
 
-  const ext = path.extname(file.originalname).toLowerCase();
+  const ext =
+    path.extname(
+      file.originalname
+    ).toLowerCase();
 
-  if (allowedFileTypes.includes(ext)) {
+  if (
+    allowedFileTypes.includes(ext)
+  ) {
+
     cb(null, true);
+
   } else {
-    cb(new Error("Unsupported file format"), false);
+
+    cb(
+      new Error(
+        "Unsupported file format"
+      ),
+      false
+    );
   }
 };
 
-const upload = multer({
+const upload =
+multer({
+
   storage,
+
   fileFilter,
+
+  limits: {
+
+    fileSize:
+      10 * 1024 * 1024,
+  },
 });
 
-module.exports = upload;
+module.exports =
+upload;
