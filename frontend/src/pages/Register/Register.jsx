@@ -119,7 +119,7 @@ const Register = () => {
               and aspiring professionals.
 
             </p>
-            <div class="hero-buttons">
+            <div className="hero-buttons">
 
               <button>
                 <a href="#signup">Get Started</a>
@@ -234,7 +234,7 @@ const Register = () => {
       </div>
 
       <footer>
-        <div class="footer-bottom">
+        <div className="footer-bottom">
           <p>© 2026 ElysiaHire. All rights reserved.</p>
         </div>
       </footer>
