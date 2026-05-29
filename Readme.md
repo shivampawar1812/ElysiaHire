@@ -418,10 +418,6 @@ Fork the repository and create a pull request for any proposed changes.
 ### Shivam Pawar
 
 AI-Powered Career Intelligence Platform Project
-
-* GitHub: https://github.com/
-* LinkedIn: https://linkedin.com/
-
 ---
 
 # 📌 Status
