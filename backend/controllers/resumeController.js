@@ -46,14 +46,6 @@ const uploadResume =
 
       console.log(parsedResume);
 
-      // FIND EXISTING RESUME
-
-      const existingResume =
-        await Resume.findOne({
-
-          user: req.user.id,
-        });
-
       // UPLOAD NEW RESUME
 
       const uploadedResume =
@@ -69,98 +61,101 @@ const uploadResume =
             "/elysiahire/resumes",
         });
 
-      // DELETE OLD RESUME FROM IMAGEKIT
+      const existingResumeCount =
+        await Resume.countDocuments({
+          user: req.user.id,
+        });
 
-      if (
-        existingResume?.resumeFileId
-      ) {
+      const versionNumber =
+        existingResumeCount + 1;
 
-        try {
+      const resume = await Resume.create({
 
-          await imagekit.deleteFile(
+        user: req.user.id,
 
-            existingResume.resumeFileId
-          );
+        versionNumber,
 
-        } catch (deleteError) {
+        originalFileName:
+          req.file.originalname,
 
-          console.log(
-            "Old resume delete failed:"
-          );
+        resumeUrl:
+          uploadedResume.url,
 
-          console.log(deleteError);
-        }
-      }
-      console.log(parsedResume);
+        resumeFileId:
+          uploadedResume.fileId,
 
-      // CREATE / UPDATE RESUME
+        parsedText:
+          parsedResume?.parsedText || "",
 
-      const resume =
-        await Resume.findOneAndUpdate(
+        extractedData: {
 
-          {
-            user: req.user.id,
-          },
+          name:
+            parsedResume?.extractedData?.name || "",
 
-          {
+          email:
+            parsedResume?.extractedData?.email || "",
 
-            user:
-              req.user.id,
+          phone:
+            parsedResume?.extractedData?.phone || "",
 
-            originalFileName:
-              req.file.originalname,
+          github:
+            parsedResume?.extractedData?.github || "",
 
-            resumeUrl:
-              uploadedResume.url,
+          linkedin:
+            parsedResume?.extractedData?.linkedin || "",
 
-            resumeFileId:
-              uploadedResume.fileId,
+          skills:
+            parsedResume?.extractedData?.skills || [],
 
-            parsedText:
-              parsedResume
-                ?.parsedText || "",
+          education:
+            parsedResume?.extractedData?.education || [],
 
-            extractedData: {
+          projects:
+            parsedResume?.extractedData?.projects || [],
 
-              skills:
-                parsedResume
-                  ?.extractedData
-                  ?.skills || [],
+          experience:
+            parsedResume?.extractedData?.experience || [],
 
-              education:
-                parsedResume
-                  ?.extractedData
-                  ?.education || [],
+          certifications:
+            parsedResume?.extractedData?.certifications || [],
+        },
+      });
 
-              projects:
-                parsedResume
-                  ?.extractedData
-                  ?.projects || [],
+      const allResumes =
+        await Resume.find({
+          user: req.user.id,
+        })
+          .sort({ createdAt: 1 });
 
-              experience:
-                parsedResume
-                  ?.extractedData
-                  ?.experience || [],
+      if (allResumes.length > 3) {
 
-              certifications:
-                parsedResume
-                  ?.extractedData
-                  ?.certifications || [],
+        const oldestResume =
+          allResumes[0];
 
-              achievements:
-                parsedResume
-                  ?.extractedData
-                  ?.achievements || [],
-            },
-          },
+        // DELETE IMAGEKIT FILE
 
-          {
+        if (oldestResume.resumeFileId) {
 
-            upsert: true,
+          try {
 
-            new: true,
+            await imagekit.deleteFile(
+              oldestResume.resumeFileId
+            );
+
+          } catch (error) {
+
+            console.log(
+              "Failed to delete old resume file"
+            );
           }
+        }
+
+        // DELETE DATABASE RECORD
+
+        await Resume.findByIdAndDelete(
+          oldestResume._id
         );
+      }
 
       console.log(resume);
 
@@ -204,11 +199,11 @@ const getResume =
 
     try {
 
-      const resume =
-        await Resume.findOne({
-
+      const resume = await Resume
+        .findOne({
           user: req.user.id,
-        });
+        })
+        .sort({ versionNumber: -1 });
 
 
       if (!resume) {
@@ -246,6 +241,43 @@ const getResume =
     }
   };
 
+// ======================================
+// GET RESUME VERSION
+// ======================================
+
+const getResumeVersions =
+  async (req, res) => {
+
+    try {
+
+      const resumes =
+        await Resume.find({
+          user: req.user.id,
+        })
+          .sort({ versionNumber: -1 });
+
+      return res.status(200).json({
+
+        success: true,
+
+        count: resumes.length,
+
+        resumes,
+      });
+
+    } catch (error) {
+
+      return res.status(500).json({
+
+        success: false,
+
+        message:
+          "Error fetching resume versions",
+
+        error: error.message,
+      });
+    }
+  };
 
 // ======================================
 // DELETE RESUME
@@ -258,6 +290,8 @@ const deleteResume =
 
       const resume =
         await Resume.findOne({
+
+          _id: req.params.resumeId,
 
           user: req.user.id,
         });
@@ -327,10 +361,8 @@ const deleteResume =
 
 
 module.exports = {
-
   uploadResume,
-
   getResume,
-
+  getResumeVersions,
   deleteResume,
 };

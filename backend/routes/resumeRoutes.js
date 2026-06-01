@@ -5,6 +5,7 @@ const router = express.Router();
 const {
   uploadResume,
   getResume,
+  getResumeVersions,
   deleteResume,
 } = require("../controllers/resumeController");
 
@@ -33,10 +34,16 @@ router.get(
   getResume
 );
 
+//GET RESUME VERSIONS
+router.get(
+   "/versions",
+   authMiddleware,
+   getResumeVersions
+);
 
 // DELETE RESUME
 router.delete(
-  "/",
+  "/:resumeId",
   authMiddleware,
   deleteResume
 );

@@ -6,7 +6,11 @@ const resumeSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      unique: true,
+    },
+
+    versionNumber: {
+      type: Number,
+      required: true,
     },
 
     originalFileName: {
@@ -27,6 +31,19 @@ const resumeSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+
+    atsScore: {
+      type: Number,
+      default: 0,
+    },
+
+    strengths: [String],
+
+    weaknesses: [String],
+
+    missingSkills: [String],
+
+    suggestions: [String],
 
     extractedData: {
       name: String,
@@ -85,5 +102,10 @@ const resumeSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+resumeSchema.index({
+  user: 1,
+  versionNumber: -1,
+});
 
 module.exports = mongoose.model("Resume", resumeSchema);
