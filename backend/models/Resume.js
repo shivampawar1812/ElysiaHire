@@ -32,18 +32,38 @@ const resumeSchema = new mongoose.Schema(
       default: "",
     },
 
-    atsScore: {
-      type: Number,
-      default: 0,
+    aiAnalysis: {
+
+      atsScore: {
+        type: Number,
+        default: 0,
+      },
+
+      strengths: {
+        type: [String],
+        default: [],
+      },
+
+      weaknesses: {
+        type: [String],
+        default: [],
+      },
+
+      missingSkills: {
+        type: [String],
+        default: [],
+      },
+
+      suggestions: {
+        type: [String],
+        default: [],
+      },
+
+      recommendedRoles: {
+        type: [String],
+        default: [],
+      },
     },
-
-    strengths: [String],
-
-    weaknesses: [String],
-
-    missingSkills: [String],
-
-    suggestions: [String],
 
     extractedData: {
       name: String,

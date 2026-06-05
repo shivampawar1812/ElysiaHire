@@ -1,19 +1,14 @@
-const Resume =
-  require("../models/Resume");
+const Resume = require("../models/Resume");
 
-const {
-  parseResume,
-} = require(
-  "../services/resumeParserService"
-);
+const { parseResume, } = require("../services/resumeParserService");
 
+const { analyzeResume } = require("../services/aiResumeService");
+
+const imagekit = require("../config/imagekit");
 
 // ======================================
 // UPLOAD RESUME
 // ======================================
-
-const imagekit =
-  require("../config/imagekit");
 
 const uploadResume =
   async (req, res) => {
@@ -41,10 +36,21 @@ const uploadResume =
 
       const parsedResume =
         await parseResume(
-          req.file.buffer, req.file.originalname
+          req.file.buffer,
+          req.file.originalname
         );
 
       console.log(parsedResume);
+
+      // AI ANALYSIS
+
+      const analysis =
+        await analyzeResume(
+          parsedResume.extractedData || ""
+        );
+
+      console.log("AI Analysis:");
+      console.log(analysis);
 
       // UPLOAD NEW RESUME
 
@@ -61,13 +67,18 @@ const uploadResume =
             "/elysiahire/resumes",
         });
 
-      const existingResumeCount =
-        await Resume.countDocuments({
+      const latestResume =
+        await Resume.findOne({
           user: req.user.id,
-        });
+        })
+          .sort({
+            versionNumber: -1,
+          });
 
       const versionNumber =
-        existingResumeCount + 1;
+        latestResume
+          ? latestResume.versionNumber + 1
+          : 1;
 
       const resume = await Resume.create({
 
@@ -86,6 +97,27 @@ const uploadResume =
 
         parsedText:
           parsedResume?.parsedText || "",
+
+        aiAnalysis: {
+
+          atsScore:
+            analysis?.atsScore || 0,
+
+          strengths:
+            analysis?.strengths || [],
+
+          weaknesses:
+            analysis?.weaknesses || [],
+
+          missingSkills:
+            analysis?.missingSkills || [],
+
+          suggestions:
+            analysis?.suggestions || [],
+
+          recommendedRoles:
+            analysis?.recommendedRoles || [],
+        },
 
         extractedData: {
 
@@ -358,7 +390,6 @@ const deleteResume =
       });
     }
   };
-
 
 module.exports = {
   uploadResume,
