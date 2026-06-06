@@ -67,7 +67,14 @@ const Dashboard = () => {
                 const data =
                     await getDashboardData();
 
-                console.log("API RESPONSE:", data);
+                console.log("DASHBOARD:", data.dashboard);
+
+                console.log("RESUME:", data.dashboard.resume);
+
+                console.log(
+                    "AI ANALYSIS:",
+                    data.dashboard.resume?.aiAnalysis
+                );
 
                 setDashboard(
                     data.dashboard
@@ -614,15 +621,182 @@ const Dashboard = () => {
 
                             <h3>ATS Score</h3>
 
-                            <div className="ats-circle">
-                                <span>82%</span>
+                            <div
+                                className="ats-circle"
+                                style={{
+                                    background: `conic-gradient(
+                                    #c9b48a 0% ${dashboard?.resume?.aiAnalysis?.atsScore || 0}%,
+                                    #334155 ${dashboard?.resume?.aiAnalysis?.atsScore || 0}% 100%
+                                    )`,
+                                }}
+                                >
+                                <span>
+                                    {dashboard?.resume?.aiAnalysis?.atsScore || 0}%
+                                </span>
                             </div>
 
                             <p>
-                                Your resume is well optimized for ATS systems.
+
+                                {
+                                    dashboard?.resume?.aiAnalysis?.atsScore >= 80
+                                        ? "Excellent ATS compatibility."
+                                        : dashboard?.resume?.aiAnalysis?.atsScore >= 60
+                                            ? "Good ATS compatibility. Some improvements recommended."
+                                            : "Your resume needs optimization."
+                                }
+
                             </p>
 
                         </div>
+                    </div>
+                    {/* Bottom Analysis Grid */}
+                    <div>
+                        {
+                            dashboard?.resume?.aiAnalysis && (
+
+                                <div className="analysis-section">
+
+                                    <h2>
+                                        AI Resume Analysis
+                                    </h2>
+
+                                    <div className="analysis-grid">
+
+                                        {/* STRENGTHS */}
+
+                                        <div className="analysis-card">
+
+                                            <h3>
+                                                Strengths
+                                            </h3>
+
+                                            <ul>
+
+                                                {
+                                                    dashboard.resume.aiAnalysis.strengths
+                                                        ?.map((item, index) => (
+
+                                                            <li key={index}>
+                                                                ✅ {item}
+                                                            </li>
+                                                        ))
+                                                }
+
+                                            </ul>
+
+                                        </div>
+
+
+                                        {/* WEAKNESSES */}
+
+                                        <div className="analysis-card">
+
+                                            <h3>
+                                                Weaknesses
+                                            </h3>
+
+                                            <ul>
+
+                                                {
+                                                    dashboard.resume.aiAnalysis.weaknesses
+                                                        ?.map((item, index) => (
+
+                                                            <li key={index}>
+                                                                ⚠️ {item}
+                                                            </li>
+                                                        ))
+                                                }
+
+                                            </ul>
+
+                                        </div>
+
+
+                                        {/* MISSING SKILLS */}
+
+                                        <div className="analysis-card">
+
+                                            <h3>
+                                                Missing Skills
+                                            </h3>
+
+                                            <div className="analysis-tags">
+
+                                                {
+                                                    dashboard.resume.aiAnalysis.missingSkills
+                                                        ?.map((skill, index) => (
+
+                                                            <span
+                                                                key={index}
+                                                                className="analysis-tag"
+                                                            >
+                                                                {skill}
+                                                            </span>
+                                                        ))
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+
+                                        {/* SUGGESTIONS */}
+
+                                        <div className="analysis-card">
+
+                                            <h3>
+                                                Suggestions
+                                            </h3>
+
+                                            <ul>
+
+                                                {
+                                                    dashboard.resume.aiAnalysis.suggestions
+                                                        ?.map((item, index) => (
+
+                                                            <li key={index}>
+                                                                💡 {item}
+                                                            </li>
+                                                        ))
+                                                }
+
+                                            </ul>
+
+                                        </div>
+
+
+                                        {/* RECOMMENDED ROLES */}
+
+                                        <div className="analysis-card full-width">
+
+                                            <h3>
+                                                Recommended Roles
+                                            </h3>
+
+                                            <div className="analysis-tags">
+
+                                                {
+                                                    dashboard.resume.aiAnalysis.recommendedRoles
+                                                        ?.map((role, index) => (
+
+                                                            <span
+                                                                key={index}
+                                                                className="analysis-tag role-tag"
+                                                            >
+                                                                {role}
+                                                            </span>
+                                                        ))
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            )
+                        }
                     </div>
                 </section>
             </main>

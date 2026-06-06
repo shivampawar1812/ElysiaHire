@@ -55,6 +55,9 @@ const getDashboard = async (req, res) => {
 
           extractedData:
             resume.extractedData,
+
+          aiAnalysis:
+            resume.aiAnalysis,
         }
 
         : {

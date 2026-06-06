@@ -74,8 +74,8 @@ body {
 }
 
 .profile-image {
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #c9b48a;
@@ -494,25 +494,38 @@ body {
 }
 
 .ats-circle {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at center, #1a2235 60%, transparent 61%),
-    conic-gradient(#c9b48a 0% 82%, rgba(255, 255, 255, 0.08) 82% 100%);
-  margin: 0.5rem 0 1rem;
-  position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto;
+    position: relative;
+}
+
+.ats-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    background: #111827;
+
+    border-radius: 50%;
 }
 
 .ats-circle span {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #f8f6f0, #c9b48a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+
+    color: #f8f6f0;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .ats-card p {
@@ -520,6 +533,82 @@ body {
   font-size: 0.88rem;
   line-height: 1.5;
   max-width: 240px;
+}
+
+.analysis-section {
+    margin-top: 10px;
+}
+
+.analysis-section h2 {
+    margin-bottom: 20px;
+    color: linear-gradient(135deg, #f8f6f0, #c9b48a);;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.analysis-card {
+    background: linear-gradient(145deg, #1a2235, #141c2f);
+    padding: 20px;
+    color: linear-gradient(135deg, #f8f6f0, #c9b48a);border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+
+}
+
+.analysis-card:hover {
+  border-color: rgba(201, 180, 138, 0.25);
+  transform: translateY(-3px);
+}
+
+.analysis-card h3 {
+    margin-bottom: 15px;
+    color: linear-gradient(135deg, #f8f6f0, #c9b48a);;
+}
+
+.analysis-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.analysis-card li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.analysis-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.analysis-tag {
+    background: rgba(248, 246, 240, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e8e8ec;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.role-tag {
+    background: rgba(248, 246, 240, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e8e8ec;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.full-width {
+    grid-column: 1 / -1;
 }
 
 
