@@ -2,273 +2,170 @@
 
 ### Your Path to the Next Opportunity
 
-ElysiaHire is an AI-powered career preparation and interview intelligence platform designed to help students, freshers, and job seekers become industry-ready through intelligent resume analysis, AI-driven interview practice, personalized career roadmaps, and performance tracking systems.
+ElysiaHire is an AI-powered career intelligence platform designed to help students, freshers, and job seekers become industry-ready through intelligent resume analysis, personalized feedback systems, mock interview preparation, and career growth tracking.
 
-The platform aims to bridge the gap between academic learning and real-world hiring expectations by combining modern web technologies with artificial intelligence to create a personalized and interactive placement preparation ecosystem.
-
----
-
-# 🚀 Vision
-
-ElysiaHire is being built as a complete AI-powered career ecosystem that assists users throughout their placement journey — from resume building and interview preparation to skill development and career growth tracking.
-
-The long-term vision is to create a smart assistant capable of providing personalized guidance, adaptive interview experiences, recruiter-style evaluations, and AI-powered career insights.
+The platform bridges the gap between academic learning and real-world hiring expectations by combining modern web technologies with large language models to create an interactive placement preparation ecosystem.
 
 ---
 
-# 📌 Problem Statement
+## 🚀 Vision
 
-Many students and job seekers face challenges such as:
+ElysiaHire aims to become a complete AI-powered career companion that guides users throughout their placement journey—from resume optimization and interview preparation to skill development and long-term career growth.
 
-* Lack of structured interview preparation
+The long-term goal is to build an intelligent assistant capable of delivering recruiter-style evaluations, adaptive interview experiences, personalized guidance, and actionable career insights.
+
+---
+
+## 💡 Problem Statement
+
+Many students and job seekers struggle with:
+
 * Generic resume feedback
+* Lack of realistic interview preparation
 * Limited personalized career guidance
-* No proper way to track improvement over time
-* Difficulty understanding industry expectations
-* Limited access to realistic mock interview environments
+* No structured way to track improvement
+* Difficulty understanding recruiter expectations
+* Limited access to intelligent preparation tools
 
-Most existing platforms provide static resources rather than adaptive, intelligent, and personalized preparation systems.
+Most existing platforms provide static resources rather than adaptive and personalized support.
 
-ElysiaHire addresses these challenges using AI-powered analysis, dynamic evaluation systems, and intelligent feedback mechanisms.
-
----
-
-# 💡 Proposed Solution
-
-ElysiaHire provides an integrated platform that combines:
-
-* AI-powered resume intelligence
-* Mock interview simulation
-* Personalized career guidance
-* Dashboard-based progress tracking
-* Resume version comparison
-* Recruiter-style evaluation systems
-* Multi-LLM AI integration
-
-The platform is designed to evolve into a scalable and intelligent career development ecosystem.
+ElysiaHire addresses these challenges using AI-powered evaluation systems and intelligent feedback mechanisms.
 
 ---
 
-# ✨ Current Features
+## ✨ Current Features
 
-## ✅ Completed Features
+### 🔐 Authentication & Security
 
-### Authentication System
-
-* Secure User Registration
-* User Login System
+* Secure User Registration & Login
 * JWT-based Authentication
 * Password Hashing using bcrypt
 * Protected Backend APIs
-* Frontend & Backend Authentication Integration
+* Frontend–Backend Authentication Integration
 
 ---
 
-### Frontend Development
+### 📄 Resume Intelligence
 
-* React + Vite setup
-* Responsive UI/UX
-* Landing Page Design
-* Navigation System
-* Career-focused Modern Interface
-* Feature Sections
-* Reusable Component Structure
+* Resume Upload System
+* ImageKit-based Resume Storage
+* Resume Parsing Pipeline
+* Structured Information Extraction
+* Resume Version Tracking (Latest 3 Versions)
+* Resume Metadata Management
 
 ---
 
-### Backend Development
+### 🧠 AI Resume Analysis
 
-* Express.js Server Setup
+Powered by **Groq + Llama 3.3 70B**
+
+* ATS Score Generation
+* Strength Analysis
+* Weakness Detection
+* Missing Skills Identification
+* AI-generated Improvement Suggestions
+* Recommended Career Roles
+* Structured JSON-based Evaluation
+
+---
+
+### 📊 Resume Intelligence Dashboard
+
+* Dynamic ATS Score Visualization
+* AI Resume Insights Dashboard
+* Skills Overview
+* Resume Activity Tracking
+* Personalized Dashboard Experience
+
+---
+
+### ⚙️ Backend Architecture
+
+* Express.js REST APIs
 * MongoDB Atlas Integration
-* REST API Architecture
-* MVC Folder Structure
+* MVC Architecture
 * Middleware Configuration
-* API Routing Structure
+* Modular Service Layer
+* Environment Variable Management
 
 ---
 
-### Dashboard Foundation
+### 🎨 Frontend
 
-* Dynamic dashboard structure
-* User-specific backend integration
-* Dashboard controller setup
-* Performance module planning
-
----
-
-### Repository & Workflow
-
-* GitHub repository management
-* Modular project structure
-* Scalable development workflow
+* React + Vite
+* Responsive UI
+* Reusable Component Architecture
+* Dashboard Interface
+* Resume Intelligence Visualization
 
 ---
 
-# 🚧 Features Currently In Progress
+## 🚧 Features Under Development
 
-## Resume Upload System
+### 🤖 AI Mock Interview System
 
-* Resume file upload handling
-* Resume storage management
-* Resume parsing pipeline
-* Resume metadata handling
-
----
-
-## Personalized Dashboard
-
-* User analytics integration
-* Performance tracking system
-* Resume activity tracking
-* Career progress modules
+* Technical Interview Simulation
+* HR Interview Practice
+* AI-generated Questions
+* Adaptive Interview Flows
+* AI Evaluation & Feedback
+* Performance Scoring
 
 ---
 
-# 🧠 AI Features Under Development
+### 🗺️ Career Guidance Engine
 
-## AI Resume Intelligence
-
-* ATS score generation
-* Resume analysis
-* Skill extraction
-* AI-generated improvement suggestions
-* Resume keyword optimization
-* Industry-specific evaluation
+* Personalized Career Roadmaps
+* Skill Gap Analysis
+* Learning Recommendations
+* AI-generated Growth Plans
 
 ---
 
-## AI Mock Interview System
+### 📈 Growth Tracking System
 
-* Technical interview simulation
-* HR interview preparation
-* AI-generated interview questions
-* Adaptive questioning system
-* AI evaluation and scoring
-* Personalized interview feedback
+* Resume Evolution Analytics
+* ATS Trend Visualization
+* Improvement Insights
+* Resume Comparison Reports
 
 ---
 
-## Career Guidance System
+## 🛠️ Tech Stack
 
-* Personalized career roadmap generation
-* Skill gap analysis
-* AI-based recommendations
-* Learning path suggestions
-
----
-
-# 🔥 Major Planned Features
-
-## Resume Version Tracking System
-
-A smart resume evolution tracking feature designed to monitor user improvement over time.
-
-### Planned Logic
-
-The system stores 3 resume versions simultaneously:
-
-* **A → Latest Resume**
-* **B → Previous Resume**
-* **C → Oldest Resume**
-
-### Update Workflow
-
-When a new resume is uploaded:
-
-```text
-C gets deleted
-B shifts to C
-A shifts to B
-New Resume becomes A
-```
-
-### Planned Capabilities
-
-* Resume comparison
-* Improvement visualization
-* Skill progression tracking
-* AI-based growth insights
-* Resume evolution analytics
-
----
-
-## Multi-LLM AI Integration
-
-Planned integration with multiple AI models including:
-
-* OpenAI Models
-* Google Gemini
-* Mistral AI
-* Additional Open-Source LLMs
-
-### Purpose
-
-* Better response reliability
-* Comparative AI evaluation
-* Improved personalization
-* Enhanced feedback quality
-
----
-
-## Advanced AI Features
-
-* Voice-based interview analysis
-* Confidence & emotion analysis
-* Real-time AI evaluation
-* Recruiter-style scoring reports
-* Company-specific interview preparation
-* AI-generated learning recommendations
-
----
-
-## Future Recruiter Module
-
-Potential future extension including:
-
-* Recruiter dashboard
-* Candidate ranking
-* Resume filtering
-* AI-powered candidate matching
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
+### Frontend
 
 * React.js
 * Vite
 * JavaScript
 * HTML5
 * CSS3
-* React Router
 * Axios
+* React Router
 
----
-
-## Backend
+### Backend
 
 * Node.js
 * Express.js
 * MongoDB Atlas
 * Mongoose
-* JWT Authentication
+* JWT
 * bcrypt
 
----
+### AI & Intelligence
 
-## AI & Machine Learning
-
-* OpenAI API
-* Google Gemini API
-* Mistral AI
+* Groq API
+* Llama 3.3 70B
 * Prompt Engineering
-* NLP-based Response Analysis
-* Resume Parsing & Evaluation
+* NLP-based Resume Evaluation
+* Structured AI Responses
 
----
+### Cloud & Storage
 
-## Development Tools
+* ImageKit
+
+### Development Tools
 
 * Git
 * GitHub
@@ -277,149 +174,71 @@ Potential future extension including:
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```bash
 ElysiaHire/
-│
 ├── frontend/
-│   ├── src/
-│   ├── pages/
-│   ├── components/
-│   ├── assets/
-│   ├── styles/
-│   └── utils/
-│
 ├── backend/
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   ├── middleware/
-│   ├── config/
-│   └── utils/
-│
 ├── README.md
 └── package.json
 ```
 
 ---
 
-# 📅 Current Development Workflow
+## 📈 Development Status
 
-## Current Feature Development Order
-
-### Phase 1
-
-Resume Version Tracking System
-
-### Phase 2
-
-AI Resume Intelligence
-
-### Phase 3
-
-Dashboard Analytics & Tracking
-
-### Phase 4
-
-AI Mock Interview System
+| Module                  | Status                                     |
+| ----------------------- | -----------------------------------------  |
+| Frontend UI             | ✅ Mostly Complete                        |
+| Authentication          | ✅ Complete                               |
+| Backend APIs            | ✅ Complete                               |
+| Dashboard               | ✅ Resume Intelligence Dashboard Complete |
+| Resume Upload           | ✅ Complete                               |
+| Resume Parsing          | ✅ Complete                               |
+| Resume Version Tracking | ✅ Complete                               |
+| AI Resume Intelligence  | ✅ Complete                               |
+| Mock Interview System   | 🚧 In Progress                            |
+| Career Guidance         | 🚧 Planned                                |
+| Growth Analytics        | 🚧 Planned                                |
 
 ---
 
-# 📈 Development Status
-
-| Module                  | Status                |
-| ----------------------- | --------------------- |
-| Frontend UI             | ✅ Mostly Complete     |
-| Authentication System   | ✅ Complete            |
-| Backend APIs            | ✅ Core Setup Complete |
-| Dashboard Foundation    | 🚧 In Progress        |
-| Resume Upload System    | 🚧 In Progress        |
-| Resume Version Tracking | ⏳ Planned             |
-| AI Resume Analyzer      | ⏳ Planned             |
-| AI Mock Interviews      | ⏳ Planned             |
-| Multi-LLM Integration   | ⏳ Planned             |
-
----
-
-# ⚙️ Installation & Setup
-
-## Clone the Repository
-
-```bash
-git clone https://github.com/shivampawar1812/ElysiaHire.git
-```
-
----
-
-## Navigate to Project Directory
-
-```bash
-cd ElysiaHire
-```
-
----
-
-## Install Frontend Dependencies
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
----
-
-## Install Backend Dependencies
-
-```bash
-cd backend
-npm install
-npm run server
-```
-
----
-
-# 🔐 Environment Variables
-
-Create a `.env` file inside the backend folder:
+## 🔐 Environment Variables
 
 ```env
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
+MONGODB_URI=
+JWT_SECRET=
+IMAGEKIT_PUBLIC_KEY=
+IMAGEKIT_PRIVATE_KEY=
+IMAGEKIT_URL_ENDPOINT=
+GROQ_API_KEY=
 PORT=5000
 ```
 
 ---
 
-# 🎯 Long-Term Goal
+## 🎯 Long-Term Goal
 
-ElysiaHire aims to become a complete intelligent placement preparation platform that helps users:
+ElysiaHire aims to become a complete AI-powered employability platform that helps users:
 
 * Build stronger resumes
-* Prepare for interviews effectively
+* Practice realistic interviews
 * Track career growth
 * Receive personalized AI guidance
+* Understand recruiter expectations
 * Improve placement readiness
-* Become industry-ready through AI-assisted learning
 
 ---
 
-# 🤝 Contributing
+## 👨‍💻 Author
 
-Contributions, ideas, and improvements are welcome.
+**Shivam Pawar**
 
-Fork the repository and create a pull request for any proposed changes.
+Building intelligent systems that make career preparation more accessible, personalized, and effective.
 
 ---
 
-# 👨‍💻 Author
+## 📌 Status
 
-### Shivam Pawar
-
-AI-Powered Career Intelligence Platform Project
----
-
-# 📌 Status
-
-🚧 Currently Under Active Development 🚧
+🚀 **Actively under development with working AI Resume Intelligence capabilities.**
