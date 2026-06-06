@@ -311,6 +311,139 @@ const getResumeVersions =
     }
   };
 
+
+// ======================================
+// GET LATEST RESUME ANALYSIS
+// ======================================
+
+const getLatestAnalysis = async (req, res) => {
+  try {
+
+    const resume = await Resume.findOne({
+      user: req.user.id,
+    }).sort({
+      versionNumber: -1,
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        message: "No resume found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+
+      analysis: resume.aiAnalysis,
+
+      versionNumber: resume.versionNumber,
+
+      uploadedAt: resume.createdAt,
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Error fetching analysis",
+      error: error.message,
+    });
+  }
+};
+
+// ======================================
+// GET ANALYSIS HISTORY
+// ======================================
+
+const getAnalysisHistory = async (req, res) => {
+  try {
+
+    const resumes = await Resume.find({
+      user: req.user.id,
+    })
+    .sort({
+      versionNumber: -1,
+    });
+
+    const history = resumes.map((resume) => ({
+      resumeId: resume._id,
+
+      versionNumber: resume.versionNumber,
+
+      atsScore:
+        resume.aiAnalysis?.atsScore || 0,
+
+      uploadedAt: resume.createdAt,
+    }));
+
+    return res.status(200).json({
+      success: true,
+
+      count: history.length,
+
+      history,
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Error fetching analysis history",
+      error: error.message,
+    });
+
+  }
+};
+
+// ======================================
+// GET ANALYSIS BY RESUME ID
+// ======================================
+
+const getAnalysisById = async (req, res) => {
+  try {
+
+    const resume = await Resume.findOne({
+      _id: req.params.resumeId,
+      user: req.user.id,
+    });
+
+    if (!resume) {
+      return res.status(404).json({
+        success: false,
+        message: "Resume analysis not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+
+      analysis: resume.aiAnalysis,
+
+      versionNumber: resume.versionNumber,
+
+      originalFileName: resume.originalFileName,
+
+      uploadedAt: resume.createdAt,
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Error fetching analysis",
+      error: error.message,
+    });
+
+  }
+};
+
 // ======================================
 // DELETE RESUME
 // ======================================
@@ -396,4 +529,7 @@ module.exports = {
   getResume,
   getResumeVersions,
   deleteResume,
+  getLatestAnalysis,
+  getAnalysisHistory,
+  getAnalysisById,
 };

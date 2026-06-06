@@ -7,6 +7,9 @@ const {
   getResume,
   getResumeVersions,
   deleteResume,
+  getLatestAnalysis,
+  getAnalysisHistory,
+  getAnalysisById,
 } = require("../controllers/resumeController");
 
 const authMiddleware = require(
@@ -41,12 +44,35 @@ router.get(
    getResumeVersions
 );
 
+// RESUME ANALYSIS
+router.get(
+  "/latest-analysis",
+  authMiddleware,
+  getLatestAnalysis
+);
+
+// RESUME HISTORY
+router.get(
+  "/resume-history",
+  authMiddleware,
+  getAnalysisHistory
+)
+
+// RESUME BY ID
+router.get(
+  "/analysis/:resumeId",
+  authMiddleware,
+  getAnalysisById
+)
+
 // DELETE RESUME
 router.delete(
   "/:resumeId",
   authMiddleware,
   deleteResume
 );
+
+
 
 
 module.exports = router;
