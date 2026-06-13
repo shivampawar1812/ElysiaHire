@@ -150,10 +150,7 @@ const Login = () => {
                 placeholder="Enter Password"
                 onChange={handleChange}
               />
-              <div className="options">
-                <br/>
-                  <Link to="/forgot-password">Forgot Password ?</Link>
-              </div>
+              
               <button type="submit">
                 Login
               </button>
