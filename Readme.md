@@ -2,42 +2,31 @@
 
 ### Your Path to the Next Opportunity
 
-ElysiaHire is an AI-powered career intelligence platform designed to help students, freshers, and job seekers become industry-ready through intelligent resume analysis, personalized feedback systems, mock interview preparation, and career growth tracking.
+ElysiaHire is an AI-powered Resume Intelligence platform designed to help students, freshers, and job seekers optimize their resumes using recruiter-style evaluations and actionable AI feedback.
 
-The platform bridges the gap between academic learning and real-world hiring expectations by combining modern web technologies with large language models to create an interactive placement preparation ecosystem.
-
----
-
-## 🚀 Vision
-
-ElysiaHire aims to become a complete AI-powered career companion that guides users throughout their placement journey—from resume optimization and interview preparation to skill development and long-term career growth.
-
-The long-term goal is to build an intelligent assistant capable of delivering recruiter-style evaluations, adaptive interview experiences, personalized guidance, and actionable career insights.
+By combining modern web technologies with Large Language Models (LLMs), ElysiaHire provides personalized resume insights that bridge the gap between academic achievements and real-world hiring expectations.
 
 ---
 
-## 💡 Problem Statement
+## 🚀 Overview
 
-Many students and job seekers struggle with:
+Preparing an effective resume often requires multiple rounds of feedback from mentors, peers, or recruiters. However, access to personalized guidance is limited, and generic ATS checkers fail to provide meaningful improvement suggestions.
 
-* Generic resume feedback
-* Lack of realistic interview preparation
-* Limited personalized career guidance
-* No structured way to track improvement
-* Difficulty understanding recruiter expectations
-* Limited access to intelligent preparation tools
+ElysiaHire addresses this challenge by delivering intelligent, context-aware resume evaluations that help candidates understand:
 
-Most existing platforms provide static resources rather than adaptive and personalized support.
-
-ElysiaHire addresses these challenges using AI-powered evaluation systems and intelligent feedback mechanisms.
+* How well their resume aligns with a target job description
+* Their strengths and weaknesses
+* Missing or underrepresented skills
+* Recruiter-style recommendations for improvement
+* Potential career roles suited to their profile
 
 ---
 
-## ✨ Current Features
+## ✨ Features
 
 ### 🔐 Authentication & Security
 
-* Secure User Registration & Login
+* Secure User Registration and Login
 * JWT-based Authentication
 * Password Hashing using bcrypt
 * Protected Backend APIs
@@ -45,90 +34,37 @@ ElysiaHire addresses these challenges using AI-powered evaluation systems and in
 
 ---
 
-### 📄 Resume Intelligence
+### 📄 Resume Management
 
 * Resume Upload System
 * ImageKit-based Resume Storage
-* Resume Parsing Pipeline
-* Structured Information Extraction
-* Resume Version Tracking (Latest 3 Versions)
 * Resume Metadata Management
+* Resume Version Tracking (Latest 3 Versions)
+* Persistent Resume History
 
 ---
 
-### 🧠 AI Resume Analysis
+### 🧠 AI Resume Intelligence
 
 Powered by **Groq + Llama 3.3 70B**
 
-* ATS Score Generation
+* ATS-style Score Generation
 * Strength Analysis
 * Weakness Detection
 * Missing Skills Identification
-* AI-generated Improvement Suggestions
+* Personalized Improvement Suggestions
 * Recommended Career Roles
-* Structured JSON-based Evaluation
+* Structured JSON-based Evaluations
 
 ---
 
 ### 📊 Resume Intelligence Dashboard
 
 * Dynamic ATS Score Visualization
-* AI Resume Insights Dashboard
+* AI-generated Resume Insights
 * Skills Overview
 * Resume Activity Tracking
-* Personalized Dashboard Experience
-
----
-
-### ⚙️ Backend Architecture
-
-* Express.js REST APIs
-* MongoDB Atlas Integration
-* MVC Architecture
-* Middleware Configuration
-* Modular Service Layer
-* Environment Variable Management
-
----
-
-### 🎨 Frontend
-
-* React + Vite
-* Responsive UI
-* Reusable Component Architecture
-* Dashboard Interface
-* Resume Intelligence Visualization
-
----
-
-## 🚧 Features Under Development
-
-### 🤖 AI Mock Interview System
-
-* Technical Interview Simulation
-* HR Interview Practice
-* AI-generated Questions
-* Adaptive Interview Flows
-* AI Evaluation & Feedback
-* Performance Scoring
-
----
-
-### 🗺️ Career Guidance Engine
-
-* Personalized Career Roadmaps
-* Skill Gap Analysis
-* Learning Recommendations
-* AI-generated Growth Plans
-
----
-
-### 📈 Growth Tracking System
-
-* Resume Evolution Analytics
-* ATS Trend Visualization
-* Improvement Insights
-* Resume Comparison Reports
+* Personalized User Experience
 
 ---
 
@@ -150,16 +86,16 @@ Powered by **Groq + Llama 3.3 70B**
 * Express.js
 * MongoDB Atlas
 * Mongoose
-* JWT
+* JWT Authentication
 * bcrypt
 
-### AI & Intelligence
+### AI Layer
 
 * Groq API
 * Llama 3.3 70B
 * Prompt Engineering
-* NLP-based Resume Evaluation
-* Structured AI Responses
+* Structured JSON Outputs
+* Resume Evaluation Pipeline
 
 ### Cloud & Storage
 
@@ -174,12 +110,20 @@ Powered by **Groq + Llama 3.3 70B**
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Architecture
+
+The application follows a modular MVC architecture:
 
 ```bash
 ElysiaHire/
 ├── frontend/
 ├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── services/
+│   └── utils/
 ├── README.md
 └── package.json
 ```
@@ -188,19 +132,16 @@ ElysiaHire/
 
 ## 📈 Development Status
 
-| Module                  | Status                                     |
-| ----------------------- | -----------------------------------------  |
-| Frontend UI             | ✅ Mostly Complete                        |
-| Authentication          | ✅ Complete                               |
-| Backend APIs            | ✅ Complete                               |
-| Dashboard               | ✅ Resume Intelligence Dashboard Complete |
-| Resume Upload           | ✅ Complete                               |
-| Resume Parsing          | ✅ Complete                               |
-| Resume Version Tracking | ✅ Complete                               |
-| AI Resume Intelligence  | ✅ Complete                               |
-| Mock Interview System   | 🚧 In Progress                            |
-| Career Guidance         | 🚧 Planned                                |
-| Growth Analytics        | 🚧 Planned                                |
+| Module                        | Status         |
+| ----------------------------- | -------------- |
+| Authentication                | ✅ Complete     |
+| Backend APIs                  | ✅ Complete     |
+| Resume Upload                 | ✅ Complete     |
+| Resume Version Tracking       | ✅ Complete     |
+| Resume Intelligence Dashboard | ✅ Complete     |
+| AI Resume Evaluation          | ✅ Complete     |
+| Frontend UI                   | ✅ Complete     |
+| Deployment                    | 🚧 In Progress |
 
 ---
 
@@ -218,16 +159,24 @@ PORT=5000
 
 ---
 
-## 🎯 Long-Term Goal
+## 🚀 Future Enhancements
 
-ElysiaHire aims to become a complete AI-powered employability platform that helps users:
+Potential future directions include:
 
-* Build stronger resumes
-* Practice realistic interviews
-* Track career growth
-* Receive personalized AI guidance
-* Understand recruiter expectations
-* Improve placement readiness
+* AI-powered Mock Interviews
+* Adaptive Interview Feedback
+* Skill Gap Analysis
+* Personalized Career Roadmaps
+* Career Growth Tracking
+* Resume Comparison Analytics
+
+These features are part of the broader ElysiaHire vision but are not included in the current release.
+
+---
+
+## 🎯 Project Goal
+
+The goal of ElysiaHire is to democratize access to high-quality resume feedback by providing every candidate with personalized, recruiter-style insights that improve placement readiness and confidence.
 
 ---
 
@@ -235,10 +184,10 @@ ElysiaHire aims to become a complete AI-powered employability platform that help
 
 **Shivam Pawar**
 
-Building intelligent systems that make career preparation more accessible, personalized, and effective.
+Building AI systems that make career preparation more accessible, personalized, and effective.
 
 ---
 
-## 📌 Status
+## 📌 Current Status
 
-🚀 **Actively under development with working AI Resume Intelligence capabilities.**
+🚀 **Working AI Resume Intelligence System with end-to-end functionality. Deployment in progress.**
