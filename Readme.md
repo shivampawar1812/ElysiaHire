@@ -21,6 +21,38 @@ ElysiaHire addresses this challenge by offering intelligent, context-aware resum
 * Potential career roles suited to their profile
 
 ---
+## Live Demo
+
+[https://your-vercel-url.vercel.app](https://elysia-hire.vercel.app/)
+
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+> ![Landing](assets/Home.png)
+
+* Modern, responsive landing experience introducing the platform.
+
+### Authentication
+
+> ![Login](assets/Login.png)
+
+* Secure login and registration with JWT authentication.
+
+### Resume Intelligence Dashboard
+
+> ![Dashboard](assets/Dashboard.png)
+
+* Resume upload workflow
+* ATS score visualization
+* AI-generated strengths and weaknesses
+* Personalized resume insights
+
+---
+
 
 ## ✨ Features
 
@@ -59,31 +91,6 @@ Powered by **Groq + Llama 3.3 70B**
 * Skills Overview
 * Resume Activity Tracking
 * Personalized Dashboard Experience
-
----
-
-## 📸 Screenshots
-
-### Home Page
-
-> ![Landing](assets/Home.png)
-
-* Modern, responsive landing experience introducing the platform.
-
-### Authentication
-
-> ![Login](assets/Login.png)
-
-* Secure login and registration with JWT authentication.
-
-### Resume Intelligence Dashboard
-
-> ![Dashboard](assets/Dashboard.png)
-
-* Resume upload workflow
-* ATS score visualization
-* AI-generated strengths and weaknesses
-* Personalized resume insights
 
 ---
 
