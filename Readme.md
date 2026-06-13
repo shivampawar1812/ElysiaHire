@@ -2,22 +2,22 @@
 
 ### Your Path to the Next Opportunity
 
-ElysiaHire is an AI-powered Resume Intelligence platform designed to help students, freshers, and job seekers optimize their resumes using recruiter-style evaluations and actionable AI feedback.
+ElysiaHire is an AI-powered Resume Intelligence System that helps students, freshers, and job seekers improve their resumes through recruiter-style evaluations and actionable AI feedback.
 
-By combining modern web technologies with Large Language Models (LLMs), ElysiaHire provides personalized resume insights that bridge the gap between academic achievements and real-world hiring expectations.
+By combining modern web technologies with Large Language Models (LLMs), ElysiaHire delivers personalized resume insights that bridge the gap between academic achievements and real-world hiring expectations.
 
 ---
 
 ## 🚀 Overview
 
-Preparing an effective resume often requires multiple rounds of feedback from mentors, peers, or recruiters. However, access to personalized guidance is limited, and generic ATS checkers fail to provide meaningful improvement suggestions.
+Building an effective resume often requires multiple rounds of feedback from mentors, peers, or recruiters. However, access to personalized guidance is limited, and most ATS checkers provide generic scores without meaningful recommendations.
 
-ElysiaHire addresses this challenge by delivering intelligent, context-aware resume evaluations that help candidates understand:
+ElysiaHire addresses this challenge by offering intelligent, context-aware resume evaluations that help candidates understand:
 
-* How well their resume aligns with a target job description
+* How well their resume aligns with hiring expectations
 * Their strengths and weaknesses
 * Missing or underrepresented skills
-* Recruiter-style recommendations for improvement
+* Personalized recommendations for improvement
 * Potential career roles suited to their profile
 
 ---
@@ -30,9 +30,7 @@ ElysiaHire addresses this challenge by delivering intelligent, context-aware res
 * JWT-based Authentication
 * Password Hashing using bcrypt
 * Protected Backend APIs
-* Frontend–Backend Authentication Integration
-
----
+* Persistent User Sessions
 
 ### 📄 Resume Management
 
@@ -40,9 +38,7 @@ ElysiaHire addresses this challenge by delivering intelligent, context-aware res
 * ImageKit-based Resume Storage
 * Resume Metadata Management
 * Resume Version Tracking (Latest 3 Versions)
-* Persistent Resume History
-
----
+* Resume History Management
 
 ### 🧠 AI Resume Intelligence
 
@@ -56,15 +52,38 @@ Powered by **Groq + Llama 3.3 70B**
 * Recommended Career Roles
 * Structured JSON-based Evaluations
 
----
-
-### 📊 Resume Intelligence Dashboard
+### 📊 Interactive Dashboard
 
 * Dynamic ATS Score Visualization
 * AI-generated Resume Insights
 * Skills Overview
 * Resume Activity Tracking
-* Personalized User Experience
+* Personalized Dashboard Experience
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+> ![Landing](assets/Home.png)
+
+* Modern, responsive landing experience introducing the platform.
+
+### Authentication
+
+> ![Login](assets/Login.png)
+
+* Secure login and registration with JWT authentication.
+
+### Resume Intelligence Dashboard
+
+> ![Dashboard](assets/Dashboard.png)
+
+* Resume upload workflow
+* ATS score visualization
+* AI-generated strengths and weaknesses
+* Personalized resume insights
 
 ---
 
@@ -97,7 +116,7 @@ Powered by **Groq + Llama 3.3 70B**
 * Structured JSON Outputs
 * Resume Evaluation Pipeline
 
-### Cloud & Storage
+### Cloud Services
 
 * ImageKit
 
@@ -110,7 +129,7 @@ Powered by **Groq + Llama 3.3 70B**
 
 ---
 
-## ⚙️ Architecture
+## ⚙️ Project Architecture
 
 The application follows a modular MVC architecture:
 
@@ -119,9 +138,9 @@ ElysiaHire/
 ├── frontend/
 ├── backend/
 │   ├── controllers/
+│   ├── middleware/
 │   ├── models/
 │   ├── routes/
-│   ├── middleware/
 │   ├── services/
 │   └── utils/
 ├── README.md
@@ -159,7 +178,13 @@ PORT=5000
 
 ---
 
-## 🚀 Future Enhancements
+## 🎯 Project Goal
+
+The goal of ElysiaHire is to democratize access to high-quality resume feedback by providing every candidate with personalized, recruiter-style insights that improve placement readiness and confidence.
+
+---
+
+## 🔮 Future Enhancements
 
 Potential future directions include:
 
@@ -170,13 +195,7 @@ Potential future directions include:
 * Career Growth Tracking
 * Resume Comparison Analytics
 
-These features are part of the broader ElysiaHire vision but are not included in the current release.
-
----
-
-## 🎯 Project Goal
-
-The goal of ElysiaHire is to democratize access to high-quality resume feedback by providing every candidate with personalized, recruiter-style insights that improve placement readiness and confidence.
+These enhancements represent the broader vision of ElysiaHire and are not part of the current v1 release.
 
 ---
 
@@ -190,4 +209,6 @@ Building AI systems that make career preparation more accessible, personalized, 
 
 ## 📌 Current Status
 
-🚀 **Working AI Resume Intelligence System with end-to-end functionality. Deployment in progress.**
+🚀 **ElysiaHire v1.0.0 — Working AI Resume Intelligence System**
+
+Features include end-to-end resume analysis, ATS scoring, personalized feedback generation, resume version tracking, and an interactive dashboard experience.
